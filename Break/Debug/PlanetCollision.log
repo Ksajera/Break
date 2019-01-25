@@ -1,4 +1,22 @@
 ﻿C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\VC\VCTargets\Microsoft.CppBuild.targets(391,5): warning MSB8028: The intermediate directory (Debug\) contains files shared from another project (PlanetCollision.vcxproj).  This can lead to incorrect clean and rebuild behavior.
+  InputComponent.cpp
+  Generating Code...
+  Compiling...
   winmain.cpp
-entity.obj : warning LNK4075: ignoring '/EDITANDCONTINUE' due to '/SAFESEH' specification
-  PlanetCollision.vcxproj -> C:\Users\fatti\Desktop\Break\Debug\Break.exe
+  textureManager.cpp
+  textDX.cpp
+  input.cpp
+  image.cpp
+  graphics.cpp
+  game.cpp
+  entity.cpp
+  break.cpp
+  World.cpp
+c:\users\fatti\documents\github\break\break\world.cpp(6): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+  Tile.cpp
+c:\users\fatti\documents\github\break\break\tile.cpp(28): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\fatti\documents\github\break\break\tile.cpp(29): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+  Player.cpp
+  PhysicsComponent.cpp
+  Generating Code...
+  PlanetCollision.vcxproj -> C:\Users\fatti\Documents\GitHub\Break\Break\Debug\Break.exe

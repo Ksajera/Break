@@ -45,6 +45,10 @@ const float GRAVITY = 6.67428e-11f;             // gravitational constant
 const float MASS_PLANET = 1.0e14f;
 const float MASS_SHIP = 5.0f;
 const int TILE_SIZE = 32;
+const int SPEED_MODIFIER = 10; 
+const int MAX_SPEED_MODIFIER = 3; //tiles per second
+const int MAX_MOVE_SPEED = TILE_SIZE * MAX_SPEED_MODIFIER;
+const int MOVE_SPEED = TILE_SIZE * SPEED_MODIFIER;
 const int WORLD_WIDTH = GAME_WIDTH / TILE_SIZE;
 const int WORLD_HEIGHT = GAME_HEIGHT / TILE_SIZE;
 
@@ -77,6 +81,5 @@ const float HEART_SCALE = 0.5;
 
 const int FONT_SIZE = 48;
 const char FONT_NAME[] = "ARIAL";
-
 
 #endif

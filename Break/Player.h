@@ -1,11 +1,13 @@
 #pragma once
 #include "entity.h"
 #include "InputComponent.h"
+#include "PhysicsComponent.h"
 
 class Player : public Entity
 {
 private:
 	InputComponent inputComponent;
+	PhysicsComponent physicsComponent;
 public:
 	Player();
 	~Player();
