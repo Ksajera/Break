@@ -1,0 +1,4 @@
+﻿C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\VC\VCTargets\Microsoft.CppBuild.targets(391,5): warning MSB8028: The intermediate directory (Debug\) contains files shared from another project (PlanetCollision.vcxproj).  This can lead to incorrect clean and rebuild behavior.
+  winmain.cpp
+entity.obj : warning LNK4075: ignoring '/EDITANDCONTINUE' due to '/SAFESEH' specification
+  PlanetCollision.vcxproj -> C:\Users\fatti\Desktop\Break\Debug\Break.exe
