@@ -97,6 +97,8 @@
     <ClCompile Include="PhysicsComponent.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="break.cpp" />
+    <ClCompile Include="Projectile.cpp" />
+    <ClCompile Include="ShootingComponent.cpp" />
     <ClCompile Include="textDX.cpp" />
     <ClCompile Include="textureManager.cpp" />
     <ClCompile Include="Tile.cpp" />
@@ -115,6 +117,8 @@
     <ClInclude Include="PhysicsComponent.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="break.h" />
+    <ClInclude Include="Projectile.h" />
+    <ClInclude Include="ShootingComponent.h" />
     <ClInclude Include="textDX.h" />
     <ClInclude Include="textureManager.h" />
     <ClInclude Include="Tile.h" />

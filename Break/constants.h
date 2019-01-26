@@ -29,8 +29,8 @@
 //-----------------------------------------------
 
 // window
-const char CLASS_NAME[] = "Spacewar";
-const char GAME_TITLE[] = "Spacewar";
+const char CLASS_NAME[] = "Break";
+const char GAME_TITLE[] = "Break";
 const bool FULLSCREEN = false;              // windowed or fullscreen
 const UINT GAME_WIDTH =  640;               // width of game in pixels
 const UINT GAME_HEIGHT = 480;               // height of game in pixels
@@ -45,7 +45,7 @@ const float GRAVITY = 6.67428e-11f;             // gravitational constant
 const float MASS_PLANET = 1.0e14f;
 const float MASS_SHIP = 5.0f;
 const int TILE_SIZE = 32;
-const int SPEED_MODIFIER = 10; 
+const int SPEED_MODIFIER = 15; 
 const int MAX_SPEED_MODIFIER = 3; //tiles per second
 const int MAX_MOVE_SPEED = TILE_SIZE * MAX_SPEED_MODIFIER;
 const int MOVE_SPEED = TILE_SIZE * SPEED_MODIFIER;
