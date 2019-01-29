@@ -36,7 +36,6 @@ void Player::draw()
 
 }
 
-<<<<<<< HEAD
 void Player::scroll()
 {
 	//horizontal scrolling
@@ -59,10 +58,7 @@ void Player::scroll()
 
 }
 
-bool Player::initialize(Game * gamePtr, int width, int height, int ncols, TextureManager * textureM)
-=======
 bool Player::initialize(Game * gamePtr, int width, int height, int ncols, TextureManager * textureM, ProjectilePool * pool)
->>>>>>> 1a0346348aef1b37418e01b063a751cac1072cda
 {
 	shootingComponent = ShootingComponent(pool);
 	inputComponent = InputComponent(gamePtr, &shootingComponent);

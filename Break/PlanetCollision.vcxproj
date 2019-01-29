@@ -102,11 +102,9 @@
     <ClCompile Include="PlayerPhysicsComponent.cpp" />
     <ClCompile Include="PlayerState.cpp" />
     <ClCompile Include="Projectile.cpp" />
-<<<<<<< HEAD
+
     <ClCompile Include="Screen.cpp" />
-=======
     <ClCompile Include="ProjectilePool.cpp" />
->>>>>>> 1a0346348aef1b37418e01b063a751cac1072cda
     <ClCompile Include="ShootingComponent.cpp" />
     <ClCompile Include="ShootingState.cpp" />
     <ClCompile Include="StandingState.cpp" />
@@ -133,11 +131,9 @@
     <ClInclude Include="PlayerPhysicsComponent.h" />
     <ClInclude Include="PlayerState.h" />
     <ClInclude Include="Projectile.h" />
-<<<<<<< HEAD
+
     <ClInclude Include="Screen.h" />
-=======
     <ClInclude Include="ProjectilePool.h" />
->>>>>>> 1a0346348aef1b37418e01b063a751cac1072cda
     <ClInclude Include="ShootingComponent.h" />
     <ClInclude Include="ShootingState.h" />
     <ClInclude Include="StandingState.h" />

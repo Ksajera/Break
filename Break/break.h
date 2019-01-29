@@ -33,12 +33,8 @@ private:
 	Projectile bullet;
 	ProjectilePool bulletPool;
 	TextureManager playerSprite;
-<<<<<<< HEAD
-	TextureManager bgTexture;
+	TextureManager bgTexture, bulletSprite;
 	Image bgImage;
-=======
-	TextureManager bulletSprite;
->>>>>>> 1a0346348aef1b37418e01b063a751cac1072cda
 
 public:
     // Constructor
