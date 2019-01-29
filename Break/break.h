@@ -28,7 +28,6 @@ private:
 	World world;
 	Player player;
 	Enemy enemy;
-	TextureManager playerSprite;
 	TextureManager enemySprite;
 
 	Projectile bullet;
