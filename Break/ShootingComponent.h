@@ -8,7 +8,7 @@ public:
 	ShootingComponent();
 	ShootingComponent(ProjectilePool * pool);
 	~ShootingComponent();
-	void fire(D3DXVECTOR2 direction);
+	void fire(D3DXVECTOR2 position, D3DXVECTOR2 direction);
 
 };
 

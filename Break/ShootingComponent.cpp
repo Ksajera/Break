@@ -16,7 +16,7 @@ ShootingComponent::~ShootingComponent()
 {
 }
 
-void ShootingComponent::fire(D3DXVECTOR2 direction)
+void ShootingComponent::fire(D3DXVECTOR2 position, D3DXVECTOR2 direction)
 {
-	projectilesPool->create(direction * TILE_SIZE, direction * PROJECTILE_SPEED);
+	projectilesPool->create(position + direction * TILE_SIZE, direction * PROJECTILE_SPEED);
 }
