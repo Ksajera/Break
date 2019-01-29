@@ -12,6 +12,7 @@
 #include "image.h"
 #include "World.h"
 #include "Player.h"
+#include "Enemy.h"
 #include <vector>
 #include "textDX.h"
 #include "Projectile.h"
@@ -26,6 +27,10 @@ private:
     // game items
 	World world;
 	Player player;
+	Enemy enemy;
+	TextureManager playerSprite;
+	TextureManager enemySprite;
+
 	Projectile bullet;
 	ProjectilePool bulletPool;
 	TextureManager playerSprite;

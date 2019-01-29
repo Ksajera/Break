@@ -63,6 +63,7 @@ const char DIRT_IMAGE[] = "pictures\\dirt.jpg";
 const char GRASS_IMAGE[] = "pictures\\grass.jpg";
 const char FLOOR_IMAGE[] = "pictures\\floor1.png";
 const char PLAYER_IMAGE[] = "pictures\\player.png";
+const char ENEMY_IMAGE[] = "pictures\\enemy.png";
 const char BULLET_TEXTURE[] = "pictures\\bullet.png";
 
 // key mappings
