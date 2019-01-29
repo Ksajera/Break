@@ -15,7 +15,7 @@ void Player::update(float frameTime)
 {
 	Entity::update(frameTime);
 	inputComponent.update(this, frameTime);
-	physicsComponent.update(this, frameTime);
+	physics.update(this, frameTime);
 
 }
 
@@ -36,6 +36,7 @@ void Player::draw()
 
 }
 
+<<<<<<< HEAD
 void Player::scroll()
 {
 	//horizontal scrolling
@@ -59,9 +60,15 @@ void Player::scroll()
 }
 
 bool Player::initialize(Game * gamePtr, int width, int height, int ncols, TextureManager * textureM)
+=======
+bool Player::initialize(Game * gamePtr, int width, int height, int ncols, TextureManager * textureM, ProjectilePool * pool)
+>>>>>>> 1a0346348aef1b37418e01b063a751cac1072cda
 {
-	inputComponent = InputComponent(gamePtr);
-	physicsComponent = PhysicsComponent();
+	shootingComponent = ShootingComponent(pool);
+	inputComponent = InputComponent(gamePtr, &shootingComponent);
+	physics = PlayerPhysicsComponent();
+
 	return Entity::initialize(gamePtr, width, height, ncols, textureM);
+
 }
 

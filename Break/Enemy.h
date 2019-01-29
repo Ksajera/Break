@@ -1,18 +1,19 @@
 #pragma once
 #include "entity.h"
 #include "PhysicsComponent.h"
-class Projectile : public Entity
+
+class Enemy: public Entity
 {
 private:
-	PhysicsComponent physics;
-
+	PhysicsComponent physicsComponent;
 public:
-	Projectile();
-	~Projectile();
+	Enemy();
+	~Enemy();
 	void update(float frameTime);
+	void setPosition(D3DXVECTOR2 position);
+	D3DXVECTOR2 getPosition();
+	void draw();
 	bool initialize(Game *gamePtr, int width, int height, int ncols,
 		TextureManager *textureM);
-	void draw();
-
 };
 

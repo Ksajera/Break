@@ -12,8 +12,11 @@
 #include "image.h"
 #include "World.h"
 #include "Player.h"
+#include "Enemy.h"
 #include <vector>
 #include "textDX.h"
+#include "Projectile.h"
+#include "ProjectilePool.h"
 
 //=============================================================================
 // This class is the core of the game
@@ -24,9 +27,18 @@ private:
     // game items
 	World world;
 	Player player;
+	Enemy enemy;
+	TextureManager enemySprite;
+
+	Projectile bullet;
+	ProjectilePool bulletPool;
 	TextureManager playerSprite;
+<<<<<<< HEAD
 	TextureManager bgTexture;
 	Image bgImage;
+=======
+	TextureManager bulletSprite;
+>>>>>>> 1a0346348aef1b37418e01b063a751cac1072cda
 
 public:
     // Constructor
