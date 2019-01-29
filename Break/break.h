@@ -14,6 +14,8 @@
 #include "Player.h"
 #include <vector>
 #include "textDX.h"
+#include "Projectile.h"
+#include "ProjectilePool.h"
 
 //=============================================================================
 // This class is the core of the game
@@ -24,7 +26,10 @@ private:
     // game items
 	World world;
 	Player player;
+	Projectile bullet;
+	ProjectilePool bulletPool;
 	TextureManager playerSprite;
+	TextureManager bulletSprite;
 
 public:
     // Constructor

@@ -1,16 +1,18 @@
 #pragma once
 #include "input.h"
 #include "Entity.h"
+#include "ShootingComponent.h"
 class InputComponent
 {
-private:
+protected:
 	Input * input;
+	ShootingComponent *sc;
 
 public:
-	InputComponent(Game *gamePtr);
+	InputComponent(Game *gamePtr, ShootingComponent * pewpew);
 	InputComponent();
 	~InputComponent();
-	void update(Entity *entity, float frameTime);
+	virtual void update(Entity *entity, float frameTime);
 
 };
 

@@ -158,6 +158,7 @@ class Entity : public Image
     //      *textureM = pointer to TextureManager object
     virtual bool initialize(Game *gamePtr, int width, int height, int ncols,
                             TextureManager *textureM);
+
     // Activate Entity.
     virtual void activate();
 

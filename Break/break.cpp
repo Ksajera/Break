@@ -29,10 +29,19 @@ void Break::initialize(HWND hwnd)
 {
     Game::initialize(hwnd); // throws GameError
 	world.initialize(graphics);
+
+	if (!bulletSprite.initialize(graphics, BULLET_TEXTURE))
+		throw(GameError(gameErrorNS::FATAL_ERROR, "Error initializing bullet texture."));
+
+	if (!bullet.initialize(this, 8, 8, 0, &bulletSprite))
+		throw(GameError(gameErrorNS::FATAL_ERROR, "Error initializing bullet."));
+
+	bulletPool.initialize(&bullet, 10);
+
 	if (!playerSprite.initialize(graphics, PLAYER_IMAGE))
 		throw(GameError(gameErrorNS::FATAL_ERROR, "Error initializing player texture."));
 
-	if (!player.initialize(this, 32, 64, 0, &playerSprite))
+	if (!player.initialize(this, 32, 64, 0, &playerSprite, &bulletPool))
 		throw(GameError(gameErrorNS::FATAL_ERROR, "Error initializing player."));
 
     return;
@@ -44,6 +53,7 @@ void Break::initialize(HWND hwnd)
 void Break::update()
 {
 	player.update(frameTime);
+	bulletPool.update(frameTime);
 }
 
 //=============================================================================
@@ -72,6 +82,7 @@ void Break::render()
     graphics->spriteBegin();                // begin drawing sprites
 	world.draw();
 	player.draw();
+	bulletPool.draw();
 
     graphics->spriteEnd();                  // end drawing sprites
 }
