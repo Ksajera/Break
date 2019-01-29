@@ -25,6 +25,8 @@ private:
 	World world;
 	Player player;
 	TextureManager playerSprite;
+	TextureManager bgTexture;
+	Image bgImage;
 
 public:
     // Constructor

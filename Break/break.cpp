@@ -29,11 +29,22 @@ void Break::initialize(HWND hwnd)
 {
     Game::initialize(hwnd); // throws GameError
 	world.initialize(graphics);
+
+	//Texture
 	if (!playerSprite.initialize(graphics, PLAYER_IMAGE))
 		throw(GameError(gameErrorNS::FATAL_ERROR, "Error initializing player texture."));
 
+	// nebula texture
+	if (!bgTexture.initialize(graphics, NEBULA_IMAGE))
+		throw(GameError(gameErrorNS::FATAL_ERROR, "Error initializing background texture"));
+
+	//Initialize
 	if (!player.initialize(this, 32, 64, 0, &playerSprite))
 		throw(GameError(gameErrorNS::FATAL_ERROR, "Error initializing player."));
+
+	// nebula image
+	if (!bgImage.initialize(graphics, 0, 0, 0, &bgTexture))
+		throw(GameError(gameErrorNS::FATAL_ERROR, "Error initializing background"));
 
     return;
 }

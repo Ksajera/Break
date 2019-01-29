@@ -98,6 +98,7 @@
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="break.cpp" />
     <ClCompile Include="Projectile.cpp" />
+    <ClCompile Include="Screen.cpp" />
     <ClCompile Include="ShootingComponent.cpp" />
     <ClCompile Include="textDX.cpp" />
     <ClCompile Include="textureManager.cpp" />
@@ -118,6 +119,7 @@
     <ClInclude Include="Player.h" />
     <ClInclude Include="break.h" />
     <ClInclude Include="Projectile.h" />
+    <ClInclude Include="Screen.h" />
     <ClInclude Include="ShootingComponent.h" />
     <ClInclude Include="textDX.h" />
     <ClInclude Include="textureManager.h" />
