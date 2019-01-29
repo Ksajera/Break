@@ -15,7 +15,7 @@ void Player::update(float frameTime)
 {
 	Entity::update(frameTime);
 	inputComponent.update(this, frameTime);
-	physicsComponent.update(this, frameTime);
+	physics.update(this, frameTime);
 
 }
 
@@ -36,10 +36,13 @@ void Player::draw()
 
 }
 
-bool Player::initialize(Game * gamePtr, int width, int height, int ncols, TextureManager * textureM)
+bool Player::initialize(Game * gamePtr, int width, int height, int ncols, TextureManager * textureM, ProjectilePool * pool)
 {
-	inputComponent = InputComponent(gamePtr);
-	physicsComponent = PhysicsComponent();
+	shootingComponent = ShootingComponent(pool);
+	inputComponent = InputComponent(gamePtr, &shootingComponent);
+	physics = PlayerPhysicsComponent();
+
 	return Entity::initialize(gamePtr, width, height, ncols, textureM);
+
 }
 

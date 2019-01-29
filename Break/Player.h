@@ -1,13 +1,18 @@
 #pragma once
 #include "entity.h"
 #include "InputComponent.h"
-#include "PhysicsComponent.h"
+#include "PlayerPhysicsComponent.h"
+#include "ShootingComponent.h"
+#include "PlayerState.h"
 
 class Player : public Entity
 {
 private:
 	InputComponent inputComponent;
-	PhysicsComponent physicsComponent;
+	ShootingComponent shootingComponent;
+	PlayerPhysicsComponent physics;
+	PlayerState* state;
+
 public:
 	Player();
 	~Player();
@@ -16,6 +21,6 @@ public:
 	D3DXVECTOR2 getPosition();
 	void draw();
 	bool initialize(Game *gamePtr, int width, int height, int ncols,
-		TextureManager *textureM);
+		TextureManager *textureM, ProjectilePool * pool);
 };
 

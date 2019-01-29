@@ -15,6 +15,8 @@
 #include "Enemy.h"
 #include <vector>
 #include "textDX.h"
+#include "Projectile.h"
+#include "ProjectilePool.h"
 
 //=============================================================================
 // This class is the core of the game
@@ -25,11 +27,18 @@ private:
     // game items
 	World world;
 	Player player;
+<<<<<<< HEAD
 	Enemy enemy;
 	TextureManager playerSprite;
 	TextureManager enemySprite;
 
 	std::vector<Enemy> enemyVector;
+=======
+	Projectile bullet;
+	ProjectilePool bulletPool;
+	TextureManager playerSprite;
+	TextureManager bulletSprite;
+>>>>>>> 6ab7a6c46800a918f2a879143aa51b05ae31f620
 
 public:
     // Constructor
