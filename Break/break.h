@@ -17,6 +17,7 @@
 #include "textDX.h"
 #include "Projectile.h"
 #include "ProjectilePool.h"
+#include "EnemyPool.h"
 
 //=============================================================================
 // This class is the core of the game
@@ -28,11 +29,12 @@ private:
 	World world;
 	Player player;
 	Enemy enemy;
-	TextureManager enemySprite;
 
 	Projectile bullet;
 	ProjectilePool bulletPool;
+	EnemyPool enemyPool;
 	TextureManager playerSprite;
+	TextureManager enemySprite;
 	TextureManager bulletSprite;
 
 public:
