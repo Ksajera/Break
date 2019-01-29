@@ -7,8 +7,6 @@
 #define _INPUT_H                // file is included in more than one place
 #define WIN32_LEAN_AND_MEAN
 
-class Input;
-
 #include <windows.h>
 #include <WindowsX.h>
 #include <string>
@@ -16,6 +14,7 @@ class Input;
 #include "constants.h"
 #include "gameError.h"
 
+class Input;
 
 // for high-definition mouse
 #ifndef HID_USAGE_PAGE_GENERIC

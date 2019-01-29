@@ -30,6 +30,7 @@ void Break::initialize(HWND hwnd)
     Game::initialize(hwnd); // throws GameError
 	world.initialize(graphics);
 
+<<<<<<< HEAD
 	//PLAYER
 	if (!playerSprite.initialize(graphics, PLAYER_IMAGE))
 		throw(GameError(gameErrorNS::FATAL_ERROR, "Error initializing player texture."));
@@ -37,14 +38,38 @@ void Break::initialize(HWND hwnd)
 		throw(GameError(gameErrorNS::FATAL_ERROR, "Error initializing player."));
 	
 	//BULLET
+=======
+	//Texture
+	if (!playerSprite.initialize(graphics, PLAYER_IMAGE))
+		throw(GameError(gameErrorNS::FATAL_ERROR, "Error initializing player texture."));
+
+	// nebula texture
+	if (!bgTexture.initialize(graphics, NEBULA_IMAGE))
+		throw(GameError(gameErrorNS::FATAL_ERROR, "Error initializing background texture"));
+
+	// nebula image
+	if (!bgImage.initialize(graphics, 0, 0, 0, &bgTexture))
+		throw(GameError(gameErrorNS::FATAL_ERROR, "Error initializing background"));
+>>>>>>> d0834317faf6defd467bcab050760b01519a7153
 	if (!bulletSprite.initialize(graphics, BULLET_TEXTURE))
 		throw(GameError(gameErrorNS::FATAL_ERROR, "Error initializing bullet texture."));
 	if (!bullet.initialize(this, 8, 8, 0, &bulletSprite))
 		throw(GameError(gameErrorNS::FATAL_ERROR, "Error initializing bullet."));
 
+<<<<<<< HEAD
 	//ENEMY
 	if (!enemySprite.initialize(graphics, ENEMY_IMAGE))
 		throw(GameError(gameErrorNS::FATAL_ERROR, "Error initializing enemy texture."));
+=======
+	bulletPool.initialize(&bullet, 10);
+
+	if (!enemySprite.initialize(graphics, ENEMY_IMAGE))
+		throw(GameError(gameErrorNS::FATAL_ERROR, "Error initializing enemy texture."));
+
+	if (!player.initialize(this, 32, 64, 0, &playerSprite, &bulletPool))
+		throw(GameError(gameErrorNS::FATAL_ERROR, "Error initializing bullets."));
+
+>>>>>>> d0834317faf6defd467bcab050760b01519a7153
 	if (!enemy.initialize(this, 32, 64, 0, &enemySprite))
 		throw(GameError(gameErrorNS::FATAL_ERROR, "Error initializing enemy."));
 
@@ -90,10 +115,15 @@ void Break::render()
 {
     graphics->spriteBegin();                // begin drawing sprites
 	world.draw();
+	bgImage.draw();
 	player.draw();
 	enemy.draw();
 	bulletPool.draw();
+<<<<<<< HEAD
 	enemyPool.draw();
+=======
+	
+>>>>>>> d0834317faf6defd467bcab050760b01519a7153
 
     graphics->spriteEnd();                  // end drawing sprites
 }
@@ -104,6 +134,7 @@ void Break::render()
 //=============================================================================
 void Break::releaseAll()
 {
+	bgTexture.onLostDevice();
     Game::releaseAll();
     return;
 }
@@ -114,6 +145,7 @@ void Break::releaseAll()
 //=============================================================================
 void Break::resetAll()
 {
+	bgTexture.onResetDevice();
     Game::resetAll();
     return;
 }
