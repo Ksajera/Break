@@ -32,8 +32,15 @@ void Break::initialize(HWND hwnd)
 	if (!playerSprite.initialize(graphics, PLAYER_IMAGE))
 		throw(GameError(gameErrorNS::FATAL_ERROR, "Error initializing player texture."));
 
+	if (!enemySprite.initialize(graphics, ENEMY_IMAGE))
+		throw(GameError(gameErrorNS::FATAL_ERROR, "Error initializing enemy texture."));
+
+
 	if (!player.initialize(this, 32, 64, 0, &playerSprite))
 		throw(GameError(gameErrorNS::FATAL_ERROR, "Error initializing player."));
+
+	if (!enemy.initialize(this, 32, 64, 0, &enemySprite))
+		throw(GameError(gameErrorNS::FATAL_ERROR, "Error initializing enemy."));
 
     return;
 }
@@ -44,6 +51,7 @@ void Break::initialize(HWND hwnd)
 void Break::update()
 {
 	player.update(frameTime);
+	enemy.update(frameTime);
 }
 
 //=============================================================================
@@ -72,6 +80,7 @@ void Break::render()
     graphics->spriteBegin();                // begin drawing sprites
 	world.draw();
 	player.draw();
+	enemy.draw();
 
     graphics->spriteEnd();                  // end drawing sprites
 }

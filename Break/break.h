@@ -12,6 +12,7 @@
 #include "image.h"
 #include "World.h"
 #include "Player.h"
+#include "Enemy.h"
 #include <vector>
 #include "textDX.h"
 
@@ -24,7 +25,11 @@ private:
     // game items
 	World world;
 	Player player;
+	Enemy enemy;
 	TextureManager playerSprite;
+	TextureManager enemySprite;
+
+	std::vector<Enemy> enemyVector;
 
 public:
     // Constructor
