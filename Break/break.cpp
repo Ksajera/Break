@@ -96,9 +96,11 @@ void Break::render()
 {
     graphics->spriteBegin();                // begin drawing sprites
 	world.draw();
+	bgImage.draw();
 	player.draw();
 	enemy.draw();
 	bulletPool.draw();
+	
 
     graphics->spriteEnd();                  // end drawing sprites
 }
@@ -109,6 +111,7 @@ void Break::render()
 //=============================================================================
 void Break::releaseAll()
 {
+	bgTexture.onLostDevice();
     Game::releaseAll();
     return;
 }
@@ -119,6 +122,7 @@ void Break::releaseAll()
 //=============================================================================
 void Break::resetAll()
 {
+	bgTexture.onResetDevice();
     Game::resetAll();
     return;
 }
