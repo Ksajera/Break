@@ -48,7 +48,7 @@ void Break::initialize(HWND hwnd)
 	if (!player.initialize(this, 32, 64, 0, &playerSprite))
 		throw(GameError(gameErrorNS::FATAL_ERROR, "Error initializing player."));
 
-	if (!bullet.initialize(this, 32, 64, 0, &playerSprite, &bulletPool))
+	if (!bullet.initialize(this, 32, 64, 0, &bulletSprite, &bulletPool))
 		throw(GameError(gameErrorNS::FATAL_ERROR, "Error initializing bullets."));
 
 	if (!enemy.initialize(this, 32, 64, 0, &enemySprite))
