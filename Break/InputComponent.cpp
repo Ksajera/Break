@@ -48,14 +48,14 @@ void InputComponent::update(Entity *entity, float frameTime)
 	mousePos.x = input->getMouseX();
 	mousePos.y = input->getMouseY();
 
-	position.x = entity->getX();
-	position.y = entity->getY();
+	position.x = entity->getCenterX();
+	position.y = entity->getCenterY();
 
 	aimDirection = mousePos - position;
 	D3DXVec2Normalize(&aimDirection, &aimDirection);
 
 	if (input->getMouseLButton()) {
-		sc->fire(aimDirection);
+		sc->fire(position, aimDirection);
 
 	}
 
