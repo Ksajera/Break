@@ -1,5 +1,5 @@
 // Programming 2D Games
-// Copyright (c) 2011 by: 
+// Copyright (c) 2011 by:
 // Charles Kelly
 // Draw animated spaceships with collision and shield
 // Chapter 6 spacewar.cpp v1.0
@@ -27,15 +27,9 @@ Break::~Break()
 //=============================================================================
 void Break::initialize(HWND hwnd)
 {
-    Game::initialize(hwnd); // throws GameError
+  Game::initialize(hwnd); // throws GameError
 	world.initialize(graphics);
 
-	//PLAYER
-	if (!playerSprite.initialize(graphics, PLAYER_IMAGE))
-		throw(GameError(gameErrorNS::FATAL_ERROR, "Error initializing player texture."));
-	if (!player.initialize(this, 32, 64, 0, &playerSprite, &bulletPool))
-		throw(GameError(gameErrorNS::FATAL_ERROR, "Error initializing player."));
-	
 	//BACKGROUND
 	if (!bgTexture.initialize(graphics, NEBULA_IMAGE))
 		throw(GameError(gameErrorNS::FATAL_ERROR, "Error initializing background texture"));
@@ -47,6 +41,16 @@ void Break::initialize(HWND hwnd)
 		throw(GameError(gameErrorNS::FATAL_ERROR, "Error initializing bullet texture."));
 	if (!bullet.initialize(this, 8, 8, 0, &bulletSprite))
 		throw(GameError(gameErrorNS::FATAL_ERROR, "Error initializing bullet."));
+
+	bulletPool.initialize(&bullet, MAX_PROJECTILES);
+
+	//Sprites
+	if (!playerSprite.initialize(graphics, PLAYER_IMAGE))
+		throw(GameError(gameErrorNS::FATAL_ERROR, "Error initializing player texture."));
+
+	//Entities
+	if (!player.initialize(this, 32, 64, 0, &playerSprite, &bulletPool))
+		throw(GameError(gameErrorNS::FATAL_ERROR, "Error initializing player."));
 
 	//ENEMY
 	if (!enemySprite.initialize(graphics, ENEMY_IMAGE))
@@ -86,7 +90,7 @@ void Break::collisions()
 {
     VECTOR2 collisionVector;
 
-    
+
 }
 
 //=============================================================================
@@ -101,7 +105,7 @@ void Break::render()
 	enemy.draw();
 	bulletPool.draw();
 	enemyPool.draw();
-	
+
     graphics->spriteEnd();                  // end drawing sprites
 }
 
