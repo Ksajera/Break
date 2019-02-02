@@ -29,10 +29,16 @@ void Break::initialize(HWND hwnd)
 {
     Game::initialize(hwnd); // throws GameError
 	world.initialize(graphics);
+	
+	//BACKGROUND
+	if (!bgTexture.initialize(graphics, NEBULA_IMAGE))
+		throw(GameError(gameErrorNS::FATAL_ERROR, "Error initializing background texture"));
+	if (!bgImage.initialize(graphics, 0, 0, 0, &bgTexture))
+		throw(GameError(gameErrorNS::FATAL_ERROR, "Error initializing background"));
 
+	//BULLET
 	if (!bulletSprite.initialize(graphics, BULLET_TEXTURE))
 		throw(GameError(gameErrorNS::FATAL_ERROR, "Error initializing bullet texture."));
-
 	if (!bullet.initialize(this, 8, 8, 0, &bulletSprite))
 		throw(GameError(gameErrorNS::FATAL_ERROR, "Error initializing bullet."));
 
@@ -41,16 +47,18 @@ void Break::initialize(HWND hwnd)
 	//Sprites
 	if (!playerSprite.initialize(graphics, PLAYER_IMAGE))
 		throw(GameError(gameErrorNS::FATAL_ERROR, "Error initializing player texture."));
-
-	if (!enemySprite.initialize(graphics, ENEMY_IMAGE))
-		throw(GameError(gameErrorNS::FATAL_ERROR, "Error initializing enemy texture."));
 	
 	//Entities
 	if (!player.initialize(this, 32, 64, 0, &playerSprite, &bulletPool))
 		throw(GameError(gameErrorNS::FATAL_ERROR, "Error initializing player."));
 
+	//ENEMY
+	if (!enemySprite.initialize(graphics, ENEMY_IMAGE))
+		throw(GameError(gameErrorNS::FATAL_ERROR, "Error initializing enemy texture."));
 	if (!enemy.initialize(this, 32, 64, 0, &enemySprite))
 		throw(GameError(gameErrorNS::FATAL_ERROR, "Error initializing enemy."));
+
+	enemyPool.initialize(&enemy, 10);
 
     return;
 }
@@ -63,6 +71,7 @@ void Break::update()
 	player.update(frameTime);
 	enemy.update(frameTime);
 	bulletPool.update(frameTime);
+	enemyPool.update(frameTime);
 }
 
 //=============================================================================
@@ -90,10 +99,12 @@ void Break::render()
 {
     graphics->spriteBegin();                // begin drawing sprites
 	world.draw();
+	bgImage.draw();
 	player.draw();
 	enemy.draw();
 	bulletPool.draw();
-
+	enemyPool.draw();
+	
     graphics->spriteEnd();                  // end drawing sprites
 }
 
@@ -103,6 +114,7 @@ void Break::render()
 //=============================================================================
 void Break::releaseAll()
 {
+	bgTexture.onLostDevice();
     Game::releaseAll();
     return;
 }
@@ -113,6 +125,7 @@ void Break::releaseAll()
 //=============================================================================
 void Break::resetAll()
 {
+	bgTexture.onResetDevice();
     Game::resetAll();
     return;
 }

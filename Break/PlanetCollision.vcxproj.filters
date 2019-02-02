@@ -108,6 +108,13 @@
     <ClCompile Include="Enemy.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+<<<<<<< HEAD
+    <ClCompile Include="EnemyPool.cpp">
+=======
+    <ClCompile Include="Screen.cpp">
+>>>>>>> d0834317faf6defd467bcab050760b01519a7153
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Player.h">
@@ -180,6 +187,13 @@
       <Filter>Header Files\World</Filter>
     </ClInclude>
     <ClInclude Include="Enemy.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+<<<<<<< HEAD
+    <ClInclude Include="EnemyPool.h">
+=======
+    <ClInclude Include="Screen.h">
+>>>>>>> d0834317faf6defd467bcab050760b01519a7153
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

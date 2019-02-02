@@ -1,7 +1,7 @@
 #pragma once
-#include "Projectile.h"
 #include <vector>
 #include "game.h"
+#include "Projectile.h"
 
 class ProjectilePool
 {

@@ -1,4 +1,7 @@
-#pragma once
+#ifndef _PLAYER_H             // Prevent multiple definitions if this 
+#define _PLAYER_H             // file is included in more than one place
+#define WIN32_LEAN_AND_MEAN
+
 #include "entity.h"
 #include "InputComponent.h"
 #include "PlayerPhysicsComponent.h"
@@ -21,7 +24,9 @@ public:
 	void handleInput(Input* input);
 	D3DXVECTOR2 getPosition();
 	void draw();
+	void scroll();
 	bool initialize(Game *gamePtr, int width, int height, int ncols,
 		TextureManager *textureM, ProjectilePool * pool);
 };
+#endif
 

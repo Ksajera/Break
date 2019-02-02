@@ -89,6 +89,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Enemy.cpp" />
+    <ClCompile Include="EnemyPool.cpp" />
     <ClCompile Include="entity.cpp" />
     <ClCompile Include="game.cpp" />
     <ClCompile Include="graphics.cpp" />
@@ -102,6 +103,8 @@
     <ClCompile Include="PlayerPhysicsComponent.cpp" />
     <ClCompile Include="PlayerState.cpp" />
     <ClCompile Include="Projectile.cpp" />
+
+    <ClCompile Include="Screen.cpp" />
     <ClCompile Include="ProjectilePool.cpp" />
     <ClCompile Include="ShootingComponent.cpp" />
     <ClCompile Include="ShootingState.cpp" />
@@ -115,6 +118,7 @@
   <ItemGroup>
     <ClInclude Include="constants.h" />
     <ClInclude Include="Enemy.h" />
+    <ClInclude Include="EnemyPool.h" />
     <ClInclude Include="entity.h" />
     <ClInclude Include="game.h" />
     <ClInclude Include="gameError.h" />
@@ -129,6 +133,8 @@
     <ClInclude Include="PlayerPhysicsComponent.h" />
     <ClInclude Include="PlayerState.h" />
     <ClInclude Include="Projectile.h" />
+
+    <ClInclude Include="Screen.h" />
     <ClInclude Include="ProjectilePool.h" />
     <ClInclude Include="ShootingComponent.h" />
     <ClInclude Include="ShootingState.h" />
