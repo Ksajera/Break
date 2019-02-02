@@ -20,8 +20,9 @@ void Player::handleInput(Input * input)
 void Player::update(float frameTime)
 {
 	Entity::update(frameTime);
+	//state_->update(this, frameTime);
 	inputComponent.update(this, frameTime);
-	physics.update(this, frameTime);
+	physics.update(this, &inputComponent, frameTime);
 
 }
 

@@ -13,6 +13,7 @@ public:
 	InputComponent();
 	~InputComponent();
 	virtual void update(Entity *entity, float frameTime);
+	bool getMovement(D3DXVECTOR2* pOut);
 
 };
 

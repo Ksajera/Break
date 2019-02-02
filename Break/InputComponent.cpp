@@ -15,11 +15,11 @@ InputComponent::~InputComponent()
 {
 }
 
-void InputComponent::update(Entity *entity, float frameTime)
-{
+bool InputComponent::getMovement(D3DXVECTOR2* pOut) {
 	//Movement Controller
 	D3DXVECTOR2 direction = D3DXVECTOR2(0, 0);
-	D3DXVECTOR2 velocity = entity->getVelocity();
+	bool isMoving = false;
+
 	if (input->isKeyDown('D'))
 		direction.x = 1;
 	else if (input->isKeyDown('A'))
@@ -29,17 +29,15 @@ void InputComponent::update(Entity *entity, float frameTime)
 	else if (input->isKeyDown('W'))
 		direction.y = -1;
 
-	//if keys are pressed
 	if (direction != D3DXVECTOR2(0, 0))
-		entity->setVelocity(velocity + direction * MOVE_SPEED * frameTime);
-	else { //no keys are pressed
-		if (velocity != D3DXVECTOR2(0, 0)) {
-			D3DXVec2Normalize(&velocity, &velocity);
-			entity->setVelocity(entity->getVelocity() - velocity * 180 * frameTime); //decelerate, pseudo lerp
+		isMoving = true;
 
-		}
+	*pOut = direction;
+	return isMoving;
+}
 
-	}
+void InputComponent::update(Entity *entity, float frameTime)
+{
 
 	D3DXVECTOR2 mousePos;
 	D3DXVECTOR2 position;

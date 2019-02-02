@@ -17,3 +17,4 @@ void PhysicsComponent::update(Entity * entity, float frameTime)
 	entity->setY(entity->getY() + velocity.y * frameTime);
 
 }
+
