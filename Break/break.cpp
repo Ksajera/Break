@@ -36,16 +36,18 @@ void Break::initialize(HWND hwnd)
 	if (!bullet.initialize(this, 8, 8, 0, &bulletSprite))
 		throw(GameError(gameErrorNS::FATAL_ERROR, "Error initializing bullet."));
 
-	bulletPool.initialize(&bullet, 10);
+	bulletPool.initialize(&bullet, MAX_PROJECTILES);
 
+	//Sprites
 	if (!playerSprite.initialize(graphics, PLAYER_IMAGE))
 		throw(GameError(gameErrorNS::FATAL_ERROR, "Error initializing player texture."));
 
 	if (!enemySprite.initialize(graphics, ENEMY_IMAGE))
 		throw(GameError(gameErrorNS::FATAL_ERROR, "Error initializing enemy texture."));
-
+	
+	//Entities
 	if (!player.initialize(this, 32, 64, 0, &playerSprite, &bulletPool))
-		throw(GameError(gameErrorNS::FATAL_ERROR, "Error initializing bullets."));
+		throw(GameError(gameErrorNS::FATAL_ERROR, "Error initializing player."));
 
 	if (!enemy.initialize(this, 32, 64, 0, &enemySprite))
 		throw(GameError(gameErrorNS::FATAL_ERROR, "Error initializing enemy."));

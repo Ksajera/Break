@@ -11,6 +11,12 @@ Player::~Player()
 
 }
 
+void Player::handleInput(Input * input)
+{
+	state_->handleInput(this, input);
+
+}
+
 void Player::update(float frameTime)
 {
 	Entity::update(frameTime);
@@ -24,6 +30,7 @@ void Player::setPosition(D3DXVECTOR2 position)
 	setX(position.x);
 	setY(position.y);
 }
+
 
 D3DXVECTOR2 Player::getPosition()
 {
