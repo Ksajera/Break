@@ -42,8 +42,6 @@ void Break::initialize(HWND hwnd)
 	if (!bullet.initialize(this, 8, 8, 0, &bulletSprite))
 		throw(GameError(gameErrorNS::FATAL_ERROR, "Error initializing bullet."));
 
-	bulletPool.initialize(&bullet, MAX_PROJECTILES);
-
 	//Sprites
 	if (!playerSprite.initialize(graphics, PLAYER_IMAGE))
 		throw(GameError(gameErrorNS::FATAL_ERROR, "Error initializing player texture."));
@@ -57,8 +55,10 @@ void Break::initialize(HWND hwnd)
 		throw(GameError(gameErrorNS::FATAL_ERROR, "Error initializing enemy texture."));
 	if (!enemy.initialize(this, 32, 64, 0, &enemySprite))
 		throw(GameError(gameErrorNS::FATAL_ERROR, "Error initializing enemy."));
+	enemy.setActive(false);
+	enemy.setVisible(false);
 
-	bulletPool.initialize(&bullet, 10);
+	bulletPool.initialize(&bullet, MAX_PROJECTILES);
 	enemyPool.initialize(&enemy, 1);
 
     return;
@@ -70,7 +70,7 @@ void Break::initialize(HWND hwnd)
 void Break::update()
 {
 	player.update(frameTime);
-	//enemy.update(frameTime);
+	enemy.update(frameTime);
 	bulletPool.update(frameTime);
 	enemyPool.update(frameTime);
 }
