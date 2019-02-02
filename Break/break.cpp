@@ -55,7 +55,7 @@ void Break::initialize(HWND hwnd)
 		throw(GameError(gameErrorNS::FATAL_ERROR, "Error initializing enemy."));
 
 	bulletPool.initialize(&bullet, 10);
-	enemyPool.initialize(&enemy, 10);
+	enemyPool.initialize(&enemy, 1);
 
     return;
 }
@@ -66,7 +66,7 @@ void Break::initialize(HWND hwnd)
 void Break::update()
 {
 	player.update(frameTime);
-	enemy.update(frameTime);
+	//enemy.update(frameTime);
 	bulletPool.update(frameTime);
 	enemyPool.update(frameTime);
 }
