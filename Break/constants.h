@@ -67,6 +67,7 @@ const char FLOOR_IMAGE[] = "pictures\\floor1.png";
 const char PLAYER_IMAGE[] = "pictures\\player.png";
 const char ENEMY_IMAGE[] = "pictures\\enemy.png";
 const char BULLET_TEXTURE[] = "pictures\\bullet.png";
+const char ARROW_TEXTURE[] = "pictures\\arrow.png";
 
 // key mappings
 // In this game simple constants are used for key mappings. If variables were used

@@ -1,19 +1,22 @@
 #pragma once
+#include <vector>
 #include "entity.h"
-#include "PhysicsComponent.h"
+#include "Enemy.h"
 
-class Enemy: public Entity
+class EnemyFOV : public Entity
 {
 private:
-	PhysicsComponent physicsComponent;
+	Enemy *enemy;
+
 public:
-	Enemy();
-	~Enemy();
-	void update(float frameTime);
+	EnemyFOV();
+	~EnemyFOV();
 	D3DXVECTOR2 getPosition();
 	void setPosition(D3DXVECTOR2 position);
-	void draw();
 	bool initialize(Game *gamePtr, int width, int height, int ncols,
 		TextureManager *textureM);
+	void update(float frameTime);
+	void draw();
+
 };
 

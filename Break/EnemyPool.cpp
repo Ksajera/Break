@@ -35,8 +35,8 @@ void EnemyPool::initialize(Enemy *enemy, int size)
 		enemy->setActive(true);
 		enemy->setVisible(true);
 		//put in middle
-		enemy->setX(GAME_WIDTH / 2);
-		enemy->setY(GAME_HEIGHT / 2);
+		enemy->setX(GAME_WIDTH / 2 - enemy->getWidth() / 2);
+		enemy->setY(GAME_HEIGHT / 2 - enemy->getHeight() / 2);
 	}
 }
 

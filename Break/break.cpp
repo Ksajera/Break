@@ -70,7 +70,7 @@ void Break::initialize(HWND hwnd)
 void Break::update()
 {
 	player.update(frameTime);
-	enemy.update(frameTime);
+	enemy.update(frameTime); //dk if can comment this out too lazy to find out. but prob no need this line 
 	bulletPool.update(frameTime);
 	enemyPool.update(frameTime);
 }
