@@ -4,6 +4,7 @@
 
 Enemy::Enemy()
 {
+	direction = DIRECTION::DOWN;
 }
 
 
@@ -37,4 +38,24 @@ bool Enemy::initialize(Game * gamePtr, int width, int height, int ncols, Texture
 {
 	physicsComponent = PhysicsComponent();
 	return Entity::initialize(gamePtr, width, height, ncols, textureM);
+}
+
+void Enemy::checkDirection() 
+{
+	float rotation = 
+}
+
+void Enemy::moveFOV() 
+{
+	float x, y;
+	if (direction % 2 == 0) {
+		x = (getX() - getWidth() / 2) * (direction / 2);
+		y = (getY() - getHeight() / 2) * (direction / 2);
+	}
+	else {
+		x = (getX() - getWidth() / 2) * direction;
+		y = (getY() - getHeight() / 2) * direction;
+	}
+
+	enemyFOV->setPos(x, y);
 }

@@ -1,11 +1,20 @@
 #pragma once
 #include "entity.h"
 #include "PhysicsComponent.h"
+#include "EnemyFOV.h"
+
+enum DIRECTION {
+	UP = -1, DOWN = 1,
+	LEFT = -2, RIGHT = 2
+};
 
 class Enemy: public Entity
 {
 private:
 	PhysicsComponent physicsComponent;
+	EnemyFOV *enemyFOV;
+
+	int direction;
 public:
 	Enemy();
 	~Enemy();
@@ -15,5 +24,7 @@ public:
 	void draw();
 	bool initialize(Game *gamePtr, int width, int height, int ncols,
 		TextureManager *textureM);
+	void checkDirection();
+	void moveFOV();
 };
 
