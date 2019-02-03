@@ -18,6 +18,7 @@ InputComponent::~InputComponent()
 bool InputComponent::getMovement(D3DXVECTOR2* pOut) {
 	//Movement Controller
 	D3DXVECTOR2 direction = D3DXVECTOR2(0, 0);
+
 	bool isMoving = false;
 
 	if (input->isKeyDown('D'))

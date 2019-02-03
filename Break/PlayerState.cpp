@@ -5,7 +5,6 @@ PlayerState::PlayerState()
 {
 }
 
-
 PlayerState::~PlayerState()
 {
 }

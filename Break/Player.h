@@ -7,22 +7,22 @@
 #include "PlayerPhysicsComponent.h"
 #include "ShootingComponent.h"
 #include "PlayerState.h"
+#include "StandingState.h"
 
 class Player : public Entity
 {
-private:
-	InputComponent inputComponent;
-	ShootingComponent shootingComponent; //to be moved into gun class?
-	PlayerPhysicsComponent physics;
-	PlayerState* state_;
-
 public:
+	PlayerState * state_;
 	Player();
 	~Player();
 	void update(float frameTime);
 	void setPosition(D3DXVECTOR2 position);
-	void handleInput(Input* input);
+	void handleInput();
 	D3DXVECTOR2 getPosition();
+	D3DXVECTOR2 direction;
+	InputComponent inputComponent;
+	ShootingComponent shootingComponent; //to be moved into gun class?
+	PlayerPhysicsComponent physics;
 	void draw();
 	void scroll();
 	bool initialize(Game *gamePtr, int width, int height, int ncols,
