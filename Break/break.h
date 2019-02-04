@@ -29,14 +29,10 @@ private:
 	World world;
 	Player player;
 	Enemy enemy;
-
 	Projectile bullet;
 	ProjectilePool bulletPool;
 	EnemyPool enemyPool;
-	TextureManager playerSprite;
-	TextureManager enemySprite;
-	TextureManager bulletSprite;
-	TextureManager bgTexture;
+	TextureManager playerSprite, enemySprite, bulletSprite, bgTexture;
 	Image bgImage;
 
 public:
