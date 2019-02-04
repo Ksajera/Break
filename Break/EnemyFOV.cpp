@@ -27,16 +27,21 @@ void EnemyFOV::draw()
 {
 	Image::draw();
 }
-/*
-void Enemy::setPosition(D3DXVECTOR2 position)
+
+void EnemyFOV::setPosition(D3DXVECTOR2 position)
 {
 	setX(position.x);
 	setY(position.y);
 }
 
-
-D3DXVECTOR2 Enemy::getPosition()
+D3DXVECTOR2 EnemyFOV::getPosition()
 {
 	return D3DXVECTOR2(getX(), getY());
 }
-*/
+
+void EnemyFOV::setPos(float x, float y) 
+{
+	setX(x);
+	setY(y);
+}
+

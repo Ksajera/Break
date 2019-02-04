@@ -11,16 +11,22 @@ Player::~Player()
 
 }
 
-void Player::handleInput(Input * input)
+void Player::handleInput()
 {
-	state_->handleInput(this, input);
+	PlayerState* state = state_->handleInput(this, &inputComponent);
+	if (state != NULL) {
+		delete state_;
+		state_ = state;
+	}
 
 }
 
 void Player::update(float frameTime)
 {
+	handleInput();
+
 	Entity::update(frameTime);
-	//state_->update(this, frameTime);
+	state_->update(this, frameTime);
 	inputComponent.update(this, frameTime);
 	physics.update(this, &inputComponent, frameTime);
 
@@ -68,9 +74,12 @@ void Player::scroll()
 
 bool Player::initialize(Game * gamePtr, int width, int height, int ncols, TextureManager * textureM, ProjectilePool * pool)
 {
+	state_ = new StandingState();
 	shootingComponent = ShootingComponent(pool);
 	inputComponent = InputComponent(gamePtr, &shootingComponent);
 	physics = PlayerPhysicsComponent();
+
+	direction = D3DXVECTOR2(0, 0);
 
 	return Entity::initialize(gamePtr, width, height, ncols, textureM);
 

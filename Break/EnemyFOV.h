@@ -17,6 +17,7 @@ public:
 		TextureManager *textureM);
 	void update(float frameTime);
 	void draw();
+	void setPos(float x, float y);
 
 };
 

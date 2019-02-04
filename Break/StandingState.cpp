@@ -11,10 +11,16 @@ StandingState::~StandingState()
 {
 }
 
-void StandingState::update(Entity * player, float frameTime)
+void StandingState::update(Player * player, float frameTime)
 {
+	player->physics.Stop(player, frameTime);
 }
 
-void StandingState::handleInput(Entity * player)
+PlayerState* StandingState::handleInput(Player * player, InputComponent *inputC)
 {
+	if (inputC->getMovement(&player->direction))
+		return new MovingState();
+
+	return new StandingState();
+
 }
