@@ -46,8 +46,8 @@ bool InputComponent::getMouseInput(Entity* entity, D3DXVECTOR2 *pOut)
 	mousePos.x = input->getMouseX();
 	mousePos.y = input->getMouseY();
 
-	position.x = entity->getX();
-	position.y = entity->getY();
+	position.x = entity->getCenterX();
+	position.y = entity->getCenterY();
 
 	aimDirection = mousePos - position;
 	D3DXVec2Normalize(&aimDirection, &aimDirection);

@@ -18,8 +18,8 @@ ShootingState::~ShootingState()
 void ShootingState::update(Player * player, float frameTime)
 {
 	if (timeLeft <= 0) {
-		player->shootingComponent.fire(player->getPosition(), player->aimDirection);
-		timeLeft = FIRE_RATE;
+		player->shootingComponent.fire(D3DXVECTOR2(player->getCenterX(), player->getCenterY()), player->aimDirection);
+		timeLeft = FIRE_DELAY;
 	}
 	timeLeft -= frameTime;
 }

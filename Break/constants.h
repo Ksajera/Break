@@ -56,7 +56,8 @@ const int WORLD_WIDTH = GAME_WIDTH / TILE_SIZE;
 const int WORLD_HEIGHT = GAME_HEIGHT / TILE_SIZE;
 const int MAX_PROJECTILES = 1000;
 const int PROJECTILE_SPEED = 20 * TILE_SIZE;
-const int FIRE_RATE = 1; //per second
+const int FIRE_RATE = 5; //per second
+const float FIRE_DELAY = 1.0f / FIRE_RATE;
 
 // graphic images
 const char NEBULA_IMAGE[] =   "pictures\\orion.jpg";     // photo source NASA/courtesy of nasaimages.org 

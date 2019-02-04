@@ -26,6 +26,19 @@ void ProjectilePool::create(D3DXVECTOR2 position, D3DXVECTOR2 velocity)
 
 }
 
+void ProjectilePool::destroy() {
+	for (auto it = projectiles.begin(); it < projectiles.end(); it++) {
+		if (it->getActive()) {
+			it->setActive(false);
+			it->setVisible(false);
+			it->setVelocity(D3DXVECTOR2(0,0));
+			it->setX(0);
+			it->setY(0);
+			return;
+		}
+	}
+}
+
 void ProjectilePool::initialize(Projectile *projectile, int size)
 {
 	projectile->setActive(false);
