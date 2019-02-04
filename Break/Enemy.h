@@ -12,8 +12,12 @@ class Enemy: public Entity
 {
 private:
 	PhysicsComponent physicsComponent;
+<<<<<<< HEAD
 	EnemyFOV *enemyFOV;
 	D3DXVECTOR2 enemyForwardVec;
+=======
+	//EnemyFOV* enemyFOV;
+>>>>>>> dde460914554f159b2601505f1a93c79a9c45db7
 
 	int direction;
 	float fovAngle;
