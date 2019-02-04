@@ -11,6 +11,7 @@ public:
 	ProjectilePool();
 	~ProjectilePool();
 	void create(D3DXVECTOR2 position, D3DXVECTOR2 velocity);
+	void destroy();
 	void initialize(Projectile *projectile, int size);
 	void update(float frameTime);
 	void draw();

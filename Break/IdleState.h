@@ -1,18 +1,13 @@
 #pragma once
 #include "PlayerState.h"
-#include "IdleState.h"
+#include "ShootingState.h"
 #include "Player.h"
-
-class ShootingState :
+class IdleState :
 	public PlayerState
 {
-private:
-	float timeLeft;
-
 public:
-	ShootingState();
-	ShootingState(float timeLeft);
-	~ShootingState();
+	IdleState();
+	~IdleState();
 
 	// Inherited via PlayerState
 	virtual void update(Player * player, float frameTime) override;

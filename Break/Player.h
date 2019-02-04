@@ -8,23 +8,30 @@
 #include "ShootingComponent.h"
 #include "PlayerState.h"
 #include "StandingState.h"
+#include "IdleState.h"
 
 class Player : public Entity
 {
 public:
 	PlayerState * state_;
+	PlayerState * combat_;
 	Player();
 	~Player();
-	void update(float frameTime);
+
 	void setPosition(D3DXVECTOR2 position);
-	void handleInput();
 	D3DXVECTOR2 getPosition();
 	D3DXVECTOR2 direction;
+	D3DXVECTOR2 aimDirection;
+
 	InputComponent inputComponent;
 	ShootingComponent shootingComponent; //to be moved into gun class?
 	PlayerPhysicsComponent physics;
-	void draw();
+
 	void scroll();
+	void draw();
+	void update(float frameTime);
+	void handleInput();
+
 	bool initialize(Game *gamePtr, int width, int height, int ncols,
 		TextureManager *textureM, ProjectilePool * pool);
 };
