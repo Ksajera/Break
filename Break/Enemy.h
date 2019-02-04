@@ -14,7 +14,7 @@ class Enemy: public Entity
 private:
 	PhysicsComponent physicsComponent;
 	D3DXVECTOR2 VecEnemyToPlayer;
-	Player *player;
+	//Player *player;
 
 	int direction;
 	float fovAngle;
@@ -34,6 +34,6 @@ public:
 	float getEnemyToPlayerAngle();
 	bool isPlayerInFov();
 	void playerInFov();
-	void setPlayerPos();
+	void setPlayerPos(Player *player);
 };
 

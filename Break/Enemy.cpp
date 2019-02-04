@@ -16,7 +16,7 @@ Enemy::~Enemy()
 void Enemy::update(float frameTime) 
 {
 	physicsComponent.update(this, frameTime);
-	setPlayerPos(); // set VecEnemyToPlayer variable
+	//setPlayerPos(Player *player); // set VecEnemyToPlayer variable
 }
 
 void Enemy::setPosition(D3DXVECTOR2 position)
@@ -83,7 +83,7 @@ void Enemy::playerInFov()
 	}
 }
 
-void Enemy::setPlayerPos() //call in update()
+void Enemy::setPlayerPos(Player *player) //call in update()
 {
 	VecEnemyToPlayer = player->getPosition() - getPosition(); 
 }
