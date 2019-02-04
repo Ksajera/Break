@@ -12,7 +12,7 @@ class Enemy: public Entity
 {
 private:
 	PhysicsComponent physicsComponent;
-	EnemyFOV *enemyFOV;
+	//EnemyFOV* enemyFOV;
 
 	int direction;
 public:

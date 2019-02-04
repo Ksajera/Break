@@ -42,7 +42,7 @@ bool Enemy::initialize(Game * gamePtr, int width, int height, int ncols, Texture
 
 void Enemy::checkDirection() 
 {
-	float rotation = 
+	//float rotation = 
 }
 
 void Enemy::moveFOV() 
@@ -57,5 +57,5 @@ void Enemy::moveFOV()
 		y = (getY() - getHeight() / 2) * direction;
 	}
 
-	enemyFOV->setPos(x, y);
+	//enemyFOV->setPos(x, y);
 }

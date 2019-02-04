@@ -6,7 +6,7 @@
 class EnemyFOV : public Entity
 {
 private:
-	Enemy *enemy;
+	//Enemy *enemy;
 
 public:
 	EnemyFOV();
