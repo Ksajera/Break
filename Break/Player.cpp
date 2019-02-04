@@ -14,9 +14,16 @@ Player::~Player()
 void Player::handleInput()
 {
 	PlayerState* state = state_->handleInput(this, &inputComponent);
+	PlayerState* combat = combat_->handleInput(this, &inputComponent);
+
 	if (state != NULL) {
 		delete state_;
 		state_ = state;
+	}
+
+	if (combat != NULL) {
+		delete combat_;
+		combat_ = combat;
 	}
 
 }
@@ -26,7 +33,10 @@ void Player::update(float frameTime)
 	handleInput();
 
 	Entity::update(frameTime);
+
 	state_->update(this, frameTime);
+	combat_->update(this, frameTime);
+
 	inputComponent.update(this, frameTime);
 	physics.update(this, &inputComponent, frameTime);
 
@@ -75,6 +85,7 @@ void Player::scroll()
 bool Player::initialize(Game * gamePtr, int width, int height, int ncols, TextureManager * textureM, ProjectilePool * pool)
 {
 	state_ = new StandingState();
+	combat_ = new IdleState();
 	shootingComponent = ShootingComponent(pool);
 	inputComponent = InputComponent(gamePtr, &shootingComponent);
 	physics = PlayerPhysicsComponent();

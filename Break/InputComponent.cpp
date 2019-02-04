@@ -37,9 +37,8 @@ bool InputComponent::getMovement(D3DXVECTOR2* pOut) {
 	return isMoving;
 }
 
-void InputComponent::update(Entity *entity, float frameTime)
+bool InputComponent::getMouseInput(Entity* entity, D3DXVECTOR2 *pOut)
 {
-
 	D3DXVECTOR2 mousePos;
 	D3DXVECTOR2 position;
 	D3DXVECTOR2 aimDirection;
@@ -47,16 +46,23 @@ void InputComponent::update(Entity *entity, float frameTime)
 	mousePos.x = input->getMouseX();
 	mousePos.y = input->getMouseY();
 
-	position.x = entity->getCenterX();
-	position.y = entity->getCenterY();
+	position.x = entity->getX();
+	position.y = entity->getY();
 
 	aimDirection = mousePos - position;
 	D3DXVec2Normalize(&aimDirection, &aimDirection);
+	*pOut = aimDirection;
 
 	if (input->getMouseLButton()) {
-		sc->fire(position, aimDirection);
-
+		return true;
 	}
+
+	return false;
+}
+
+void InputComponent::update(Entity *entity, float frameTime)
+{
+
 
 }
 
