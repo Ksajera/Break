@@ -45,16 +45,12 @@ bool Enemy::initialize(Game * gamePtr, int width, int height, int ncols, Texture
 
 void Enemy::checkDirection() 
 {
-<<<<<<< HEAD
 	
-=======
 	//float rotation = 
->>>>>>> dde460914554f159b2601505f1a93c79a9c45db7
 }
 
 void Enemy::moveFOV() 
 {
-<<<<<<< HEAD
 	//float x, y;
 	//if (direction % 2 == 0) {
 	//	x = (getX() - getWidth() / 2) * (direction / 2);
@@ -66,20 +62,8 @@ void Enemy::moveFOV()
 	//}
 	//
 	//enemyFOV->setPos(x, y);
-	startFovAngle = spriteData.angle() - ENEMY_FOV_ANGLE / 2;
-	endFovAngle = startFovAngle + fovAngle; 
+	//startFovAngle = spriteData.angle() - ENEMY_FOV_ANGLE / 2;
+	//endFovAngle = startFovAngle + fovAngle; 
 	//so using the start and end angle, if vector from enemy(this) to player angle falls between the range, check for dist, check time elapsed, carry out task
-=======
-	float x, y;
-	if (direction % 2 == 0) {
-		x = (getX() - getWidth() / 2) * (direction / 2);
-		y = (getY() - getHeight() / 2) * (direction / 2);
-	}
-	else {
-		x = (getX() - getWidth() / 2) * direction;
-		y = (getY() - getHeight() / 2) * direction;
-	}
-
 	//enemyFOV->setPos(x, y);
->>>>>>> dde460914554f159b2601505f1a93c79a9c45db7
 }
