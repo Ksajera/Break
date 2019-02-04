@@ -53,7 +53,7 @@ void Break::initialize(HWND hwnd)
 	//ENEMY
 	if (!enemySprite.initialize(graphics, ENEMY_IMAGE))
 		throw(GameError(gameErrorNS::FATAL_ERROR, "Error initializing enemy texture."));
-	if (!enemy.initialize(this, 32, 64, 0, &enemySprite))
+	if (!enemy.initialize(this, 64, 64, 0, &enemySprite))
 		throw(GameError(gameErrorNS::FATAL_ERROR, "Error initializing enemy."));
 	enemy.setActive(false);
 	enemy.setVisible(false);

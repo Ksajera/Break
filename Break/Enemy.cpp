@@ -5,9 +5,7 @@
 Enemy::Enemy()
 {
 	direction = DIRECTION::DOWN;
-	fovAngle = ENEMY_FOV_ANGLE;
-	startFovAngle = 0;
-	endFovAngle = 0;
+	moveFOV();
 }
 
 
@@ -18,6 +16,7 @@ Enemy::~Enemy()
 void Enemy::update(float frameTime) 
 {
 	physicsComponent.update(this, frameTime);
+	setPlayerPos(); // set VecEnemyToPlayer variable
 }
 
 void Enemy::setPosition(D3DXVECTOR2 position)
@@ -45,25 +44,46 @@ bool Enemy::initialize(Game * gamePtr, int width, int height, int ncols, Texture
 
 void Enemy::checkDirection() 
 {
-	
-	//float rotation = 
+	//prob dont need this func 
+	//or at least change it to be called in another class to set direction in enemy ai 
 }
 
 void Enemy::moveFOV() 
 {
-	//float x, y;
-	//if (direction % 2 == 0) {
-	//	x = (getX() - getWidth() / 2) * (direction / 2);
-	//	y = (getY() - getHeight() / 2) * (direction / 2);
-	//}
-	//else {
-	//	x = (getX() - getWidth() / 2) * direction;
-	//	y = (getY() - getHeight() / 2) * direction;
-	//}
-	//
-	//enemyFOV->setPos(x, y);
-	//startFovAngle = spriteData.angle() - ENEMY_FOV_ANGLE / 2;
-	//endFovAngle = startFovAngle + fovAngle; 
-	//so using the start and end angle, if vector from enemy(this) to player angle falls between the range, check for dist, check time elapsed, carry out task
-	//enemyFOV->setPos(x, y);
+	startFovAngle = direction - ENEMY_FOV_ANGLE_START; 
+	endFovAngle = direction + ENEMY_FOV_ANGLE_START;
+}
+
+float Enemy::getEnemyToPlayerAngle() 
+{
+	float angle = 0;
+	angle = atan2(VecEnemyToPlayer.y, VecEnemyToPlayer.x) * 180 / PI;
+	return angle; 
+}
+
+bool Enemy::isPlayerInFov()
+{
+	/*
+	if player within min angle and max angle
+		return true
+	else
+		return false
+	*/
+	if (getEnemyToPlayerAngle() > startFovAngle && getEnemyToPlayerAngle() < endFovAngle)
+		return true;
+	else
+		return false;
+}
+
+void Enemy::playerInFov()
+{
+	if (isPlayerInFov()) {
+		//do the count down and stuff i guess
+		//change sprite image color to test?
+	}
+}
+
+void Enemy::setPlayerPos() //call in update()
+{
+	VecEnemyToPlayer = player->getPosition() - getPosition(); 
 }

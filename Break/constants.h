@@ -47,6 +47,7 @@ const float GRAVITY = 6.67428e-11f;             // gravitational constant
 const float MASS_PLANET = 1.0e14f;
 const float MASS_SHIP = 5.0f;
 const float ENEMY_FOV_ANGLE = 90;
+const float ENEMY_FOV_ANGLE_START = ENEMY_FOV_ANGLE / 2;
 const int TILE_SIZE = 32;
 const int SPEED_MODIFIER = 15; 
 const int MAX_SPEED_MODIFIER = 5; //tiles per second
@@ -69,6 +70,7 @@ const char PLAYER_IMAGE[] = "pictures\\player.png";
 const char ENEMY_IMAGE[] = "pictures\\enemy.png";
 const char BULLET_TEXTURE[] = "pictures\\bullet.png";
 const char ARROW_TEXTURE[] = "pictures\\arrow.png";
+const char FOV_TEXTURE[] = "pictures\\fov.png";
 
 // key mappings
 // In this game simple constants are used for key mappings. If variables were used

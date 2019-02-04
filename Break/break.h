@@ -32,8 +32,8 @@ private:
 	Projectile bullet;
 	ProjectilePool bulletPool;
 	EnemyPool enemyPool;
-	TextureManager playerSprite, enemySprite, bulletSprite, bgTexture;
-	Image bgImage;
+	TextureManager bgTexture, playerSprite, enemySprite, bulletSprite, enemyFovSprite;
+	Image bgImage, enemyFovImage;
 
 public:
     // Constructor

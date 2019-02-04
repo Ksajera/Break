@@ -2,18 +2,19 @@
 #include "entity.h"
 #include "PhysicsComponent.h"
 #include "EnemyFOV.h"
+#include "Player.h"
 
 enum DIRECTION {
-	UP = -1, DOWN = 1,
-	LEFT = -2, RIGHT = 2
+	LEFT = 0, UP = 90,
+	RIGHT = 180, DOWN = 270
 };
 
 class Enemy: public Entity
 {
 private:
 	PhysicsComponent physicsComponent;
-	//EnemyFOV *enemyFOV;
-	D3DXVECTOR2 enemyForwardVec;
+	D3DXVECTOR2 VecEnemyToPlayer;
+	Player *player;
 
 	int direction;
 	float fovAngle;
@@ -30,5 +31,9 @@ public:
 		TextureManager *textureM);
 	void checkDirection();
 	void moveFOV();
+	float getEnemyToPlayerAngle();
+	bool isPlayerInFov();
+	void playerInFov();
+	void setPlayerPos();
 };
 
