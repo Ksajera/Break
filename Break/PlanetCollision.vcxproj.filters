@@ -102,6 +102,7 @@
     </ClCompile>
     <ClCompile Include="Melee.cpp" />
     <ClCompile Include="Ranged.cpp" />
+    <ClCompile Include="Handgun.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="break.h">
@@ -208,6 +209,7 @@
     </ClInclude>
     <ClInclude Include="Melee.h" />
     <ClInclude Include="Ranged.h" />
+    <ClInclude Include="Handgun.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Header Files">

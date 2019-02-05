@@ -30,6 +30,8 @@ void Break::initialize(HWND hwnd)
   Game::initialize(hwnd); // throws GameError
 	world.initialize(graphics);
 
+	#pragma region Initialization
+
 	//BACKGROUND
 	if (!bgTexture.initialize(graphics, NEBULA_IMAGE))
 		throw(GameError(gameErrorNS::FATAL_ERROR, "Error initializing background texture"));
@@ -42,19 +44,28 @@ void Break::initialize(HWND hwnd)
 	if (!bullet.initialize(this, 8, 8, 0, &bulletSprite))
 		throw(GameError(gameErrorNS::FATAL_ERROR, "Error initializing bullet."));
 
+	if (!handgunSprite.initialize(graphics, HANDGUN_TEXTURE))
+		throw(GameError(gameErrorNS::FATAL_ERROR, "Error initializing handgun texture."));
+
+	if (!handgun.initialize(graphics, handgunNS::WIDTH, handgunNS::HEIGHT, handgunNS::TEXTURE_COLS, &handgunSprite, &bullet, handgunNS::MAGAZINE_SIZE))
+		throw(GameError(gameErrorNS::FATAL_ERROR, "Error initializing bullet."));
+
 	//Sprites
 	if (!playerSprite.initialize(graphics, PLAYER_IMAGE))
 		throw(GameError(gameErrorNS::FATAL_ERROR, "Error initializing player texture."));
 
 	//Entities
-	if (!player.initialize(this, 32, 64, 0, &playerSprite, &bulletPool))
+	if (!player.initialize(this, 32, 64, 0, &playerSprite))
 		throw(GameError(gameErrorNS::FATAL_ERROR, "Error initializing player."));
+
+	player.equip(&handgun);
 
 	//ENEMY
 	if (!enemySprite.initialize(graphics, ENEMY_IMAGE))
 		throw(GameError(gameErrorNS::FATAL_ERROR, "Error initializing enemy texture."));
 	if (!enemy.initialize(this, 64, 64, 0, &enemySprite))
 		throw(GameError(gameErrorNS::FATAL_ERROR, "Error initializing enemy."));
+
 	enemy.setActive(false);
 	enemy.setVisible(false);
 
@@ -62,6 +73,9 @@ void Break::initialize(HWND hwnd)
 	enemyPool.initialize(&enemy, 1);
 
     return;
+
+#pragma endregion
+
 }
 
 //=============================================================================

@@ -1,9 +1,8 @@
 #include "InputComponent.h"
 
-InputComponent::InputComponent(Game *gamePtr, ShootingComponent *pewpew)
+InputComponent::InputComponent(Game* game)
 {
-	input = gamePtr->getInput();
-	sc = pewpew;
+	input = game->getInput();
 }
 
 InputComponent::InputComponent()

@@ -95,6 +95,7 @@
     <ClCompile Include="entity.cpp" />
     <ClCompile Include="game.cpp" />
     <ClCompile Include="graphics.cpp" />
+    <ClCompile Include="Handgun.cpp" />
     <ClCompile Include="HidingState.cpp" />
     <ClCompile Include="IdleState.cpp" />
     <ClCompile Include="image.cpp" />
@@ -134,6 +135,7 @@
     <ClInclude Include="game.h" />
     <ClInclude Include="gameError.h" />
     <ClInclude Include="graphics.h" />
+    <ClInclude Include="Handgun.h" />
     <ClInclude Include="HidingState.h" />
     <ClInclude Include="IdleState.h" />
     <ClInclude Include="image.h" />
