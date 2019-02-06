@@ -70,8 +70,8 @@ void Break::initialize(HWND hwnd)
 	enemy.setVisible(false);
 
 	bulletPool.initialize(&bullet, MAX_PROJECTILES);
-	enemyPool.initialize(&enemy, 1);
-
+	enemyPool.initialize(&enemy, 5);
+	enemyPool.create(D3DXVECTOR2(GAME_WIDTH / 2, GAME_HEIGHT / 2), D3DXVECTOR2(0, 0));
     return;
 
 #pragma endregion
@@ -84,7 +84,7 @@ void Break::initialize(HWND hwnd)
 void Break::update()
 {
 	player.update(frameTime);
-	enemy.update(frameTime); //dk if can comment this out too lazy to find out. but prob no need this line 
+	//enemy.update(frameTime); //dk if can comment this out too lazy to find out. but prob no need this line 
 	bulletPool.update(frameTime);
 	enemyPool.update(frameTime);
 }
@@ -103,7 +103,13 @@ void Break::ai()
 void Break::collisions()
 {
     VECTOR2 collisionVector;
+	std::vector<Enemy>* enemies = enemyPool.getEnemies();
+	for (auto it = enemies->begin(); it < enemies->end(); it++) {
+		if (player.weapon->collide(*it, collisionVector)) {
+			enemyPool.destroy(it);
+		}
 
+	}
 
 }
 
@@ -116,7 +122,7 @@ void Break::render()
 	world.draw();
 	bgImage.draw();
 	player.draw();
-	enemy.draw();
+	//enemy.draw();
 	bulletPool.draw();
 	enemyPool.draw();
 

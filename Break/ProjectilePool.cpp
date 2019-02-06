@@ -39,6 +39,33 @@ void ProjectilePool::destroy() {
 	}
 }
 
+void ProjectilePool::destroy(std::vector<Projectile>::iterator &it)
+{
+	it->setActive(false);
+	it->setVisible(false);
+	//projectiles.erase(it);
+	//projectiles.push_back(*it);
+
+}
+
+bool ProjectilePool::collide(Entity & entity, D3DXVECTOR2 & collisionVector)
+{
+	for (auto it = projectiles.begin(); it < projectiles.end(); it++) {
+		if (it->getActive()) {
+			if (it->collidesWith(entity, collisionVector)) {
+				it->setVisible(false);
+				it->setActive(false);
+				return true;
+
+			}
+
+		}
+	}
+
+	return false;
+
+}
+
 void ProjectilePool::initialize(Projectile *projectile, int size)
 {
 	projectile->setActive(false);
@@ -63,4 +90,9 @@ void ProjectilePool::draw()
 		if (it->getActive())
 			it->draw();
 	}
+}
+
+void ProjectilePool::reload(int magazineSize)
+{
+
 }

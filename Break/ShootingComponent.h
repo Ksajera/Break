@@ -4,11 +4,13 @@ class ShootingComponent
 {
 private:
 	ProjectilePool * projectilesPool;
+	int maxProjectiles;
+	int projectilesLeft;
 public:
 	ShootingComponent();
-	ShootingComponent(ProjectilePool * pool);
+	ShootingComponent(ProjectilePool * pool, int size);
 	~ShootingComponent();
-	void fire(D3DXVECTOR2 position, D3DXVECTOR2 direction);
+	bool fire(D3DXVECTOR2 position, D3DXVECTOR2 direction);
 
 };
 

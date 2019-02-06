@@ -26,12 +26,26 @@ void Ranged::update(float frameTime)
 
 void Ranged::attack(D3DXVECTOR2 position, D3DXVECTOR2 direction)
 {
-	sc.fire(position, direction);
+	if (!sc.fire(position, direction))
+		reload();
+
 }
 
 bool Ranged::initialize(Graphics * g, int width, int height, int ncols, TextureManager * textureM, Projectile* bullet, int magazineSize)
 {
-	magazine.initialize(bullet, magazineSize);
-	sc = ShootingComponent(&magazine);
+	magazine.initialize(bullet, magazineSize + (magazineSize/reloadDuration * fireRate));
+	sc = ShootingComponent(&magazine, magazineSize);
 	return Weapon::initialize(g, width, height, ncols, textureM);
+
 }
+
+bool Ranged::collide(Entity & entity, D3DXVECTOR2 & collisionVector)
+{
+	return magazine.collide(entity, collisionVector);
+}
+
+void Ranged::reload()
+{
+	magazine.reload(magazineSize);
+}
+

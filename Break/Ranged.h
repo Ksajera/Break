@@ -12,6 +12,8 @@ public:
 	virtual void update(float frameTime);
 	virtual void attack(D3DXVECTOR2 position, D3DXVECTOR2 direction);
 	virtual bool initialize(Graphics * g, int width, int height, int ncols, TextureManager * textureM, Projectile * bullet, int magazineSize);
+	virtual bool collide(Entity &entity, D3DXVECTOR2 &collisionVector);
+	virtual void reload();
 	ShootingComponent sc;
 
 private:
@@ -19,6 +21,7 @@ private:
 	int damage;
 	int magazineSize;
 	float reloadDuration;
+	float reloadTimeLeft;
 	ProjectilePool magazine;
 
 };
