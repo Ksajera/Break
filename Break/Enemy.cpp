@@ -87,15 +87,17 @@ bool Enemy::isPlayerInFov()
 
 void Enemy::playerInFov()
 {
-	if (isPlayerInFov()) {
-		//do the count down and stuff i guess
-		//change sprite image color to test?
-		active = false;
-		visible = false;
-	}
-	else {
-		active = true;
-		visible = true;
+	if (D3DXVec2Length(&VecEnemyToPlayer) <= TILE_SIZE * 5){ //if player is within 5 tiles infront
+		if (isPlayerInFov()) {
+			//do the count down and stuff i guess
+			//change sprite image color to test?
+			active = false;
+			visible = false;
+		}
+		else {
+			active = true;
+			visible = true;
+		}
 	}
 }
 
