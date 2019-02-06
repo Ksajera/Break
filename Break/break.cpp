@@ -47,7 +47,7 @@ void Break::initialize(HWND hwnd)
 	if (!handgunSprite.initialize(graphics, HANDGUN_TEXTURE))
 		throw(GameError(gameErrorNS::FATAL_ERROR, "Error initializing handgun texture."));
 
-	if (!handgun.initialize(graphics, handgunNS::WIDTH, handgunNS::HEIGHT, handgunNS::TEXTURE_COLS, &handgunSprite, &bullet, handgunNS::MAGAZINE_SIZE))
+	if (!handgun.initialize(graphics, handgunNS::WIDTH, handgunNS::HEIGHT, handgunNS::TEXTURE_COLS, &handgunSprite, &bullet, handgunNS::MAGAZINE_SIZE, handgunNS::RELOAD_DURATION, handgunNS::FIRE_RATE))
 		throw(GameError(gameErrorNS::FATAL_ERROR, "Error initializing bullet."));
 
 	//Sprites

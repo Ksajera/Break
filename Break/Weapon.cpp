@@ -28,6 +28,11 @@ void Weapon::attack(D3DXVECTOR2 position, D3DXVECTOR2 direction)
 {
 }
 
+float Weapon::getAttackSpeed()
+{
+	return 0.0f;
+}
+
 bool Weapon::collide(Entity & entity, D3DXVECTOR2 & collisionVector)
 {
 	return false;
