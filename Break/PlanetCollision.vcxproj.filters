@@ -1,6 +1,69 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
+<<<<<<< HEAD
+    <ClCompile Include="Enemy.cpp" />
+    <ClCompile Include="EnemyPool.cpp" />
+    <ClCompile Include="entity.cpp" />
+    <ClCompile Include="game.cpp" />
+    <ClCompile Include="graphics.cpp" />
+    <ClCompile Include="image.cpp" />
+    <ClCompile Include="input.cpp" />
+    <ClCompile Include="InputComponent.cpp" />
+    <ClCompile Include="MovingState.cpp" />
+    <ClCompile Include="PhysicsComponent.cpp" />
+    <ClCompile Include="Player.cpp" />
+    <ClCompile Include="break.cpp" />
+    <ClCompile Include="PlayerPhysicsComponent.cpp" />
+    <ClCompile Include="PlayerState.cpp" />
+    <ClCompile Include="Projectile.cpp" />
+    <ClCompile Include="Screen.cpp" />
+    <ClCompile Include="ProjectilePool.cpp" />
+    <ClCompile Include="ShootingComponent.cpp" />
+    <ClCompile Include="ShootingState.cpp" />
+    <ClCompile Include="StandingState.cpp" />
+    <ClCompile Include="textDX.cpp" />
+    <ClCompile Include="textureManager.cpp" />
+    <ClCompile Include="Tile.cpp" />
+    <ClCompile Include="winmain.cpp" />
+    <ClCompile Include="World.cpp" />
+    <ClCompile Include="EnemyFOV.cpp" />
+    <ClCompile Include="EnemyFOVpool.cpp" />
+    <ClCompile Include="IdleState.cpp" />
+    <ClCompile Include="EnemyAI.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="constants.h" />
+    <ClInclude Include="Enemy.h" />
+    <ClInclude Include="EnemyPool.h" />
+    <ClInclude Include="entity.h" />
+    <ClInclude Include="game.h" />
+    <ClInclude Include="gameError.h" />
+    <ClInclude Include="graphics.h" />
+    <ClInclude Include="image.h" />
+    <ClInclude Include="input.h" />
+    <ClInclude Include="InputComponent.h" />
+    <ClInclude Include="MovingState.h" />
+    <ClInclude Include="PhysicsComponent.h" />
+    <ClInclude Include="Player.h" />
+    <ClInclude Include="break.h" />
+    <ClInclude Include="PlayerPhysicsComponent.h" />
+    <ClInclude Include="PlayerState.h" />
+    <ClInclude Include="Projectile.h" />
+    <ClInclude Include="Screen.h" />
+    <ClInclude Include="ProjectilePool.h" />
+    <ClInclude Include="ShootingComponent.h" />
+    <ClInclude Include="ShootingState.h" />
+    <ClInclude Include="StandingState.h" />
+    <ClInclude Include="textDX.h" />
+    <ClInclude Include="textureManager.h" />
+    <ClInclude Include="Tile.h" />
+    <ClInclude Include="World.h" />
+    <ClInclude Include="EnemyFOV.h" />
+    <ClInclude Include="EnemyFOVpool.h" />
+    <ClInclude Include="IdleState.h" />
+    <ClInclude Include="EnemyAI.h" />
+=======
     <ClCompile Include="break.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -218,5 +281,6 @@
     <Filter Include="Source Files">
       <UniqueIdentifier>{a3250142-521b-4c08-85b4-c25597c20e1e}</UniqueIdentifier>
     </Filter>
+>>>>>>> 912fd24c6949198f06d1035e86ef4378aa72782a
   </ItemGroup>
 </Project>
