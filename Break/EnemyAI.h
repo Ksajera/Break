@@ -1,9 +1,9 @@
 #pragma once
 #include "Player.h"
 #include "PhysicsComponent.h"
-#include "entity.h"
+//#include "entity.h"
 
-//class Enemy;
+class Enemy;
 
 enum DIRECTION {
 	UP = 0, RIGHT = 90,

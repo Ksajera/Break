@@ -1,17 +1,18 @@
 #pragma once
 #include "Player.h"
-//#include "EnemyAI.h"
-class EnemyAI;
-enum DIRECTION {
-	UP = 0, RIGHT = 90, 
-	DOWN = 180, LEFT = 270
-};
+#include "EnemyAI.h"
+//class EnemyAI;
+//enum DIRECTION {
+//	UP = 0, RIGHT = 90, 
+//	DOWN = 180, LEFT = 270
+//};
 
 class Enemy: public Entity
 {
 private:
 	PhysicsComponent physicsComponent;
-	EnemyAI* enemyAI;
+	//EnemyAI* enemyAI;
+	EnemyAI enemyAI;
 
 	D3DXVECTOR2 velo;
 	int direction;
