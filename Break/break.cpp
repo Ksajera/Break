@@ -65,12 +65,9 @@ void Break::initialize(HWND hwnd)
 		throw(GameError(gameErrorNS::FATAL_ERROR, "Error initializing enemy texture."));
 	if (!enemy.initialize(this, 64, 64, 0, &enemySprite))
 		throw(GameError(gameErrorNS::FATAL_ERROR, "Error initializing enemy."));
-<<<<<<< HEAD
-=======
 
 	enemy.setActive(false);
 	enemy.setVisible(false);
->>>>>>> 912fd24c6949198f06d1035e86ef4378aa72782a
 
 	bulletPool.initialize(&bullet, MAX_PROJECTILES);
 	enemyPool.initialize(&enemy, 5);
