@@ -39,6 +39,49 @@ void ProjectilePool::destroy() {
 	}
 }
 
+void ProjectilePool::destroy(std::vector<Projectile>::iterator &it)
+{
+	it->setActive(false);
+	it->setVisible(false);
+	it->setVelocity(D3DXVECTOR2(0, 0));
+
+}
+
+void ProjectilePool::destroy(int amount)
+{
+	int projectilesLeft = amount;
+	for (auto it = projectiles.begin(); it < projectiles.end(); it++) {
+		if (projectilesLeft <= 0)
+			return;
+
+		if (it->getActive()) {
+			it->setActive(false);
+			it->setVisible(false);
+			it->setVelocity(D3DXVECTOR2(0, 0));
+			projectilesLeft--;
+		}
+
+	}
+}
+
+bool ProjectilePool::collide(Entity & entity, D3DXVECTOR2 & collisionVector)
+{
+	for (auto it = projectiles.begin(); it < projectiles.end(); it++) {
+		if (it->getActive()) {
+			if (it->collidesWith(entity, collisionVector)) {
+				it->setVisible(false);
+				it->setActive(false);
+				return true;
+
+			}
+
+		}
+	}
+
+	return false;
+
+}
+
 void ProjectilePool::initialize(Projectile *projectile, int size)
 {
 	projectile->setActive(false);
@@ -63,4 +106,19 @@ void ProjectilePool::draw()
 		if (it->getActive())
 			it->draw();
 	}
+}
+
+void ProjectilePool::reload(int magazineSize)
+{
+	int activeProjectiles = 0;
+	int availableProjectiles;
+	for (auto it = projectiles.begin(); it < projectiles.end(); it++) {
+		if (it->getActive())
+			activeProjectiles++;
+	}
+
+	availableProjectiles = projectiles.size() - activeProjectiles;
+	if (availableProjectiles < magazineSize)
+		destroy(magazineSize - availableProjectiles);
+
 }

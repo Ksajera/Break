@@ -11,7 +11,9 @@ public:
 	virtual void draw();
 	virtual void update(float frameTime);
 	virtual void attack(D3DXVECTOR2 position, D3DXVECTOR2 direction);
-	virtual bool initialize(Graphics * g, int width, int height, int ncols, TextureManager * textureM, Projectile * bullet, int magazineSize);
+	virtual float getAttackSpeed();
+	virtual bool initialize(Graphics * g, int width, int height, int ncols, TextureManager * textureM, Projectile * bullet, int magazineSize, float reloadTime, float firerate);
+	virtual bool collide(Entity &entity, D3DXVECTOR2 &collisionVector);
 	ShootingComponent sc;
 
 private:

@@ -42,6 +42,12 @@ void EnemyPool::initialize(Enemy *enemy, int size)
 
 }
 
+void EnemyPool::destroy(std::vector<Enemy>::iterator &it) {
+	it->setActive(false);
+	it->setVisible(false);
+
+}
+
 void EnemyPool::update(float frameTime, Player *player)
 {
 	for (auto it = enemyVector.begin(); it < enemyVector.end(); it++) {
@@ -56,4 +62,23 @@ void EnemyPool::draw()
 		if (it->getActive())
 			it->draw();
 	}
+}
+
+void EnemyPool::collide(Entity &entity, D3DXVECTOR2 &collisionVector)
+{
+	for (auto it = enemyVector.begin(); it < enemyVector.end(); it++) {
+		if (it->getActive()) {
+			if (it->collidesWith(entity, collisionVector)) {
+				destroy(it);
+				return;
+
+			}
+
+		}
+	}
+}
+
+std::vector<Enemy>* EnemyPool::getEnemies()
+{
+	return &enemyVector;
 }

@@ -1,10 +1,10 @@
 #pragma once
 #include "Ranged.h"
 namespace handgunNS {
-	static const int MAGAZINE_SIZE = 12;
+	static const int MAGAZINE_SIZE = 24;
 	static const float RELOAD_DURATION = 2.0f;
 	static const int ATTACK_DAMAGE = 5;
-	static const float FIRE_RATE = 5.0f;
+	static const float FIRE_RATE = 10.0f;
 
 	//Sprite data
 	static const int WIDTH = 12;

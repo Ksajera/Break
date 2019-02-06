@@ -19,7 +19,7 @@ void ShootingState::update(Player * player, float frameTime)
 {
 	if (timeLeft <= 0) {
 		player->weapon->attack(player->getWeaponPosition(), player->aimDirection);
-		timeLeft = FIRE_DELAY;
+		timeLeft = 1/player->weapon->getAttackSpeed();
 	}
 	timeLeft -= frameTime;
 }
