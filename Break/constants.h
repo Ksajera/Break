@@ -49,7 +49,7 @@ const float MASS_SHIP = 5.0f;
 const float ENEMY_FOV_ANGLE = 90;
 const float ENEMY_FOV_ANGLE_START = ENEMY_FOV_ANGLE / 2;
 const int TILE_SIZE = 32;
-const int SPEED_MODIFIER = 15; 
+const int SPEED_MODIFIER = 30; 
 const int MAX_SPEED_MODIFIER = 5; //tiles per second
 const int MAX_MOVE_SPEED = TILE_SIZE * MAX_SPEED_MODIFIER;
 const int MOVE_SPEED = TILE_SIZE * SPEED_MODIFIER;
@@ -71,6 +71,7 @@ const char FLOOR_IMAGE[] = "pictures\\floor1.png";
 const char PLAYER_IMAGE[] = "pictures\\player.png";
 const char ENEMY_IMAGE[] = "pictures\\enemy.png";
 const char BULLET_TEXTURE[] = "pictures\\bullet.png";
+const char HANDGUN_TEXTURE[] = "pictures\\handgun.png";
 const char ARROW_TEXTURE[] = "pictures\\arrow.png";
 const char FOV_TEXTURE[] = "pictures\\fov.png";
 

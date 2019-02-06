@@ -96,10 +96,13 @@
     <ClCompile Include="entity.cpp" />
     <ClCompile Include="game.cpp" />
     <ClCompile Include="graphics.cpp" />
+    <ClCompile Include="Handgun.cpp" />
+    <ClCompile Include="HidingState.cpp" />
     <ClCompile Include="IdleState.cpp" />
     <ClCompile Include="image.cpp" />
     <ClCompile Include="input.cpp" />
     <ClCompile Include="InputComponent.cpp" />
+    <ClCompile Include="Melee.cpp" />
     <ClCompile Include="MovingState.cpp" />
     <ClCompile Include="PhysicsComponent.cpp" />
     <ClCompile Include="Player.cpp" />
@@ -107,14 +110,19 @@
     <ClCompile Include="PlayerPhysicsComponent.cpp" />
     <ClCompile Include="PlayerState.cpp" />
     <ClCompile Include="Projectile.cpp" />
+    <ClCompile Include="Ranged.cpp" />
+    <ClCompile Include="ReloadingState.cpp" />
     <ClCompile Include="Screen.cpp" />
     <ClCompile Include="ProjectilePool.cpp" />
     <ClCompile Include="ShootingComponent.cpp" />
     <ClCompile Include="ShootingState.cpp" />
+    <ClCompile Include="SneakingState.cpp" />
+    <ClCompile Include="SprintingState.cpp" />
     <ClCompile Include="StandingState.cpp" />
     <ClCompile Include="textDX.cpp" />
     <ClCompile Include="textureManager.cpp" />
     <ClCompile Include="Tile.cpp" />
+    <ClCompile Include="Weapon.cpp" />
     <ClCompile Include="winmain.cpp" />
     <ClCompile Include="World.cpp" />
   </ItemGroup>
@@ -129,10 +137,13 @@
     <ClInclude Include="game.h" />
     <ClInclude Include="gameError.h" />
     <ClInclude Include="graphics.h" />
+    <ClInclude Include="Handgun.h" />
+    <ClInclude Include="HidingState.h" />
     <ClInclude Include="IdleState.h" />
     <ClInclude Include="image.h" />
     <ClInclude Include="input.h" />
     <ClInclude Include="InputComponent.h" />
+    <ClInclude Include="Melee.h" />
     <ClInclude Include="MovingState.h" />
     <ClInclude Include="PhysicsComponent.h" />
     <ClInclude Include="Player.h" />
@@ -140,14 +151,19 @@
     <ClInclude Include="PlayerPhysicsComponent.h" />
     <ClInclude Include="PlayerState.h" />
     <ClInclude Include="Projectile.h" />
+    <ClInclude Include="Ranged.h" />
+    <ClInclude Include="ReloadingState.h" />
     <ClInclude Include="Screen.h" />
     <ClInclude Include="ProjectilePool.h" />
     <ClInclude Include="ShootingComponent.h" />
     <ClInclude Include="ShootingState.h" />
+    <ClInclude Include="SneakingState.h" />
+    <ClInclude Include="SprintingState.h" />
     <ClInclude Include="StandingState.h" />
     <ClInclude Include="textDX.h" />
     <ClInclude Include="textureManager.h" />
     <ClInclude Include="Tile.h" />
+    <ClInclude Include="Weapon.h" />
     <ClInclude Include="World.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
