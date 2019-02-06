@@ -55,11 +55,9 @@ void Break::initialize(HWND hwnd)
 		throw(GameError(gameErrorNS::FATAL_ERROR, "Error initializing enemy texture."));
 	if (!enemy.initialize(this, 64, 64, 0, &enemySprite))
 		throw(GameError(gameErrorNS::FATAL_ERROR, "Error initializing enemy."));
-	enemy.setActive(false);
-	enemy.setVisible(false);
 
 	bulletPool.initialize(&bullet, MAX_PROJECTILES);
-	enemyPool.initialize(&enemy, 1);
+	enemyPool.initialize(&enemy, 5);
 
     return;
 }
@@ -70,9 +68,9 @@ void Break::initialize(HWND hwnd)
 void Break::update()
 {
 	player.update(frameTime);
-	enemy.update(frameTime); //dk if can comment this out too lazy to find out. but prob no need this line 
+	//enemy.update(frameTime); //dk if can comment this out too lazy to find out. but prob no need this line 
 	bulletPool.update(frameTime);
-	enemyPool.update(frameTime);
+	enemyPool.update(frameTime, &player);
 }
 
 //=============================================================================
@@ -102,7 +100,7 @@ void Break::render()
 	world.draw();
 	bgImage.draw();
 	player.draw();
-	enemy.draw();
+	//enemy.draw();
 	bulletPool.draw();
 	enemyPool.draw();
 

@@ -12,7 +12,7 @@ public:
 	~EnemyPool();
 	void create(D3DXVECTOR2 position, D3DXVECTOR2 velocity);
 	void initialize(Enemy *enemy, int size);
-	void update(float frameTime);
+	void update(float frameTime, Player *player);
 	void draw();
 
 };

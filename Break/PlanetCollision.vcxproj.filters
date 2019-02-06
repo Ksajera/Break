@@ -29,6 +29,7 @@
     <ClCompile Include="EnemyFOV.cpp" />
     <ClCompile Include="EnemyFOVpool.cpp" />
     <ClCompile Include="IdleState.cpp" />
+    <ClCompile Include="EnemyAI.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="constants.h" />
@@ -60,5 +61,6 @@
     <ClInclude Include="EnemyFOV.h" />
     <ClInclude Include="EnemyFOVpool.h" />
     <ClInclude Include="IdleState.h" />
+    <ClInclude Include="EnemyAI.h" />
   </ItemGroup>
 </Project>
