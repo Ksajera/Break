@@ -14,9 +14,16 @@ Player::~Player()
 void Player::handleInput()
 {
 	PlayerState* state = state_->handleInput(this, &inputComponent);
+	PlayerState* combat = combat_->handleInput(this, &inputComponent);
+
 	if (state != NULL) {
 		delete state_;
 		state_ = state;
+	}
+
+	if (combat != NULL) {
+		delete combat_;
+		combat_ = combat;
 	}
 
 }
@@ -26,7 +33,13 @@ void Player::update(float frameTime)
 	handleInput();
 
 	Entity::update(frameTime);
+	weapon->setX(getCenterX() + TILE_SIZE * aimDirection.x);
+	weapon->setY(getCenterY() + TILE_SIZE * aimDirection.y);
+	weapon->update(frameTime);
+
 	state_->update(this, frameTime);
+	combat_->update(this, frameTime);
+
 	inputComponent.update(this, frameTime);
 	physics.update(this, &inputComponent, frameTime);
 
@@ -44,10 +57,20 @@ D3DXVECTOR2 Player::getPosition()
 	return D3DXVECTOR2(getX(), getY());
 }
 
+D3DXVECTOR2 Player::getWeaponPosition()
+{
+	return D3DXVECTOR2(weapon->getCenterX(), weapon->getCenterY());
+}
+
 void Player::draw()
 {
 	Image::draw();
+	weapon->draw();
+}
 
+void Player::equip(Weapon *weapon)
+{
+	this->weapon = weapon;
 }
 
 void Player::scroll()
@@ -72,11 +95,11 @@ void Player::scroll()
 
 }
 
-bool Player::initialize(Game * gamePtr, int width, int height, int ncols, TextureManager * textureM, ProjectilePool * pool)
+bool Player::initialize(Game * gamePtr, int width, int height, int ncols, TextureManager * textureM)
 {
 	state_ = new StandingState();
-	shootingComponent = ShootingComponent(pool);
-	inputComponent = InputComponent(gamePtr, &shootingComponent);
+	combat_ = new IdleState();
+	inputComponent = InputComponent(gamePtr);
 	physics = PlayerPhysicsComponent();
 
 	direction = D3DXVECTOR2(0, 0);

@@ -1,14 +1,10 @@
 #pragma once
 #include "InputComponent.h"
 class Player; //forward declaration to avoid circular dependency
-class StandingState;
-class MovingState;
 
 class PlayerState
 {
 public:
-	static StandingState standing;
-	static MovingState moving;
 	PlayerState();
 	~PlayerState();
 	//interface functions

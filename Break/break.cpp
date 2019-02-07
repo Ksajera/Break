@@ -30,6 +30,8 @@ void Break::initialize(HWND hwnd)
   Game::initialize(hwnd); // throws GameError
 	world.initialize(graphics);
 
+	#pragma region Initialization
+
 	//BACKGROUND
 	if (!bgTexture.initialize(graphics, NEBULA_IMAGE))
 		throw(GameError(gameErrorNS::FATAL_ERROR, "Error initializing background texture"));
@@ -42,26 +44,39 @@ void Break::initialize(HWND hwnd)
 	if (!bullet.initialize(this, 8, 8, 0, &bulletSprite))
 		throw(GameError(gameErrorNS::FATAL_ERROR, "Error initializing bullet."));
 
+	if (!handgunSprite.initialize(graphics, HANDGUN_TEXTURE))
+		throw(GameError(gameErrorNS::FATAL_ERROR, "Error initializing handgun texture."));
+
+	if (!handgun.initialize(graphics, handgunNS::WIDTH, handgunNS::HEIGHT, handgunNS::TEXTURE_COLS, &handgunSprite, &bullet, handgunNS::MAGAZINE_SIZE, handgunNS::RELOAD_DURATION, handgunNS::FIRE_RATE))
+		throw(GameError(gameErrorNS::FATAL_ERROR, "Error initializing bullet."));
+
 	//Sprites
 	if (!playerSprite.initialize(graphics, PLAYER_IMAGE))
 		throw(GameError(gameErrorNS::FATAL_ERROR, "Error initializing player texture."));
 
 	//Entities
-	if (!player.initialize(this, 32, 64, 0, &playerSprite, &bulletPool))
+	if (!player.initialize(this, 32, 64, 0, &playerSprite))
 		throw(GameError(gameErrorNS::FATAL_ERROR, "Error initializing player."));
+
+	player.equip(&handgun);
 
 	//ENEMY
 	if (!enemySprite.initialize(graphics, ENEMY_IMAGE))
 		throw(GameError(gameErrorNS::FATAL_ERROR, "Error initializing enemy texture."));
-	if (!enemy.initialize(this, 32, 64, 0, &enemySprite))
+	if (!enemy.initialize(this, 64, 64, 0, &enemySprite))
 		throw(GameError(gameErrorNS::FATAL_ERROR, "Error initializing enemy."));
-	enemy.setActive(false);
-	enemy.setVisible(false);
+
+	//enemy.setActive(false);
+	//enemy.setVisible(false);
 
 	bulletPool.initialize(&bullet, MAX_PROJECTILES);
-	enemyPool.initialize(&enemy, 1);
+	enemyPool.initialize(&enemy, 5);
+	//enemyPool.create(D3DXVECTOR2(GAME_WIDTH / 2, GAME_HEIGHT / 2), D3DXVECTOR2(0, 0));
 
     return;
+
+#pragma endregion
+
 }
 
 //=============================================================================
@@ -70,9 +85,9 @@ void Break::initialize(HWND hwnd)
 void Break::update()
 {
 	player.update(frameTime);
-	enemy.update(frameTime); //dk if can comment this out too lazy to find out. but prob no need this line 
+	//enemy.update(frameTime); //dk if can comment this out too lazy to find out. but prob no need this line 
 	bulletPool.update(frameTime);
-	enemyPool.update(frameTime);
+	enemyPool.update(frameTime, &player);
 }
 
 //=============================================================================
@@ -89,7 +104,13 @@ void Break::ai()
 void Break::collisions()
 {
     VECTOR2 collisionVector;
+	std::vector<Enemy>* enemies = enemyPool.getEnemies();
+	for (auto it = enemies->begin(); it < enemies->end(); it++) {
+		if (player.weapon->collide(*it, collisionVector)) {
+			enemyPool.destroy(it);
+		}
 
+	}
 
 }
 
@@ -102,7 +123,7 @@ void Break::render()
 	world.draw();
 	bgImage.draw();
 	player.draw();
-	enemy.draw();
+	//enemy.draw();
 	bulletPool.draw();
 	enemyPool.draw();
 

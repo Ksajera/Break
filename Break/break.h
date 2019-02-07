@@ -18,6 +18,7 @@
 #include "Projectile.h"
 #include "ProjectilePool.h"
 #include "EnemyPool.h"
+#include "Handgun.h"
 
 //=============================================================================
 // This class is the core of the game
@@ -32,8 +33,9 @@ private:
 	Projectile bullet;
 	ProjectilePool bulletPool;
 	EnemyPool enemyPool;
-	TextureManager playerSprite, enemySprite, bulletSprite, bgTexture;
-	Image bgImage;
+	TextureManager bgTexture, playerSprite, enemySprite, bulletSprite, enemyFovSprite, handgunSprite;
+	Image bgImage, enemyFovImage;
+	Handgun handgun;
 
 public:
     // Constructor

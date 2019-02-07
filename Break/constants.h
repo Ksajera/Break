@@ -47,8 +47,9 @@ const float GRAVITY = 6.67428e-11f;             // gravitational constant
 const float MASS_PLANET = 1.0e14f;
 const float MASS_SHIP = 5.0f;
 const float ENEMY_FOV_ANGLE = 90;
+const float ENEMY_FOV_ANGLE_START = ENEMY_FOV_ANGLE / 2;
 const int TILE_SIZE = 32;
-const int SPEED_MODIFIER = 15; 
+const int SPEED_MODIFIER = 30; 
 const int MAX_SPEED_MODIFIER = 5; //tiles per second
 const int MAX_MOVE_SPEED = TILE_SIZE * MAX_SPEED_MODIFIER;
 const int MOVE_SPEED = TILE_SIZE * SPEED_MODIFIER;
@@ -56,6 +57,8 @@ const int WORLD_WIDTH = GAME_WIDTH / TILE_SIZE;
 const int WORLD_HEIGHT = GAME_HEIGHT / TILE_SIZE;
 const int MAX_PROJECTILES = 1000;
 const int PROJECTILE_SPEED = 20 * TILE_SIZE;
+const int FIRE_RATE = 5; //per second
+const float FIRE_DELAY = 1.0f / FIRE_RATE;
 
 // graphic images
 const char NEBULA_IMAGE[] =   "pictures\\orion.jpg";     // photo source NASA/courtesy of nasaimages.org 
@@ -68,7 +71,9 @@ const char FLOOR_IMAGE[] = "pictures\\floor1.png";
 const char PLAYER_IMAGE[] = "pictures\\player.png";
 const char ENEMY_IMAGE[] = "pictures\\enemy.png";
 const char BULLET_TEXTURE[] = "pictures\\bullet.png";
+const char HANDGUN_TEXTURE[] = "pictures\\handgun.png";
 const char ARROW_TEXTURE[] = "pictures\\arrow.png";
+const char FOV_TEXTURE[] = "pictures\\fov.png";
 
 // key mappings
 // In this game simple constants are used for key mappings. If variables were used

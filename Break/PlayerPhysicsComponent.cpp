@@ -18,6 +18,7 @@ void PlayerPhysicsComponent::update(Entity * entity, InputComponent* inputC, flo
 void PlayerPhysicsComponent::Move(Entity *entity, D3DXVECTOR2 direction, float frameTime)
 {
 	D3DXVECTOR2 velocity = entity->getVelocity();
+
 	entity->setVelocity(velocity + direction  * MOVE_SPEED * frameTime);
 
 	if (D3DXVec2Length(&velocity) > MAX_MOVE_SPEED) {

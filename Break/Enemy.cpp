@@ -4,20 +4,22 @@
 
 Enemy::Enemy()
 {
-	direction = DIRECTION::DOWN;
-	fovAngle = ENEMY_FOV_ANGLE;
-	startFovAngle = 0;
-	endFovAngle = 0;
+	direction = RIGHT;
+	//moveFOV();
+	spriteData.angle = direction * PI/180; //convert degree(direction) to rad
+	velo = D3DXVECTOR2(1000, 1);
 }
-
 
 Enemy::~Enemy()
 {
 }
 
-void Enemy::update(float frameTime) 
+void Enemy::update(float frameTime, Player *player)
 {
 	physicsComponent.update(this, frameTime);
+	enemyAI.update(this, player, frameTime);
+	spriteData.angle = direction * PI / 180; //convert degree(direction) to rad
+
 }
 
 void Enemy::setPosition(D3DXVECTOR2 position)
@@ -43,27 +45,20 @@ bool Enemy::initialize(Game * gamePtr, int width, int height, int ncols, Texture
 	return Entity::initialize(gamePtr, width, height, ncols, textureM);
 }
 
-void Enemy::checkDirection() 
-{
-	
-	//float rotation = 
+
+int Enemy::getDirection() {
+	return direction;
 }
 
-void Enemy::moveFOV() 
-{
-	//float x, y;
-	//if (direction % 2 == 0) {
-	//	x = (getX() - getWidth() / 2) * (direction / 2);
-	//	y = (getY() - getHeight() / 2) * (direction / 2);
-	//}
-	//else {
-	//	x = (getX() - getWidth() / 2) * direction;
-	//	y = (getY() - getHeight() / 2) * direction;
-	//}
-	//
-	//enemyFOV->setPos(x, y);
-	//startFovAngle = spriteData.angle() - ENEMY_FOV_ANGLE / 2;
-	//endFovAngle = startFovAngle + fovAngle; 
-	//so using the start and end angle, if vector from enemy(this) to player angle falls between the range, check for dist, check time elapsed, carry out task
-	//enemyFOV->setPos(x, y);
+void Enemy::setDirection(int dir) {
+	direction = dir;
 }
+
+D3DXVECTOR2 Enemy::getVelo() {
+	return velocity;
+}
+
+void Enemy::setVelo(D3DXVECTOR2 vel) {
+	velocity = vel;
+}
+

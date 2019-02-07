@@ -5,28 +5,38 @@
 #include "entity.h"
 #include "InputComponent.h"
 #include "PlayerPhysicsComponent.h"
-#include "ShootingComponent.h"
+#include "Weapon.h"
 #include "PlayerState.h"
 #include "StandingState.h"
+#include "IdleState.h"
 
 class Player : public Entity
 {
 public:
 	PlayerState * state_;
+	PlayerState * combat_;
 	Player();
 	~Player();
-	void update(float frameTime);
+
 	void setPosition(D3DXVECTOR2 position);
-	void handleInput();
 	D3DXVECTOR2 getPosition();
 	D3DXVECTOR2 direction;
+	D3DXVECTOR2 aimDirection;
+	D3DXVECTOR2 getWeaponPosition();
+
 	InputComponent inputComponent;
-	ShootingComponent shootingComponent; //to be moved into gun class?
+	//ShootingComponent shootingComponent; //to be moved into gun class?
+	Weapon* weapon;
 	PlayerPhysicsComponent physics;
-	void draw();
+
 	void scroll();
+	void draw();
+	void equip(Weapon *weapon);
+	void update(float frameTime);
+	void handleInput();
+
 	bool initialize(Game *gamePtr, int width, int height, int ncols,
-		TextureManager *textureM, ProjectilePool * pool);
+		TextureManager *textureM);
 };
 #endif
 
