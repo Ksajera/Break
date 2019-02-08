@@ -43,6 +43,8 @@
     <ClCompile Include="Rifle.cpp" />
     <ClCompile Include="WeaponPool.cpp" />
     <ClCompile Include="CombatState.cpp" />
+    <ClCompile Include="SuspiciousState.cpp" />
+    <ClCompile Include="PatrolState.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="constants.h" />
@@ -88,5 +90,7 @@
     <ClInclude Include="Rifle.h" />
     <ClInclude Include="WeaponPool.h" />
     <ClInclude Include="CombatState.h" />
+    <ClInclude Include="SuspiciousState.h" />
+    <ClInclude Include="PatrolState.h" />
   </ItemGroup>
 </Project>

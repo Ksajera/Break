@@ -107,6 +107,7 @@
     <ClCompile Include="InputComponent.cpp" />
     <ClCompile Include="Melee.cpp" />
     <ClCompile Include="MovingState.cpp" />
+    <ClCompile Include="PatrolState.cpp" />
     <ClCompile Include="PhysicsComponent.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="break.cpp" />
@@ -123,6 +124,7 @@
     <ClCompile Include="SneakingState.cpp" />
     <ClCompile Include="SprintingState.cpp" />
     <ClCompile Include="StandingState.cpp" />
+    <ClCompile Include="SuspiciousState.cpp" />
     <ClCompile Include="textDX.cpp" />
     <ClCompile Include="textureManager.cpp" />
     <ClCompile Include="Tile.cpp" />
@@ -153,6 +155,7 @@
     <ClInclude Include="InputComponent.h" />
     <ClInclude Include="Melee.h" />
     <ClInclude Include="MovingState.h" />
+    <ClInclude Include="PatrolState.h" />
     <ClInclude Include="PhysicsComponent.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="break.h" />
@@ -169,6 +172,7 @@
     <ClInclude Include="SneakingState.h" />
     <ClInclude Include="SprintingState.h" />
     <ClInclude Include="StandingState.h" />
+    <ClInclude Include="SuspiciousState.h" />
     <ClInclude Include="textDX.h" />
     <ClInclude Include="textureManager.h" />
     <ClInclude Include="Tile.h" />
