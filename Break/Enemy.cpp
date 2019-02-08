@@ -48,6 +48,7 @@ void Enemy::draw()
 
 void Enemy::handleStates()
 {
+<<<<<<< HEAD
 	EnemyState* state = state_->handleEnemy(this, &enemyAI);
 	////EnemyState* combat = combat_->handleInput(this, &inputComponent);
 	//
@@ -59,6 +60,20 @@ void Enemy::handleStates()
 	//
 	//	state_->enter(this);
 	//}
+=======
+	EnemyState* state;
+	state = state_->handleEnemy(this, &enemyAI);
+	//EnemyState* combat = combat_->handleInput(this, &inputComponent);
+
+	if (state != NULL) {
+		state_->exit(this);
+	
+		delete state_;
+		state_ = state;
+	
+		state_->enter(this);
+	}
+>>>>>>> 0980ab878cdccafea2b2f945ccaa9f0539b39be9
 
 	//if (combat != NULL) {
 	//	state_->exit(this);
@@ -87,9 +102,13 @@ void Enemy::setVelo(D3DXVECTOR2 vel) {
 	velocity = vel;
 }
 
-bool Enemy::initialize(Game * gamePtr, int width, int height, int ncols, TextureManager * textureM)
+void Enemy::initState()
 {
 	state_ = new PatrolState(&enemyAI);
+}
+
+bool Enemy::initialize(Game * gamePtr, int width, int height, int ncols, TextureManager * textureM)
+{
 	physicsComponent = PhysicsComponent();
 	return Entity::initialize(gamePtr, width, height, ncols, textureM);
 }
