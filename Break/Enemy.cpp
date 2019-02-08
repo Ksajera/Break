@@ -49,16 +49,16 @@ void Enemy::draw()
 void Enemy::handleStates()
 {
 	EnemyState* state = state_->handleEnemy(this, &enemyAI);
-	//EnemyState* combat = combat_->handleInput(this, &inputComponent);
-
-	if (state != NULL) {
-		state_->exit(this);
-	
-		delete state_;
-		state_ = state;
-	
-		state_->enter(this);
-	}
+	////EnemyState* combat = combat_->handleInput(this, &inputComponent);
+	//
+	//if (state != NULL) {
+	//	state_->exit(this);
+	//
+	//	delete state_;
+	//	state_ = state;
+	//
+	//	state_->enter(this);
+	//}
 
 	//if (combat != NULL) {
 	//	state_->exit(this);
