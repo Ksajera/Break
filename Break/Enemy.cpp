@@ -89,7 +89,7 @@ void Enemy::setVelo(D3DXVECTOR2 vel) {
 
 bool Enemy::initialize(Game * gamePtr, int width, int height, int ncols, TextureManager * textureM)
 {
-	state_ = new PatrolState();
+	state_ = new PatrolState(&enemyAI);
 	physicsComponent = PhysicsComponent();
 	return Entity::initialize(gamePtr, width, height, ncols, textureM);
 }

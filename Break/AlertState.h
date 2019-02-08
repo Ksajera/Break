@@ -6,8 +6,12 @@ class PatrolState;
 class AlertState :
 	public EnemyState
 {
+private:
+	EnemyAI* enemyAI;
+
 public:
 	AlertState();
+	AlertState(EnemyAI* ai);
 	~AlertState();
 
 	// Inherited via EnemyState

@@ -2,9 +2,13 @@
 #include "Enemy.h"
 #include "PatrolState.h"
 
-
 AlertState::AlertState()
 {
+}
+
+AlertState::AlertState(EnemyAI* ai)
+{
+	this->enemyAI = ai;
 }
 
 
@@ -27,10 +31,10 @@ void AlertState::update(Enemy * enemy, Player* player, EnemyAI* ai, float frameT
 
 EnemyState* AlertState::handleEnemy(Enemy * enemy, EnemyAI * ai)
 {
-	if (!(ai->playerInFov(enemy))) {
-		return new PatrolState();
+	if (!(enemyAI->playerInFov(enemy))) {
+		return new PatrolState(enemyAI);
 	}
-	return new AlertState();
+	return new AlertState(enemyAI);
 }
 
 void AlertState::chasePlayer(Enemy* enemy, Player* player) //for testing, just stop moving and look at player
