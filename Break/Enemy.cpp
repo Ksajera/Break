@@ -4,10 +4,13 @@
 
 Enemy::Enemy()
 {
-	direction = RIGHT;
 	//moveFOV();
+	//enemy->moveFOV();
+	//setRadians(direction * PI / 180); //convert degree(direction) to rad
+	direction = RIGHT;
 	spriteData.angle = direction * PI/180; //convert degree(direction) to rad
-	velo = D3DXVECTOR2(1000, 1);
+	velocity = D3DXVECTOR2(100, 1);
+
 }
 
 Enemy::~Enemy()
@@ -16,10 +19,10 @@ Enemy::~Enemy()
 
 void Enemy::update(float frameTime, Player *player)
 {
+	//setVelocity(velo);
 	physicsComponent.update(this, frameTime);
 	enemyAI.update(this, player, frameTime);
 	spriteData.angle = direction * PI / 180; //convert degree(direction) to rad
-
 }
 
 void Enemy::setPosition(D3DXVECTOR2 position)

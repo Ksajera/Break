@@ -17,7 +17,7 @@ void EnemyAI::update(Enemy *enemy, Player *player, float frameTime)
 	playerInFov(enemy);
 	moveFOV(enemy);
 	movementUpdate(enemy);
-	enemy->setVelocity(velo);
+	//enemy->setVelocity(velo);
 
 }
 
@@ -61,6 +61,10 @@ void EnemyAI::playerInFov(Enemy* enemy)
 			enemy->setActive(true);
 		}	enemy->setVisible(true);
 	}
+	else {
+		enemy->setActive(true);
+	}	enemy->setVisible(true);
+
 }
 
 void EnemyAI::setVecEnemyToPlayer(Enemy* enemy, Player *player) //call in update()
@@ -101,7 +105,6 @@ void EnemyAI::movementUpdate(Enemy* enemy)
 
 	}
 
-	enemy->setVelocity(velo);
 }
 
 int EnemyAI::getDirection(Enemy* enemy) {
@@ -117,6 +120,6 @@ D3DXVECTOR2 EnemyAI::getVelo(Enemy* enemy) {
 }
 
 void EnemyAI::setVelo(Enemy* enemy, D3DXVECTOR2 vel) {
-	//enemy->setVelocity(vel);
-	velo = vel;
+	enemy->setVelocity(vel);
+	//velo = vel;
 }

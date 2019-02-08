@@ -37,7 +37,7 @@ void EnemyPool::initialize(Enemy *enemy, int size)
 		enemy->setDirection(RIGHT);
 		//enemy->moveFOV();
 		enemy->setRadians(enemy->getDirection() * PI / 180); //convert degree(direction) to rad
-		enemy->setVelo(D3DXVECTOR2(1, 1));
+		enemy->setVelo(D3DXVECTOR2(100, 1));
 	}
 
 }
