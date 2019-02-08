@@ -10,7 +10,6 @@ Enemy::Enemy()
 	direction = RIGHT;
 	spriteData.angle = direction * PI/180; //convert degree(direction) to rad
 	velocity = D3DXVECTOR2(100, 1);
-
 }
 
 Enemy::~Enemy()
@@ -20,7 +19,6 @@ Enemy::~Enemy()
 void Enemy::update(float frameTime, Player *player)
 {
 	handleStates();
-	//state_->handleEnemy(this, &enemyAI);
 	state_->update(this, player, &enemyAI,frameTime);
 	//setVelocity(velo);
 	physicsComponent.update(this, frameTime);
@@ -49,19 +47,6 @@ void Enemy::draw()
 void Enemy::handleStates()
 {
 	EnemyState* state = state_->handleEnemy(this, &enemyAI);
-	////EnemyState* combat = combat_->handleInput(this, &inputComponent);
-	//
-	//if (state != NULL) {
-	//	state_->exit(this);
-	//
-	//	delete state_;
-	//	state_ = state;
-	//
-	//	state_->enter(this);
-	//}
-	//EnemyState* state;
-	state = state_->handleEnemy(this, &enemyAI);
-	//EnemyState* combat = combat_->handleInput(this, &inputComponent);
 
 	if (state != NULL) {
 		state_->exit(this);
@@ -71,17 +56,7 @@ void Enemy::handleStates()
 	
 		state_->enter(this);
 	}
-
-	//if (combat != NULL) {
-	//	state_->exit(this);
-	//
-	//	delete combat_;
-	//	combat_ = combat;
-	//
-	//	state_->enter(this);
-	//}
 }
-
 
 int Enemy::getDirection() {
 	return direction;

@@ -24,5 +24,8 @@ CombatState * IdleState::handleInput(Entity * entity, InputComponent * inputC, W
 	if (inputC->input->wasKeyPressed('R'))
 		return new ReloadingState(weapon);
 
+	//if (inputC->getMouseInput(entity, &direction))
+	//	return new BackstabState();
+
 	return new IdleState();
 }

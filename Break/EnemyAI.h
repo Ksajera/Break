@@ -32,13 +32,12 @@ public:
 	float getEnemyToPlayerAngle();
 	bool isPlayerInFov();
 	bool playerInFov(Enemy* enemy);
+	D3DXVECTOR2 getVecEnemyToPlayer();
 	void setVecEnemyToPlayer(Enemy* enemy, Player *player);
 	int getDirection(Enemy* enemy);
 	void setDirection(Enemy* enemy, int dir);
 	D3DXVECTOR2 getVelo(Enemy* enemy);
 	void setVelo(Enemy* enemy, D3DXVECTOR2 vel);
-	void movementUpdate(Enemy* enemy);
-
 
 };
 

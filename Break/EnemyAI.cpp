@@ -16,9 +16,6 @@ void EnemyAI::update(Enemy *enemy, Player *player, float frameTime)
 	setVecEnemyToPlayer(enemy, player); // set VecEnemyToPlayer variable
 	playerInFov(enemy);
 	moveFOV(enemy);
-	//movementUpdate(enemy);
-	//enemy->setVelocity(velo);
-
 }
 
 void EnemyAI::moveFOV(Enemy* enemy)
@@ -36,12 +33,6 @@ float EnemyAI::getEnemyToPlayerAngle()
 
 bool EnemyAI::isPlayerInFov()
 {
-	/*
-	if player within min angle and max angle
-		return true
-	else
-		return false
-	*/
 	if (getEnemyToPlayerAngle() > startFovAngle && getEnemyToPlayerAngle() < endFovAngle)
 		return true;
 	else
@@ -68,6 +59,11 @@ bool EnemyAI::playerInFov(Enemy* enemy)
 		//enemy->setVisible(true);
 		return false;
 	}
+}
+
+D3DXVECTOR2 EnemyAI::getVecEnemyToPlayer()
+{
+	return VecEnemyToPlayer;
 }
 
 void EnemyAI::setVecEnemyToPlayer(Enemy* enemy, Player *player) //call in update()

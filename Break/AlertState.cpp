@@ -42,5 +42,7 @@ void AlertState::chasePlayer(Enemy* enemy, Player* player) //for testing, just s
 	//enemy velo stop,
 	//get vector to player and the angle from there,
 	//rotate enemy to look at player
-	enemy->setVelocity(D3DXVECTOR2(0, 0));
+	D3DXVECTOR2 vecEtoP = enemyAI->getVecEnemyToPlayer();
+	//D3DXVec2Normalize(&vecEtoP, &vecEtoP);
+	enemy->setVelocity(D3DXVECTOR2(vecEtoP.x, vecEtoP.y)); //change speed?
 }

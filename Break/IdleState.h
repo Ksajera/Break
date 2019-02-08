@@ -1,6 +1,8 @@
 #pragma once
 #include "ShootingState.h"
 #include "ReloadingState.h"
+#include "BackstabState.h"
+
 class IdleState :
 	public CombatState
 {

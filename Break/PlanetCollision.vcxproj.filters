@@ -43,6 +43,7 @@
     <ClCompile Include="CombatState.cpp" />
     <ClCompile Include="SuspiciousState.cpp" />
     <ClCompile Include="PatrolState.cpp" />
+    <ClCompile Include="BackstabState.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="constants.h" />
@@ -88,5 +89,6 @@
     <ClInclude Include="CombatState.h" />
     <ClInclude Include="SuspiciousState.h" />
     <ClInclude Include="PatrolState.h" />
+    <ClInclude Include="BackstabState.h" />
   </ItemGroup>
 </Project>
