@@ -13,7 +13,6 @@ private:
 
 protected:
 	Ranged* weapon;
-	D3DXVECTOR2 direction;
 
 public:
 	ShootingState(Weapon * weapon);
