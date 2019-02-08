@@ -13,10 +13,10 @@ class Enemy: public Entity
 private:
 	PhysicsComponent physicsComponent;
 	EnemyState* state_;
-	EnemyState* combat_;
+	//EnemyState* combat_;
 
-	EnemyState* before;
-	EnemyState* current;
+	//EnemyState* before;
+	//EnemyState* current;
 	EnemyAI enemyAI;
 
 	D3DXVECTOR2 velo;
@@ -36,5 +36,7 @@ public:
 	void setDirection(int dir);
 	D3DXVECTOR2 getVelo();
 	void setVelo(D3DXVECTOR2 vel);
+
+	void initState();
 };
 
