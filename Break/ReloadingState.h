@@ -1,10 +1,21 @@
 #pragma once
-#include "PlayerState.h"
+#include "ShootingState.h"
+
+class IdleState;
+
 class ReloadingState :
-	public PlayerState
+	public ShootingState
 {
+private:
+	float reloadTimeLeft;
+
 public:
-	ReloadingState();
+	ReloadingState(Weapon * weapon);
+	ReloadingState(Weapon * weapon, float reloadTimeLeft);
 	~ReloadingState();
+
+	// Inherited via PlayerState
+	virtual void update(Entity * player, float frameTime) override;
+	virtual CombatState * handleInput(Entity * player, InputComponent * inputC, Weapon* weapon) override;
 };
 

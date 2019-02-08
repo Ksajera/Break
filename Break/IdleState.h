@@ -1,16 +1,17 @@
 #pragma once
-#include "PlayerState.h"
 #include "ShootingState.h"
-#include "Player.h"
+#include "ReloadingState.h"
 class IdleState :
-	public PlayerState
+	public CombatState
 {
+private:
+	D3DXVECTOR2 direction;
 public:
 	IdleState();
 	~IdleState();
 
 	// Inherited via PlayerState
-	virtual void update(Player * player, float frameTime) override;
-	virtual PlayerState * handleInput(Player * player, InputComponent * inputC) override;
+	virtual void update(Entity * entity, float frameTime) override;
+	virtual CombatState * handleInput(Entity * entity, InputComponent * inputC, Weapon* weapon) override;
 };
 

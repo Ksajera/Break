@@ -14,7 +14,7 @@ Player::~Player()
 void Player::handleInput()
 {
 	PlayerState* state = state_->handleInput(this, &inputComponent);
-	PlayerState* combat = combat_->handleInput(this, &inputComponent);
+	CombatState* combat = combat_->handleInput(this, &inputComponent, weapon);
 
 	if (state != NULL) {
 		state_->exit(this);
@@ -41,12 +41,11 @@ void Player::update(float frameTime)
 	handleInput();
 
 	Entity::update(frameTime);
-	weapon->setX(getCenterX() + TILE_SIZE * aimDirection.x);
-	weapon->setY(getCenterY() + TILE_SIZE * aimDirection.y);
-	weapon->update(frameTime);
 
 	state_->update(this, frameTime);
 	combat_->update(this, frameTime);
+
+	weapon->update(frameTime);
 
 	inputComponent.update(this, frameTime);
 	physics.update(this, &inputComponent, frameTime);

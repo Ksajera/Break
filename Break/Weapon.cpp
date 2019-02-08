@@ -28,6 +28,11 @@ void Weapon::attack(D3DXVECTOR2 position, D3DXVECTOR2 direction)
 {
 }
 
+void Weapon::reload()
+{
+	
+}
+
 float Weapon::getAttackSpeed()
 {
 	return 0.0f;

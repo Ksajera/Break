@@ -17,6 +17,11 @@ void Ranged::draw()
 	magazine.draw();
 }
 
+void Ranged::reload()
+{
+	sc.reload();
+}
+
 void Ranged::update(float frameTime)
 {
 	Weapon::update(frameTime);
@@ -26,14 +31,20 @@ void Ranged::update(float frameTime)
 
 void Ranged::attack(D3DXVECTOR2 position, D3DXVECTOR2 direction)
 {
-	if (!sc.fire(position, direction))
-		sc.reload(reloadDuration);
+	sc.fire(position, direction);
 
 }
+
+
 
 float Ranged::getAttackSpeed()
 {
 	return fireRate;
+}
+
+float Ranged::getReloadDuration()
+{
+	return reloadDuration;
 }
 
 bool Ranged::initialize(Graphics * g, int width, int height, int ncols, TextureManager * textureM, Projectile* bullet, int magazineSize, float reloadTime, float firerate)

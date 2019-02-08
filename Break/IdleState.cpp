@@ -11,15 +11,18 @@ IdleState::~IdleState()
 {
 }
 
-void IdleState::update(Player * player, float frameTime)
+void IdleState::update(Entity * player, float frameTime)
 {
 }
 
-PlayerState * IdleState::handleInput(Player * player, InputComponent * inputC)
+CombatState * IdleState::handleInput(Entity * entity, InputComponent * inputC, Weapon * weapon)
 {
-	if (inputC->getMouseInput(player, &player->aimDirection)) {
-		return new ShootingState();
+	if (inputC->getMouseInput(entity, &direction)) {
+		return new ShootingState(weapon);
 	}
+
+	if (inputC->input->wasKeyPressed('R'))
+		return new ReloadingState(weapon);
 
 	return new IdleState();
 }

@@ -14,7 +14,7 @@ public:
 	ShootingComponent(ProjectilePool * pool, int size);
 	~ShootingComponent();
 	bool fire(D3DXVECTOR2 position, D3DXVECTOR2 direction);
-	void reload(float reloadDuration);
+	void reload();
 	void update(float frameTime);
 
 };

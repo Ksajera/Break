@@ -10,6 +10,7 @@ public:
 	virtual void update(float frameTime);
 	virtual void attack();
 	virtual void attack(D3DXVECTOR2 position, D3DXVECTOR2 direction);
+	virtual void reload();
 	virtual float getAttackSpeed();
 	virtual bool collide(Entity &entity, D3DXVECTOR2 &collisionVector);
 	virtual bool initialize(Graphics *g, int width, int height,
