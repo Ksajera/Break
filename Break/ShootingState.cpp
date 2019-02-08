@@ -1,13 +1,16 @@
 #include "ShootingState.h"
+#include "ReloadingState.h"
+#include "IdleState.h"
+#include "Ranged.h"
 
-
-
-ShootingState::ShootingState()
+ShootingState::ShootingState(Weapon * weapon)
 {
+	this->weapon = dynamic_cast<Ranged*>(weapon);
 }
 
-ShootingState::ShootingState(float timeLeft)
+ShootingState::ShootingState(Weapon * weapon, float timeLeft)
 {
+	this->weapon = dynamic_cast<Ranged*>(weapon);
 	this->timeLeft = timeLeft;
 }
 
@@ -15,21 +18,24 @@ ShootingState::~ShootingState()
 {
 }
 
-void ShootingState::update(Player * player, float frameTime)
+void ShootingState::update(Entity * entity, float frameTime)
 {
-	if (timeLeft <= 0) {
-		player->weapon->attack(player->getWeaponPosition(), player->aimDirection);
-		timeLeft = 1/player->weapon->getAttackSpeed();
-	}
 	timeLeft -= frameTime;
+	if (timeLeft <= 0) {
+		D3DXVECTOR2 position = D3DXVECTOR2(entity->getCenterX(), entity->getCenterY());
+		weapon->attack(position, direction);
+	}
+
 }
 
-PlayerState * ShootingState::handleInput(Player * player, InputComponent * inputC)
+CombatState * ShootingState::handleInput(Entity * entity, InputComponent * inputC, Weapon *weapon)
 {
-	if (!inputC->getMouseInput(player, &player->aimDirection)) {
-		if (timeLeft <= 0)
-			return new IdleState();
+	if (!inputC->getMouseInput(entity, &direction)) {
+		return new IdleState();
 	}	
 
-	return new ShootingState(timeLeft);
+	if (inputC->input->wasKeyPressed('R'))
+		return new ReloadingState(weapon);
+
+	return new ShootingState(weapon, timeLeft);
 }

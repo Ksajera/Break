@@ -59,7 +59,7 @@ const int MOVE_SPEED = TILE_SIZE * SPEED_MODIFIER;
 const int WORLD_WIDTH = GAME_WIDTH / TILE_SIZE;
 const int WORLD_HEIGHT = GAME_HEIGHT / TILE_SIZE;
 const int MAX_PROJECTILES = 1000;
-const int PROJECTILE_SPEED = 20 * TILE_SIZE;
+const int PROJECTILE_SPEED = 100 * TILE_SIZE;
 const int FIRE_RATE = 5; //per second
 const float FIRE_DELAY = 1.0f / FIRE_RATE;
 

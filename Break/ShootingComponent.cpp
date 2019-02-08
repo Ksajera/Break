@@ -21,15 +21,14 @@ ShootingComponent::~ShootingComponent()
 void ShootingComponent::update(float frameTime)
 {
 	projectilesPool->update(frameTime);
-	if (isReloading) {
-		timeReload -= frameTime;
-		if (timeReload <= 0) {
-			projectilesPool->reload(maxProjectiles);
-			projectilesLeft = maxProjectiles;
-			isReloading = false;
-		}
+	//if (isReloading) {
+	//	timeReload -= frameTime;
+	//	if (timeReload <= 0) {
 
-	}
+	//		isReloading = false;
+	//	}
+
+	//}
 
 }
 
@@ -46,11 +45,9 @@ bool ShootingComponent::fire(D3DXVECTOR2 position, D3DXVECTOR2 direction)
 
 }
 
-void ShootingComponent::reload(float reloadDuration) {
-	if (isReloading != true) {
-		isReloading = true;
-		timeReload = reloadDuration;
-	}
+void ShootingComponent::reload() {
+	projectilesPool->reload(maxProjectiles);
+	projectilesLeft = maxProjectiles;
 
 }
 

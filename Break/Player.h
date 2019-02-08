@@ -8,20 +8,20 @@
 #include "Weapon.h"
 #include "PlayerState.h"
 #include "StandingState.h"
+#include "CombatState.h"
 #include "IdleState.h"
 
 class Player : public Entity
 {
 public:
 	PlayerState * state_;
-	PlayerState * combat_;
+	CombatState * combat_;
 	Player();
 	~Player();
 
 	void setPosition(D3DXVECTOR2 position);
 	D3DXVECTOR2 getPosition();
 	D3DXVECTOR2 direction;
-	D3DXVECTOR2 aimDirection;
 	D3DXVECTOR2 getWeaponPosition();
 
 	InputComponent inputComponent;
