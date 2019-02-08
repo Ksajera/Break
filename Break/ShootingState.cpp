@@ -6,6 +6,7 @@
 ShootingState::ShootingState(Weapon * weapon)
 {
 	this->weapon = dynamic_cast<Ranged*>(weapon);
+	timeLeft = 0;
 }
 
 ShootingState::ShootingState(Weapon * weapon, float timeLeft)
@@ -23,14 +24,15 @@ void ShootingState::update(Entity * entity, float frameTime)
 	timeLeft -= frameTime;
 	if (timeLeft <= 0) {
 		D3DXVECTOR2 position = D3DXVECTOR2(entity->getCenterX(), entity->getCenterY());
-		weapon->attack(position, direction);
+		weapon->attack(position, weapon->direction);
+		timeLeft = 1/weapon->getAttackSpeed();
 	}
 
 }
 
 CombatState * ShootingState::handleInput(Entity * entity, InputComponent * inputC, Weapon *weapon)
 {
-	if (!inputC->getMouseInput(entity, &direction)) {
+	if (!inputC->getMouseInput(entity, &weapon->direction)) {
 		return new IdleState();
 	}	
 
