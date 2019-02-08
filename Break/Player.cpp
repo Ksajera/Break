@@ -17,13 +17,21 @@ void Player::handleInput()
 	PlayerState* combat = combat_->handleInput(this, &inputComponent);
 
 	if (state != NULL) {
+		state_->exit(this);
+
 		delete state_;
 		state_ = state;
+
+		state_->enter(this);
 	}
 
 	if (combat != NULL) {
+		state_->exit(this);
+
 		delete combat_;
 		combat_ = combat;
+
+		state_->enter(this);
 	}
 
 }

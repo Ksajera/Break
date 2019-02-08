@@ -8,6 +8,8 @@ public:
 	PlayerState();
 	~PlayerState();
 	//interface functions
+	virtual void enter(Player * player);
+	virtual void exit(Player * player);
 	virtual void update(Player* player, float frameTime) = 0;
 	virtual PlayerState* handleInput(Player * player, InputComponent *inputC) = 0;
 

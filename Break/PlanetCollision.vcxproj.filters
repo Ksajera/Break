@@ -40,6 +40,8 @@
     <ClCompile Include="World.cpp" />
     <ClCompile Include="EnemyState.cpp" />
     <ClCompile Include="AlertState.cpp" />
+    <ClCompile Include="Rifle.cpp" />
+    <ClCompile Include="WeaponPool.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="constants.h" />
@@ -82,5 +84,7 @@
     <ClInclude Include="World.h" />
     <ClInclude Include="EnemyState.h" />
     <ClInclude Include="AlertState.h" />
+    <ClInclude Include="Rifle.h" />
+    <ClInclude Include="WeaponPool.h" />
   </ItemGroup>
 </Project>

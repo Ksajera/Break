@@ -114,6 +114,7 @@
     <ClCompile Include="Projectile.cpp" />
     <ClCompile Include="Ranged.cpp" />
     <ClCompile Include="ReloadingState.cpp" />
+    <ClCompile Include="Rifle.cpp" />
     <ClCompile Include="Screen.cpp" />
     <ClCompile Include="ProjectilePool.cpp" />
     <ClCompile Include="ShootingComponent.cpp" />
@@ -125,6 +126,7 @@
     <ClCompile Include="textureManager.cpp" />
     <ClCompile Include="Tile.cpp" />
     <ClCompile Include="Weapon.cpp" />
+    <ClCompile Include="WeaponPool.cpp" />
     <ClCompile Include="winmain.cpp" />
     <ClCompile Include="World.cpp" />
   </ItemGroup>
@@ -157,6 +159,7 @@
     <ClInclude Include="Projectile.h" />
     <ClInclude Include="Ranged.h" />
     <ClInclude Include="ReloadingState.h" />
+    <ClInclude Include="Rifle.h" />
     <ClInclude Include="Screen.h" />
     <ClInclude Include="ProjectilePool.h" />
     <ClInclude Include="ShootingComponent.h" />
@@ -168,6 +171,7 @@
     <ClInclude Include="textureManager.h" />
     <ClInclude Include="Tile.h" />
     <ClInclude Include="Weapon.h" />
+    <ClInclude Include="WeaponPool.h" />
     <ClInclude Include="World.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

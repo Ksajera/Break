@@ -1,6 +1,5 @@
 #include "MovingState.h"
-
-
+#include "Player.h"
 
 MovingState::MovingState()
 {
@@ -19,8 +18,12 @@ void MovingState::update(Player * player, float frameTime)
 
 PlayerState* MovingState::handleInput(Player * player, InputComponent *inputC)
 {
-	if (!inputC->getMovement(&player->direction))
+	bool isSneaking = false;
+	if (!inputC->getMovement(&player->direction, &isSneaking)) {
 		return new StandingState();
+	}
+	else if (isSneaking)
+		return new SneakingState();
 
 	return new MovingState();
 

@@ -18,8 +18,14 @@ void StandingState::update(Player * player, float frameTime)
 
 PlayerState* StandingState::handleInput(Player * player, InputComponent *inputC)
 {
-	if (inputC->getMovement(&player->direction))
+	bool isSneaking = false;
+	if (inputC->getMovement(&player->direction, &isSneaking)) {
+		if (isSneaking)
+			return new SneakingState();
+
 		return new MovingState();
+	}
+
 
 	return new StandingState();
 

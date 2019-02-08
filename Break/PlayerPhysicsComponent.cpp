@@ -30,6 +30,20 @@ void PlayerPhysicsComponent::Move(Entity *entity, D3DXVECTOR2 direction, float f
 
 }
 
+void PlayerPhysicsComponent::Sneak(Entity * entity, D3DXVECTOR2 direction, float frameTime)
+{
+	D3DXVECTOR2 velocity = entity->getVelocity();
+
+	entity->setVelocity(velocity + direction * MOVE_SPEED * frameTime);
+
+	if (D3DXVec2Length(&velocity) > (MAX_MOVE_SPEED * 1/SNEAK_SPEED_MODIFIER)) {
+		D3DXVECTOR2 uv;
+		D3DXVec2Normalize(&uv, &velocity);
+		entity->setVelocity(uv * (MAX_MOVE_SPEED * 1 / SNEAK_SPEED_MODIFIER));
+
+	}
+}
+
 bool PlayerPhysicsComponent::Stop(Entity * entity, float frameTime)
 {
 	D3DXVECTOR2 velocity = entity->getVelocity();
