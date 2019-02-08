@@ -6,6 +6,7 @@ class Weapon : public Image
 public:
 	Weapon();
 	~Weapon();
+	D3DXVECTOR2 direction;
 	virtual void draw();
 	virtual void update(float frameTime);
 	virtual void attack();
