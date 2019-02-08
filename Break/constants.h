@@ -32,8 +32,10 @@
 const char CLASS_NAME[] = "Break";
 const char GAME_TITLE[] = "Break";
 const bool FULLSCREEN = false;              // windowed or fullscreen
-const UINT GAME_WIDTH =  640;               // width of game in pixels
-const UINT GAME_HEIGHT = 480;               // height of game in pixels
+//const UINT GAME_WIDTH =  640;               // width of game in pixels
+//const UINT GAME_HEIGHT = 480;               // height of game in pixels
+const UINT GAME_WIDTH = 1920;               // width of game in pixels
+const UINT GAME_HEIGHT = 1080;               // height of game in pixels
 const UINT SCREEN_WIDTH = 1920;               // width of game in pixels
 const UINT SCREEN_HEIGHT = 480;
 
@@ -52,6 +54,7 @@ const int TILE_SIZE = 32;
 const int SPEED_MODIFIER = 30; 
 const int MAX_SPEED_MODIFIER = 5; //tiles per second
 const int MAX_MOVE_SPEED = TILE_SIZE * MAX_SPEED_MODIFIER;
+const int SNEAK_SPEED_MODIFIER = 2;
 const int MOVE_SPEED = TILE_SIZE * SPEED_MODIFIER;
 const int WORLD_WIDTH = GAME_WIDTH / TILE_SIZE;
 const int WORLD_HEIGHT = GAME_HEIGHT / TILE_SIZE;
@@ -72,6 +75,7 @@ const char PLAYER_IMAGE[] = "pictures\\player.png";
 const char ENEMY_IMAGE[] = "pictures\\enemy.png";
 const char BULLET_TEXTURE[] = "pictures\\bullet.png";
 const char HANDGUN_TEXTURE[] = "pictures\\handgun.png";
+const char RIFLE_TEXTURE[] = "pictures\\rifle.png";
 const char ARROW_TEXTURE[] = "pictures\\arrow.png";
 const char FOV_TEXTURE[] = "pictures\\fov.png";
 

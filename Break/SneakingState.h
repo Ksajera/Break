@@ -1,10 +1,14 @@
 #pragma once
-#include "PlayerState.h"
+#include "MovingState.h"
 class SneakingState :
-	public PlayerState
+	public MovingState
 {
 public:
 	SneakingState();
 	~SneakingState();
+
+	// Inherited
+	virtual void update(Player * player, float frameTime) override;
+	virtual PlayerState * handleInput(Player * player, InputComponent * inputC) override;
 };
 

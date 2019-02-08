@@ -14,11 +14,14 @@ InputComponent::~InputComponent()
 {
 }
 
-bool InputComponent::getMovement(D3DXVECTOR2* pOut) {
+bool InputComponent::getMovement(D3DXVECTOR2* pOut, bool *pSneakOut) {
 	//Movement Controller
 	D3DXVECTOR2 direction = D3DXVECTOR2(0, 0);
 
 	bool isMoving = false;
+
+	if (input->isKeyDown(VK_SHIFT))
+		*pSneakOut = true;
 
 	if (input->isKeyDown('D'))
 		direction.x = 1;
