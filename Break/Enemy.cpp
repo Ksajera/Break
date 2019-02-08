@@ -48,7 +48,6 @@ void Enemy::draw()
 
 void Enemy::handleStates()
 {
-<<<<<<< HEAD
 	EnemyState* state = state_->handleEnemy(this, &enemyAI);
 	////EnemyState* combat = combat_->handleInput(this, &inputComponent);
 	//
@@ -60,8 +59,7 @@ void Enemy::handleStates()
 	//
 	//	state_->enter(this);
 	//}
-=======
-	EnemyState* state;
+	//EnemyState* state;
 	state = state_->handleEnemy(this, &enemyAI);
 	//EnemyState* combat = combat_->handleInput(this, &inputComponent);
 
@@ -73,7 +71,6 @@ void Enemy::handleStates()
 	
 		state_->enter(this);
 	}
->>>>>>> 0980ab878cdccafea2b2f945ccaa9f0539b39be9
 
 	//if (combat != NULL) {
 	//	state_->exit(this);
