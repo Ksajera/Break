@@ -31,7 +31,7 @@ public:
 	void moveFOV(Enemy* enemy);
 	float getEnemyToPlayerAngle();
 	bool isPlayerInFov();
-	void playerInFov(Enemy* enemy);
+	bool playerInFov(Enemy* enemy);
 	void setVecEnemyToPlayer(Enemy* enemy, Player *player);
 	int getDirection(Enemy* enemy);
 	void setDirection(Enemy* enemy, int dir);

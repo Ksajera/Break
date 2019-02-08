@@ -72,9 +72,6 @@ void Break::initialize(HWND hwnd)
 	if (!enemy.initialize(this, 64, 64, 0, &enemySprite))
 		throw(GameError(gameErrorNS::FATAL_ERROR, "Error initializing enemy."));
 
-	//enemy.setActive(false);
-	//enemy.setVisible(false);
-
 	bulletPool.initialize(&bullet, MAX_PROJECTILES);
 	enemyPool.initialize(&enemy, 5);
 	//enemyPool.create(D3DXVECTOR2(GAME_WIDTH / 2, GAME_HEIGHT / 2), D3DXVECTOR2(0, 0));
@@ -91,7 +88,6 @@ void Break::initialize(HWND hwnd)
 void Break::update()
 {
 	player.update(frameTime);
-	//enemy.update(frameTime); //dk if can comment this out too lazy to find out. but prob no need this line 
 	bulletPool.update(frameTime);
 	enemyPool.update(frameTime, &player);
 }

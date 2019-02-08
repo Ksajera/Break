@@ -3,8 +3,6 @@
   <ItemGroup>
     <ClCompile Include="Enemy.cpp" />
     <ClCompile Include="EnemyAI.cpp" />
-    <ClCompile Include="EnemyFOV.cpp" />
-    <ClCompile Include="EnemyFOVpool.cpp" />
     <ClCompile Include="EnemyPool.cpp" />
     <ClCompile Include="entity.cpp" />
     <ClCompile Include="game.cpp" />
@@ -49,8 +47,6 @@
     <ClInclude Include="constants.h" />
     <ClInclude Include="Enemy.h" />
     <ClInclude Include="EnemyAI.h" />
-    <ClInclude Include="EnemyFOV.h" />
-    <ClInclude Include="EnemyFOVpool.h" />
     <ClInclude Include="EnemyPool.h" />
     <ClInclude Include="entity.h" />
     <ClInclude Include="game.h" />
