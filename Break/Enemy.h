@@ -1,7 +1,8 @@
 #pragma once
 #include "Player.h"
-#include "EnemyAI.h"
-//class EnemyAI;
+#include "PatrolState.h" 
+//include PatrolState instead of EnemyState because the default state needs to be new PatrolState();
+
 //enum DIRECTION {
 //	UP = 0, RIGHT = 90, 
 //	DOWN = 180, LEFT = 270
@@ -11,7 +12,11 @@ class Enemy: public Entity
 {
 private:
 	PhysicsComponent physicsComponent;
-	//EnemyAI* enemyAI;
+	EnemyState* state_;
+	EnemyState* combat_;
+
+	EnemyState* before;
+	EnemyState* current;
 	EnemyAI enemyAI;
 
 	D3DXVECTOR2 velo;
@@ -25,6 +30,7 @@ public:
 	void draw();
 	bool initialize(Game *gamePtr, int width, int height, int ncols,
 		TextureManager *textureM);
+	void handleStates();
 
 	int getDirection();
 	void setDirection(int dir);

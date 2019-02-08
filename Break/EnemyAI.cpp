@@ -16,7 +16,7 @@ void EnemyAI::update(Enemy *enemy, Player *player, float frameTime)
 	setVecEnemyToPlayer(enemy, player); // set VecEnemyToPlayer variable
 	playerInFov(enemy);
 	moveFOV(enemy);
-	movementUpdate(enemy);
+	//movementUpdate(enemy);
 	//enemy->setVelocity(velo);
 
 }
@@ -48,63 +48,31 @@ bool EnemyAI::isPlayerInFov()
 		return false;
 }
 
-void EnemyAI::playerInFov(Enemy* enemy)
+bool EnemyAI::playerInFov(Enemy* enemy)
 {
 	if (D3DXVec2Length(&VecEnemyToPlayer) <= TILE_SIZE * 5) { //if player is within 5 tiles infront
 		if (isPlayerInFov()) {
 			//do the count down and stuff i guess
-			//change sprite image color to test?
-			enemy->setActive(false);
-			enemy->setVisible(false);
+			//enemy->setActive(false);
+			//enemy->setVisible(false);
+			return true;
 		}
 		else {
-			enemy->setActive(true);
-		}	enemy->setVisible(true);
+			//enemy->setActive(true);
+			//enemy->setVisible(true);
+			return false;
+		}
 	}
 	else {
-		enemy->setActive(true);
-	}	enemy->setVisible(true);
-
+		//enemy->setActive(true);
+		//enemy->setVisible(true);
+		return false;
+	}
 }
 
 void EnemyAI::setVecEnemyToPlayer(Enemy* enemy, Player *player) //call in update()
 {
 	VecEnemyToPlayer = player->getPosition() - enemy->getPosition();
-}
-
-void EnemyAI::movementUpdate(Enemy* enemy)
-{
-	// collide game width/height and bounce around
-	if (enemy->getX() + enemy->getWidth() > GAME_WIDTH) { // top right
-		enemy->setX(GAME_WIDTH - enemy->getWidth());
-		//direction = DIRECTION(rand() % 4);
-		setDirection(enemy, DOWN);
-		setVelo(enemy, D3DXVECTOR2(1, 100));
-	}
-
-	if (enemy->getY() + enemy->getHeight() > GAME_HEIGHT) { //bottom right
-		enemy->setY(GAME_HEIGHT - enemy->getHeight());
-		//direction = DIRECTION(rand() % 4);
-		setDirection(enemy, LEFT);
-		setVelo(enemy, D3DXVECTOR2(-100, 1));
-	}
-
-	if ((enemy->getX() + TILE_SIZE) < 0) { // bottom left
-		enemy->setX(0);
-		//direction = DIRECTION(rand() % 4);
-		setDirection(enemy, UP);
-		setVelo(enemy, D3DXVECTOR2(1, -100));
-
-	}
-
-	if ((enemy->getY() + TILE_SIZE) < 0) { // top left
-		enemy->setY(0);
-		//direction = DIRECTION(rand() % 4);
-		setDirection(enemy, RIGHT);
-		setVelo(enemy, D3DXVECTOR2(100, 1));
-
-	}
-
 }
 
 int EnemyAI::getDirection(Enemy* enemy) {
