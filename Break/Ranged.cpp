@@ -1,11 +1,8 @@
 #include "Ranged.h"
 
-
-
 Ranged::Ranged()
 {
 }
-
 
 Ranged::~Ranged()
 {
@@ -35,25 +32,15 @@ void Ranged::attack(D3DXVECTOR2 position, D3DXVECTOR2 direction)
 
 }
 
-
-
-float Ranged::getAttackSpeed()
+bool Ranged::initialize(Graphics *g, RangedModel &model)
 {
-	return fireRate;
-}
-
-float Ranged::getReloadDuration()
-{
-	return reloadDuration;
-}
-
-bool Ranged::initialize(Graphics * g, int width, int height, int ncols, TextureManager * textureM, Projectile* bullet, int magazineSize, float reloadTime, float firerate)
-{
-	reloadDuration = reloadTime;
-	fireRate = firerate;
-	magazine.initialize(bullet, magazineSize + (magazineSize/reloadDuration * fireRate));
+	reloadDuration = model.getReloadTime();
+	fireRate = model.getFireRate();
+	magazineSize = model.getClipSize();
+	magazine.initialize(model.getProjectile(), magazineSize + (magazineSize/reloadDuration * fireRate));
 	sc = ShootingComponent(&magazine, magazineSize);
-	return Weapon::initialize(g, width, height, ncols, textureM);
+	this->model = &model;
+	return Weapon::initialize(g, model.getWidth(), model.getHeight(), model.getCols(), model.getTextureM());
 
 }
 

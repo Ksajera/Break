@@ -114,6 +114,7 @@
     <ClCompile Include="PlayerState.cpp" />
     <ClCompile Include="Projectile.cpp" />
     <ClCompile Include="Ranged.cpp" />
+    <ClCompile Include="RangedModel.cpp" />
     <ClCompile Include="ReloadingState.cpp" />
     <ClCompile Include="Rifle.cpp" />
     <ClCompile Include="Screen.cpp" />
@@ -161,6 +162,7 @@
     <ClInclude Include="PlayerState.h" />
     <ClInclude Include="Projectile.h" />
     <ClInclude Include="Ranged.h" />
+    <ClInclude Include="RangedModel.h" />
     <ClInclude Include="ReloadingState.h" />
     <ClInclude Include="Rifle.h" />
     <ClInclude Include="Screen.h" />
