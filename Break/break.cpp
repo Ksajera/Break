@@ -47,14 +47,17 @@ void Break::initialize(HWND hwnd)
 	if (!handgunSprite.initialize(graphics, HANDGUN_TEXTURE))
 		throw(GameError(gameErrorNS::FATAL_ERROR, "Error initializing handgun texture."));
 
-	if (!handgun.initialize(graphics, handgunNS::WIDTH, handgunNS::HEIGHT, handgunNS::TEXTURE_COLS, &handgunSprite, &bullet, handgunNS::MAGAZINE_SIZE, handgunNS::RELOAD_DURATION, handgunNS::FIRE_RATE))
-		throw(GameError(gameErrorNS::FATAL_ERROR, "Error initializing bullet."));
+	//if (!handgun.initialize(graphics, handgunNS::WIDTH, handgunNS::HEIGHT, handgunNS::TEXTURE_COLS, &handgunSprite, &bullet, handgunNS::MAGAZINE_SIZE, handgunNS::RELOAD_DURATION, handgunNS::FIRE_RATE))
+	//	throw(GameError(gameErrorNS::FATAL_ERROR, "Error initializing bullet."));
 
-	if (!rifleSprite.initialize(graphics, RIFLE_TEXTURE))
-		throw(GameError(gameErrorNS::FATAL_ERROR, "Error initializing handgun texture."));
+	//if (!rifleSprite.initialize(graphics, RIFLE_TEXTURE))
+	//	throw(GameError(gameErrorNS::FATAL_ERROR, "Error initializing handgun texture."));
 
-	if (!rifle.initialize(graphics, rifleNS::WIDTH, rifleNS::HEIGHT, rifleNS::TEXTURE_COLS, &rifleSprite, &bullet, rifleNS::MAGAZINE_SIZE, rifleNS::RELOAD_DURATION, rifleNS::FIRE_RATE))
-		throw(GameError(gameErrorNS::FATAL_ERROR, "Error initializing bullet."));
+	//if (!rifle.initialize(graphics, rifleNS::WIDTH, rifleNS::HEIGHT, rifleNS::TEXTURE_COLS, &rifleSprite, &bullet, rifleNS::MAGAZINE_SIZE, rifleNS::RELOAD_DURATION, rifleNS::FIRE_RATE))
+	//	throw(GameError(gameErrorNS::FATAL_ERROR, "Error initializing bullet."));
+
+	pistol = RangedModel(&bullet, &handgunSprite, 24, 2.0f, 5, 5.0f, 12, 8, 0);
+	handgun = pistol.newRanged(graphics);
 
 	//Sprites
 	if (!playerSprite.initialize(graphics, PLAYER_IMAGE))
@@ -64,7 +67,7 @@ void Break::initialize(HWND hwnd)
 	if (!player.initialize(this, 32, 64, 0, &playerSprite))
 		throw(GameError(gameErrorNS::FATAL_ERROR, "Error initializing player."));
 
-	player.equip(&rifle);
+	player.equip(handgun);
 
 	//ENEMY
 	if (!enemySprite.initialize(graphics, ENEMY_IMAGE))

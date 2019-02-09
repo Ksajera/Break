@@ -21,6 +21,7 @@
 #include "Handgun.h"
 #include "Rifle.h"
 #include "WeaponPool.h"
+#include "RangedModel.h"
 
 //=============================================================================
 // This class is the core of the game
@@ -38,7 +39,8 @@ private:
 	WeaponPool weaponPool;
 	TextureManager bgTexture, playerSprite, enemySprite, bulletSprite, enemyFovSprite, handgunSprite, rifleSprite;
 	Image bgImage, enemyFovImage;
-	Handgun handgun;
+	RangedModel pistol;
+	Ranged* handgun;
 	Rifle rifle;
 
 public:

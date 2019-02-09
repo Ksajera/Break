@@ -40,14 +40,15 @@ void Player::update(float frameTime)
 {
 	handleInput();
 
-	Entity::update(frameTime);
-
 	state_->update(this, frameTime);
 	combat_->update(this, frameTime);
 
-	weapon->update(frameTime);
+	Entity::update(frameTime);
 
 	inputComponent.update(this, frameTime);
+	weapon->update(frameTime);
+
+
 	physics.update(this, &inputComponent, frameTime);
 
 }
