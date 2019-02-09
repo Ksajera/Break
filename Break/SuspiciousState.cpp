@@ -2,7 +2,7 @@
 #include "EnemyAI.h"
 #include "PatrolState.h"
 #include "AlertState.h"
-
+#include "Enemy.h"
 
 SuspiciousState::SuspiciousState()
 {
@@ -11,8 +11,6 @@ SuspiciousState::SuspiciousState()
 SuspiciousState::SuspiciousState(EnemyAI* ai)
 {
 	this->enemyAI = ai;
-	countUpIgnore = 0;
-	countUpAlert = 0;
 }
 
 SuspiciousState::~SuspiciousState()
@@ -21,6 +19,7 @@ SuspiciousState::~SuspiciousState()
 
 void SuspiciousState::update(Enemy * enemy, Player * player, EnemyAI * ai, float frameTime)
 {
+	enemy->setVisible(false);
 	//player is NOT in FOV
 	//if (!(enemyAI->playerInFov(enemy))) { 
 	//	enemyAI->countUpIgnore = 0;
@@ -38,7 +37,6 @@ void SuspiciousState::update(Enemy * enemy, Player * player, EnemyAI * ai, float
 	if ((enemyAI->playerInFov(enemy)) && enemyAI->countUpAlert < TIME_TAKEN_TO_ALERT) {
 		enemyAI->countUpAlert += frameTime;
 	}
-
 }
 
 EnemyState * SuspiciousState::handleEnemy(Enemy * enemy, EnemyAI * ai, float frameTime)

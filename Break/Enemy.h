@@ -18,7 +18,6 @@ private:
 	//EnemyState* before;
 	//EnemyState* current;
 	EnemyAI enemyAI;
-
 	D3DXVECTOR2 velo;
 	int direction;
 public:

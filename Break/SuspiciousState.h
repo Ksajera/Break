@@ -6,7 +6,6 @@ class SuspiciousState :
 {
 private:
 	EnemyAI* enemyAI;
-	float countUpIgnore, countUpAlert;
 public:
 	SuspiciousState();
 	SuspiciousState(EnemyAI* ai);

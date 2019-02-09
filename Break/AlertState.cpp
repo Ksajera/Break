@@ -46,5 +46,5 @@ void AlertState::chasePlayer(Enemy* enemy, Player* player) //for testing, just s
 	//D3DXVec2Normalize(&vecEtoP, &vecEtoP);
 	enemy->setVelocity(D3DXVECTOR2(vecEtoP.x, vecEtoP.y)); //change speed?
 
-	//enemy->getSpriteInfo().angle = enemyAI->getEnemyToPlayerAngle();
+	enemy->setRadians(enemyAI->getEnemyToPlayerAngle() + PI/2);
 }
