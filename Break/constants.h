@@ -62,6 +62,8 @@ const int MAX_PROJECTILES = 1000;
 const int PROJECTILE_SPEED = 100 * TILE_SIZE;
 const int FIRE_RATE = 5; //per second
 const float FIRE_DELAY = 1.0f / FIRE_RATE;
+const float TIME_TAKEN_TO_IGNORE = 3;
+const float TIME_TAKEN_TO_ALERT = 3;
 
 // graphic images
 const char NEBULA_IMAGE[] =   "pictures\\orion.jpg";     // photo source NASA/courtesy of nasaimages.org 

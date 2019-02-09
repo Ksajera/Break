@@ -62,6 +62,14 @@ bool InputComponent::getMouseInput(Entity* entity, D3DXVECTOR2 *pOut)
 	return false;
 }
 
+bool InputComponent::rightMouseClick() //prob need direction later
+{
+	if (input->getMouseRButton())
+		return true;
+
+	return false;
+}
+
 void InputComponent::update(Entity *entity, float frameTime)
 {
 

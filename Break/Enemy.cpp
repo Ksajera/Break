@@ -18,7 +18,7 @@ Enemy::~Enemy()
 
 void Enemy::update(float frameTime, Player *player)
 {
-	handleStates();
+	handleStates(frameTime);
 	state_->update(this, player, &enemyAI,frameTime);
 	//setVelocity(velo);
 	physicsComponent.update(this, frameTime);
@@ -44,9 +44,9 @@ void Enemy::draw()
 }
 
 
-void Enemy::handleStates()
+void Enemy::handleStates(float frameTime)
 {
-	EnemyState* state = state_->handleEnemy(this, &enemyAI);
+	EnemyState* state = state_->handleEnemy(this, &enemyAI, frameTime);
 
 	if (state != NULL) {
 		state_->exit(this);

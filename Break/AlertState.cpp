@@ -29,7 +29,7 @@ void AlertState::update(Enemy * enemy, Player* player, EnemyAI* ai, float frameT
 	chasePlayer(enemy, player);
 }
 
-EnemyState* AlertState::handleEnemy(Enemy * enemy, EnemyAI * ai)
+EnemyState* AlertState::handleEnemy(Enemy * enemy, EnemyAI * ai, float frameTime)
 {
 	if (!(enemyAI->playerInFov(enemy))) {
 		return new PatrolState(enemyAI);
@@ -45,4 +45,6 @@ void AlertState::chasePlayer(Enemy* enemy, Player* player) //for testing, just s
 	D3DXVECTOR2 vecEtoP = enemyAI->getVecEnemyToPlayer();
 	//D3DXVec2Normalize(&vecEtoP, &vecEtoP);
 	enemy->setVelocity(D3DXVECTOR2(vecEtoP.x, vecEtoP.y)); //change speed?
+
+	//enemy->getSpriteInfo().angle = enemyAI->getEnemyToPlayerAngle();
 }

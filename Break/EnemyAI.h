@@ -39,5 +39,7 @@ public:
 	D3DXVECTOR2 getVelo(Enemy* enemy);
 	void setVelo(Enemy* enemy, D3DXVECTOR2 vel);
 
+	float countUpIgnore, countUpAlert;
+
 };
 

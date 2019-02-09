@@ -1,6 +1,7 @@
 #include "PatrolState.h"
 #include "Enemy.h"
 #include "AlertState.h"
+#include "SuspiciousState.h"
 
 
 //default state for enemy
@@ -34,10 +35,10 @@ void PatrolState::update(Enemy * enemy, Player* player, EnemyAI* ai, float frame
 	movementUpdate(enemy, enemyAI);
 }
 
-EnemyState * PatrolState::handleEnemy(Enemy * enemy, EnemyAI * ai)
+EnemyState * PatrolState::handleEnemy(Enemy * enemy, EnemyAI * ai, float frameTime)
 {
 	if (enemyAI->playerInFov(enemy)) {
-		return new AlertState(enemyAI);
+		return new SuspiciousState(enemyAI);
 	}
 
 	return new PatrolState(enemyAI);

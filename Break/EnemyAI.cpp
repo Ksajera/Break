@@ -4,6 +4,9 @@
 EnemyAI::EnemyAI()
 {
 	//velo = D3DXVECTOR2(1, 0);
+	countUpIgnore = 0;
+	countUpAlert = 0;
+
 }
 
 
