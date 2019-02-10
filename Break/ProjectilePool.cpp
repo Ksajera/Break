@@ -77,7 +77,6 @@ bool ProjectilePool::collide(Entity & entity, D3DXVECTOR2 & collisionVector)
 
 		}
 	}
-
 	return false;
 
 }

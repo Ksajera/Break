@@ -35,7 +35,7 @@ void PatrolState::update(Enemy * enemy, Player* player, EnemyAI* ai, float frame
 	//the basic path finding stuff
 	//set points around the map etc.
 	movementUpdate(enemy, enemyAI);
-	enemyAI->calcAngleFaced(enemy->getVelocity());
+	enemyAI->calcAngleFaced(enemy->getVelocity()); //setting teh angle herre lol too lazy to change
 
 }
 
@@ -56,7 +56,7 @@ void PatrolState::movementUpdate(Enemy* enemy, EnemyAI* ai)
 		//direction = DIRECTION(rand() % 4);
 		//enemyAI->setDirection(enemy, DOWN);
 		enemyAI->setVelo(enemy, D3DXVECTOR2(1, 100));
-		enemyAI->setAngleFaced(enemyAI->calcAngleFaced(enemy->getVelocity()));
+		enemyAI->calcAngleFaced(enemy->getVelocity());
 	}
 
 	if (enemy->getY() + enemy->getHeight() > GAME_HEIGHT) { //bottom right
@@ -64,8 +64,7 @@ void PatrolState::movementUpdate(Enemy* enemy, EnemyAI* ai)
 		//direction = DIRECTION(rand() % 4);
 		//enemyAI->setDirection(enemy, LEFT);
 		enemyAI->setVelo(enemy, D3DXVECTOR2(-100, 1));
-		enemyAI->setAngleFaced(enemyAI->calcAngleFaced(enemy->getVelocity()));
-
+		enemyAI->calcAngleFaced(enemy->getVelocity());
 	}
 
 	if ((enemy->getX() + TILE_SIZE) < 0) { // bottom left
@@ -73,9 +72,7 @@ void PatrolState::movementUpdate(Enemy* enemy, EnemyAI* ai)
 		//direction = DIRECTION(rand() % 4);
 		//enemyAI->setDirection(enemy, UP);
 		enemyAI->setVelo(enemy, D3DXVECTOR2(1, -100));
-		enemyAI->setAngleFaced(enemyAI->calcAngleFaced(enemy->getVelocity()));
-
-
+		enemyAI->calcAngleFaced(enemy->getVelocity());
 	}
 
 	if ((enemy->getY() + TILE_SIZE) < 0) { // top left
@@ -83,9 +80,7 @@ void PatrolState::movementUpdate(Enemy* enemy, EnemyAI* ai)
 		//direction = DIRECTION(rand() % 4);
 		//enemyAI->setDirection(enemy, RIGHT);
 		enemyAI->setVelo(enemy, D3DXVECTOR2(100, 1));
-		enemyAI->setAngleFaced(enemyAI->calcAngleFaced(enemy->getVelocity()));
-
-
+		enemyAI->calcAngleFaced(enemy->getVelocity());
 	}
 
 }

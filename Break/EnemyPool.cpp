@@ -29,9 +29,7 @@ void EnemyPool::initialize(Enemy *enemy, int size)
 		enemy->setX(i*TILE_SIZE);
 		enemy->setY(i*TILE_SIZE);
 
-		enemy->setDirection(RIGHT);
-		//enemy->setRadians(enemy->getDirection() * PI / 180); //convert degree(direction) to rad
-		enemy->setVelo(D3DXVECTOR2(1, 100));
+		enemy->setVelo(D3DXVECTOR2(100, 1));
 		enemyVector.push_back(*enemy);
 		enemyVector[i].initState();
 	}
