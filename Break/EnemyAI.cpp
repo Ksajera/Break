@@ -4,6 +4,12 @@
 EnemyAI::EnemyAI()
 {
 	//velo = D3DXVECTOR2(1, 0);
+	countUpIgnore = 0;
+	countUpAlert = 0;
+	fovAngle = 0;
+	startFovAngle = 0;
+	endFovAngle = 0;
+	angleFaced = 0;
 }
 
 
@@ -14,21 +20,39 @@ EnemyAI::~EnemyAI()
 void EnemyAI::update(Enemy *enemy, Player *player, float frameTime)
 {
 	setVecEnemyToPlayer(enemy, player); // set VecEnemyToPlayer variable
-	playerInFov(enemy);
+	//playerInFov(enemy);
+	rotateEnemy(enemy);
 	moveFOV(enemy);
+}
+
+void EnemyAI::rotateEnemy(Enemy * enemy)
+{
+	enemy->setRadians(angleFaced);
 }
 
 void EnemyAI::moveFOV(Enemy* enemy)
 {
-	startFovAngle = enemy->getDirection() - ENEMY_FOV_ANGLE_START - 90; 
-	endFovAngle = enemy->getDirection() + ENEMY_FOV_ANGLE_START - 90;
+	startFovAngle = angleFaced - (ENEMY_FOV_ANGLE - 90) * PI / 180;
+	endFovAngle = angleFaced + (ENEMY_FOV_ANGLE - 90) * PI / 180;
 }
 
 float EnemyAI::getEnemyToPlayerAngle()
 {
 	float angle = 0;
-	angle = atan2(VecEnemyToPlayer.y, VecEnemyToPlayer.x) * 180 / PI; //no need  * 180 / PI because image.angle is in rad
+	angle = atan2(VecEnemyToPlayer.y, VecEnemyToPlayer.x); //no need  * 180 / PI because image.angle is in rad
 	return angle;
+}
+
+float EnemyAI::calcAngleFaced(D3DXVECTOR2 vec)
+{
+	float angle = 0;
+	angleFaced = atan2(vec.y, vec.x) + PI/2;
+	return angle;
+}
+
+void EnemyAI::setAngleFaced(float angle)
+{
+	angleFaced = angle;
 }
 
 bool EnemyAI::isPlayerInFov()
@@ -41,22 +65,15 @@ bool EnemyAI::isPlayerInFov()
 
 bool EnemyAI::playerInFov(Enemy* enemy)
 {
-	if (D3DXVec2Length(&VecEnemyToPlayer) <= TILE_SIZE * 5) { //if player is within 5 tiles infront
+	if (D3DXVec2Length(&VecEnemyToPlayer) <= TILE_SIZE * ENEMY_FOV_RANGE) { //if player is within 5 tiles infront
 		if (isPlayerInFov()) {
-			//do the count down and stuff i guess
-			//enemy->setActive(false);
-			//enemy->setVisible(false);
 			return true;
 		}
 		else {
-			//enemy->setActive(true);
-			//enemy->setVisible(true);
 			return false;
 		}
 	}
 	else {
-		//enemy->setActive(true);
-		//enemy->setVisible(true);
 		return false;
 	}
 }

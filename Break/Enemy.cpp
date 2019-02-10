@@ -25,9 +25,9 @@ Enemy::Enemy() : Entity()
 	//moveFOV();
 	//enemy->moveFOV();
 	//setRadians(direction * PI / 180); //convert degree(direction) to rad
-	direction = RIGHT;
-	spriteData.angle = direction * PI/180; //convert degree(direction) to rad
-	velocity = D3DXVECTOR2(100, 1);
+	//direction = RIGHT;
+	//spriteData.angle = direction * PI/180; //convert degree(direction) to rad
+	//velocity = D3DXVECTOR2(100, 1);
 }
 
 Enemy::~Enemy()
@@ -36,12 +36,12 @@ Enemy::~Enemy()
 
 void Enemy::update(float frameTime, Player *player)
 {
-	handleStates();
+	handleStates(frameTime);
 	state_->update(this, player, &enemyAI,frameTime);
 	//setVelocity(velo);
 	physicsComponent.update(this, frameTime);
 	enemyAI.update(this, player, frameTime);
-	spriteData.angle = direction * PI / 180; //convert degree(direction) to rad
+	//spriteData.angle = direction * PI / 180; //convert degree(direction) to rad
 }
 
 void Enemy::setPosition(D3DXVECTOR2 position)
@@ -62,9 +62,9 @@ void Enemy::draw()
 }
 
 
-void Enemy::handleStates()
+void Enemy::handleStates(float frameTime)
 {
-	EnemyState* state = state_->handleEnemy(this, &enemyAI);
+	EnemyState* state = state_->handleEnemy(this, &enemyAI, frameTime);
 
 	if (state != NULL) {
 		state_->exit(this);

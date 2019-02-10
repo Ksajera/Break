@@ -24,7 +24,6 @@ private:
 	//EnemyState* before;
 	//EnemyState* current;
 	EnemyAI enemyAI;
-
 	D3DXVECTOR2 velo;
 	int direction;
 public:
@@ -36,7 +35,7 @@ public:
 	void draw();
 	bool initialize(Game *gamePtr, int width, int height, int ncols,
 		TextureManager *textureM);
-	void handleStates();
+	void handleStates(float frameTime);
 
 	int getDirection();
 	void setDirection(int dir);

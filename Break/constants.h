@@ -48,8 +48,9 @@ const float MAX_FRAME_TIME = 1.0f/MIN_FRAME_RATE; // maximum time used in calcul
 const float GRAVITY = 6.67428e-11f;             // gravitational constant
 const float MASS_PLANET = 1.0e14f;
 const float MASS_SHIP = 5.0f;
-const float ENEMY_FOV_ANGLE = 90;
-const float ENEMY_FOV_ANGLE_START = ENEMY_FOV_ANGLE / 2;
+const float ENEMY_FOV_ANGLE = 45;
+const float ENEMY_FOV_ANGLE_START = 45;
+const float ENEMY_FOV_RANGE = 5;
 const int TILE_SIZE = 32;
 const int SPEED_MODIFIER = 30; 
 const int MAX_SPEED_MODIFIER = 5; //tiles per second
@@ -62,6 +63,8 @@ const int MAX_PROJECTILES = 1000;
 const int PROJECTILE_SPEED = 50 * TILE_SIZE;
 const int FIRE_RATE = 5; //per second
 const float FIRE_DELAY = 1.0f / FIRE_RATE;
+const float TIME_TAKEN_TO_IGNORE = 3;
+const float TIME_TAKEN_TO_ALERT = 3;
 
 // graphic images
 const char NEBULA_IMAGE[] =   "pictures\\orion.jpg";     // photo source NASA/courtesy of nasaimages.org 
