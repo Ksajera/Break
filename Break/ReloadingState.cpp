@@ -3,11 +3,13 @@
 
 ReloadingState::ReloadingState(Weapon * weapon) : ShootingState(weapon)
 {
+	this->weapon = dynamic_cast<Ranged*>(weapon);
 	reloadTimeLeft = this->weapon->getReloadDuration();
 }
 
 ReloadingState::ReloadingState(Weapon * weapon, float reloadTimeLeft) : ShootingState(weapon)
 {
+	this->weapon = dynamic_cast<Ranged*>(weapon);
 	this->reloadTimeLeft = reloadTimeLeft;
 }
 
@@ -31,9 +33,6 @@ CombatState * ReloadingState::handleInput(Entity * entity, InputComponent * inpu
 		}
 		else
 			return new IdleState();
-	}
-	else if (inputC->getMouseInput(entity, &weapon->direction)) {
-		return new ShootingState(weapon);
 	}
 
 	return new ReloadingState(weapon, reloadTimeLeft);

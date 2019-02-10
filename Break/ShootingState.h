@@ -10,6 +10,7 @@ class ShootingState :
 {
 private:
 	float timeLeft;
+	bool hasAmmo;
 
 protected:
 	Ranged* weapon;

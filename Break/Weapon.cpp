@@ -20,12 +20,9 @@ void Weapon::update(float frameTime)
 {
 }
 
-void Weapon::attack()
+bool Weapon::attack()
 {
-}
-
-void Weapon::attack(D3DXVECTOR2 position, D3DXVECTOR2 direction)
-{
+	return false;
 }
 
 void Weapon::reload()

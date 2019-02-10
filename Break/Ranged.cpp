@@ -34,9 +34,9 @@ void Ranged::update(float frameTime)
 
 }
 
-void Ranged::attack(D3DXVECTOR2 position, D3DXVECTOR2 direction)
+bool Ranged::attack(D3DXVECTOR2 position, D3DXVECTOR2 direction)
 {
-	sc.fire(position, direction);
+	return sc.fire(position, direction);
 
 }
 

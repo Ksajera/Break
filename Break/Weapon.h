@@ -9,8 +9,7 @@ public:
 	D3DXVECTOR2 direction;
 	virtual void draw();
 	virtual void update(float frameTime);
-	virtual void attack();
-	virtual void attack(D3DXVECTOR2 position, D3DXVECTOR2 direction);
+	virtual bool attack();
 	virtual void reload();
 	virtual float getAttackSpeed();
 	virtual int getDamage();
