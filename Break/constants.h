@@ -32,12 +32,12 @@
 const char CLASS_NAME[] = "Break";
 const char GAME_TITLE[] = "Break";
 const bool FULLSCREEN = false;              // windowed or fullscreen
-//const UINT GAME_WIDTH =  640;               // width of game in pixels
-//const UINT GAME_HEIGHT = 480;               // height of game in pixels
-const UINT GAME_WIDTH = 1920;               // width of game in pixels
-const UINT GAME_HEIGHT = 1080;               // height of game in pixels
-const UINT SCREEN_WIDTH = 1920;               // width of game in pixels
-const UINT SCREEN_HEIGHT = 480;
+const UINT GAME_WIDTH =  640;               // width of game in pixels
+const UINT GAME_HEIGHT = 480;               // height of game in pixels
+//const UINT GAME_WIDTH = 1920;               // width of game in pixels
+//const UINT GAME_HEIGHT = 1080;               // height of game in pixels
+//const UINT SCREEN_WIDTH = 1920;               // width of game in pixels
+//const UINT SCREEN_HEIGHT = 480;
 
 // game
 const double PI = 3.14159265;
@@ -52,7 +52,7 @@ const float ENEMY_FOV_ANGLE = 45;
 const float ENEMY_FOV_ANGLE_START = 45;
 const float ENEMY_FOV_RANGE = 5;
 const int TILE_SIZE = 32;
-const int SPEED_MODIFIER = 30; 
+const int SPEED_MODIFIER = 100;// 30;
 const int MAX_SPEED_MODIFIER = 5; //tiles per second
 const int MAX_MOVE_SPEED = TILE_SIZE * MAX_SPEED_MODIFIER;
 const int SNEAK_SPEED_MODIFIER = 2;
@@ -81,6 +81,8 @@ const char HANDGUN_TEXTURE[] = "pictures\\handgun.png";
 const char RIFLE_TEXTURE[] = "pictures\\rifle.png";
 const char ARROW_TEXTURE[] = "pictures\\arrow.png";
 const char FOV_TEXTURE[] = "pictures\\fov.png";
+const char TILE_MAP_IMAGE[] = "pictures\\pics\\PlatformTiles.png";
+
 
 // key mappings
 // In this game simple constants are used for key mappings. If variables were used

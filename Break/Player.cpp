@@ -102,23 +102,23 @@ void Player::equip(Weapon *w)
 
 void Player::scroll()
 {
-	//horizontal scrolling
-	float scrollX = SCREEN_WIDTH / 2 - getCenterX();
-	float levelExtentX = static_cast<float>(SCREEN_WIDTH * 3);
+	////horizontal scrolling
+	////float scrollX = SCREEN_WIDTH / 2 - getCenterX();
+	//float levelExtentX = static_cast<float>(SCREEN_WIDTH * 3);
 
-	if (getCenterX() < SCREEN_WIDTH / 2)
-		scrollX = 0.0f;
-	if (getCenterX() > levelExtentX - SCREEN_WIDTH / 2)
-		scrollX = -(levelExtentX - SCREEN_WIDTH);
+	//if (getCenterX() < SCREEN_WIDTH / 2)
+	//	scrollX = 0.0f;
+	//if (getCenterX() > levelExtentX - SCREEN_WIDTH / 2)
+	//	scrollX = -(levelExtentX - SCREEN_WIDTH);
 
-	//vertical scrolling (-ve cause its downwards)
-	float scrollY = SCREEN_HEIGHT / 2 - getCenterY();
-	float levelExtentY = static_cast<float>(SCREEN_HEIGHT * 2.f);
+	////vertical scrolling (-ve cause its downwards)
+	////float scrollY = SCREEN_HEIGHT / 2 - getCenterY();
+	//float levelExtentY = static_cast<float>(SCREEN_HEIGHT * 2.f);
 
-	if (getCenterY() >= SCREEN_HEIGHT / 2)
-		scrollY = 0.0f;
-	if (getCenterY() < -levelExtentY + SCREEN_HEIGHT + SCREEN_HEIGHT / 2)
-		scrollY = levelExtentY - SCREEN_HEIGHT;
+	//if (getCenterY() >= SCREEN_HEIGHT / 2)
+	//	scrollY = 0.0f;
+	//if (getCenterY() < -levelExtentY + SCREEN_HEIGHT + SCREEN_HEIGHT / 2)
+	//	scrollY = levelExtentY - SCREEN_HEIGHT;
 
 }
 
