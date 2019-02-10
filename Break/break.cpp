@@ -80,7 +80,7 @@ void Break::initialize(HWND hwnd)
 		throw(GameError(gameErrorNS::FATAL_ERROR, "Error initializing enemy."));
 
 	//bulletPool.initialize(&bullet, MAX_PROJECTILES);
-	enemyPool.initialize(&enemy, 3);
+	enemyPool.initialize(&enemy, 10);
 	enemyPool.equip(&pistol);
 	//enemyPool.create(D3DXVECTOR2(GAME_WIDTH / 2, GAME_HEIGHT / 2), D3DXVECTOR2(0, 0));
 
