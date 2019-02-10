@@ -34,16 +34,16 @@ void Break::initialize(HWND hwnd)
 	#pragma region Initialization
 
 	//BACKGROUND
-	if (!bgTexture.initialize(graphics, NEBULA_IMAGE))
+	/*if (!bgTexture.initialize(graphics, NEBULA_IMAGE))
 		throw(GameError(gameErrorNS::FATAL_ERROR, "Error initializing background texture"));
 	if (!bgImage.initialize(graphics, 0, 0, 0, &bgTexture))
-		throw(GameError(gameErrorNS::FATAL_ERROR, "Error initializing background"));
+		throw(GameError(gameErrorNS::FATAL_ERROR, "Error initializing background"));*/
 
 	//TILEMAP 
-	//if (!tileSheet.initialize(graphics, TILE_MAP_IMAGE))				//Tile Sheet
-	//	throw(GameError(gameErrorNS::FATAL_ERROR, "Error loading tile sheet"));
-	//if (!tileImage.initialize(graphics, TILE_SIZE, TILE_SIZE, 35, &tileSheet))
-	//	throw(GameError(gameErrorNS::FATAL_ERROR, "Error initializing tile"));
+	if (!tileSheet.initialize(graphics, TILE_MAP_IMAGE))				//Tile Sheet
+		throw(GameError(gameErrorNS::FATAL_ERROR, "Error loading tile sheet"));
+	if (!tileImage.initialize(graphics, TILE_SIZE, TILE_SIZE, 35, &tileSheet))
+		throw(GameError(gameErrorNS::FATAL_ERROR, "Error initializing tile"));
 
 	//BULLET
 	if (!bulletSprite.initialize(graphics, BULLET_TEXTURE))
