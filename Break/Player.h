@@ -38,7 +38,7 @@ public:
 
 	void scroll();
 	void draw();
-	void equip(Weapon *weapon);
+	void equip(Weapon *w);
 	void update(float frameTime);
 	void handleInput();
 

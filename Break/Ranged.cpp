@@ -21,8 +21,16 @@ void Ranged::reload()
 
 void Ranged::update(float frameTime)
 {
-	Weapon::update(frameTime);
 	sc.update(frameTime);
+	if (User != nullptr) {
+		setX(User->getCenterX() + direction.x);
+		setY(User->getCenterY() + direction.y);
+		setRadians(atan2(direction.y, direction.x));
+		if (direction.x < 0)
+			flipVertical(true);
+		else
+			flipVertical(false);
+	}
 
 }
 
