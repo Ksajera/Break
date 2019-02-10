@@ -6,7 +6,7 @@
 ShootingState::ShootingState(Weapon * weapon)
 {
 	this->weapon = dynamic_cast<Ranged*>(weapon);
-	timeLeft = 0.5f;
+	timeLeft = 0.0f;
 }
 
 ShootingState::ShootingState(Weapon * weapon, float timeLeft)
