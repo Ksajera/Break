@@ -55,6 +55,23 @@ void EnemyPool::draw()
 	}
 }
 
+void EnemyPool::equip(RangedModel * model, std::vector<Enemy>::iterator & it)
+{
+	it->equip(model);
+}
+
+void EnemyPool::equip(RangedModel * model, int index)
+{
+	enemyVector[index].equip(model);
+}
+
+void EnemyPool::equip(RangedModel * model)
+{
+	for (auto it = enemyVector.begin(); it < enemyVector.end(); it++) {
+		it->equip(model);
+	}
+}
+
 void EnemyPool::collide(Entity &entity, D3DXVECTOR2 &collisionVector)
 {
 	for (auto it = enemyVector.begin(); it < enemyVector.end(); it++) {

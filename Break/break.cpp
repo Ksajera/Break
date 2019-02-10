@@ -56,7 +56,7 @@ void Break::initialize(HWND hwnd)
 	//if (!rifle.initialize(graphics, rifleNS::WIDTH, rifleNS::HEIGHT, rifleNS::TEXTURE_COLS, &rifleSprite, &bullet, rifleNS::MAGAZINE_SIZE, rifleNS::RELOAD_DURATION, rifleNS::FIRE_RATE))
 	//	throw(GameError(gameErrorNS::FATAL_ERROR, "Error initializing bullet."));
 
-	pistol = RangedModel(&bullet, &handgunSprite, 24, 1.5f, 20, 5.0f, 12, 8, 0);
+	pistol = RangedModel(&bullet, &handgunSprite, 24, 1.5f, 20, 2.0f, 12, 8, 0);
 	rifleModel = RangedModel(&bullet, &rifleSprite, 64, 3.0f, 10, 12.0f, 25, 9, 0);
 	
 	handgun = pistol.newRanged(graphics);
@@ -70,7 +70,8 @@ void Break::initialize(HWND hwnd)
 	if (!player.initialize(this, PlayerNS::WIDTH, PlayerNS::HEIGHT, 0, &playerSprite))
 		throw(GameError(gameErrorNS::FATAL_ERROR, "Error initializing player."));
 
-	player.equip(rifle);
+	//player.equip(rifle);
+	player.equip(&rifleModel);
 
 	//ENEMY
 	if (!enemySprite.initialize(graphics, ENEMY_IMAGE))
@@ -80,6 +81,7 @@ void Break::initialize(HWND hwnd)
 
 	//bulletPool.initialize(&bullet, MAX_PROJECTILES);
 	enemyPool.initialize(&enemy, 3);
+	enemyPool.equip(&pistol);
 	//enemyPool.create(D3DXVECTOR2(GAME_WIDTH / 2, GAME_HEIGHT / 2), D3DXVECTOR2(0, 0));
 
     return;

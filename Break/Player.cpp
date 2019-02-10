@@ -100,6 +100,12 @@ void Player::equip(Weapon *w)
 	weapon->User = this;
 }
 
+void Player::equip(RangedModel * model)
+{
+	weapon = model->newRanged(graphics);
+	weapon->User = this;
+}
+
 void Player::scroll()
 {
 	//horizontal scrolling
