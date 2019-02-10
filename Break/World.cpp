@@ -42,7 +42,7 @@ void World::initialize(Graphics *g)
 {
 	dirtTile.initialize(g, DIRT_IMAGE);
 	grassTile.initialize(g, GRASS_IMAGE);
-	//floorTile.initialize(g, FLOOR_IMAGE);
+	floorTile.initialize(g, FLOOR_IMAGE);
 	generateWorld();
 
 }
