@@ -89,7 +89,6 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="AlertState.cpp" />
-    <ClCompile Include="BackstabState.cpp" />
     <ClCompile Include="CombatState.cpp" />
     <ClCompile Include="Enemy.cpp" />
     <ClCompile Include="EnemyAI.cpp" />
@@ -135,7 +134,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AlertState.h" />
-    <ClInclude Include="BackstabState.h" />
     <ClInclude Include="CombatState.h" />
     <ClInclude Include="constants.h" />
     <ClInclude Include="Enemy.h" />

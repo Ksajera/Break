@@ -35,7 +35,7 @@ void PatrolState::update(Enemy * enemy, Player* player, EnemyAI* ai, float frame
 	//the basic path finding stuff
 	//set points around the map etc.
 	movementUpdate(enemy, enemyAI);
-	enemyAI->calcAngleFaced(enemy->getVelocity()); //setting teh angle herre lol too lazy to change
+	enemyAI->calcAngleFaced(enemy->getVelocity()); //setting teh angle herre too lazy to change
 
 }
 

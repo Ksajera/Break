@@ -107,3 +107,4 @@ void EnemyAI::setVelo(Enemy* enemy, D3DXVECTOR2 vel) {
 	enemy->setVelocity(vel);
 	//velo = vel;
 }
+

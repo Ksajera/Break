@@ -51,6 +51,7 @@ const float MASS_SHIP = 5.0f;
 const float ENEMY_FOV_ANGLE = 45;
 const float ENEMY_FOV_ANGLE_START = 45;
 const float ENEMY_FOV_RANGE = 5;
+const float BACKSTAB_RANGE = 3;
 const int TILE_SIZE = 32;
 const int SPEED_MODIFIER = 30; 
 const int MAX_SPEED_MODIFIER = 5; //tiles per second
