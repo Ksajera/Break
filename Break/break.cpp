@@ -64,7 +64,7 @@ void Break::initialize(HWND hwnd)
 		throw(GameError(gameErrorNS::FATAL_ERROR, "Error initializing player texture."));
 
 	//Entities
-	if (!player.initialize(this, 32, 64, 0, &playerSprite))
+	if (!player.initialize(this, PlayerNS::WIDTH, PlayerNS::HEIGHT, 0, &playerSprite))
 		throw(GameError(gameErrorNS::FATAL_ERROR, "Error initializing player."));
 
 	player.equip(handgun);
@@ -72,11 +72,15 @@ void Break::initialize(HWND hwnd)
 	//ENEMY
 	if (!enemySprite.initialize(graphics, ENEMY_IMAGE))
 		throw(GameError(gameErrorNS::FATAL_ERROR, "Error initializing enemy texture."));
-	if (!enemy.initialize(this, 64, 64, 0, &enemySprite))
+	if (!enemy.initialize(this, EnemyNS::WIDTH, EnemyNS::HEIGHT, 0, &enemySprite))
 		throw(GameError(gameErrorNS::FATAL_ERROR, "Error initializing enemy."));
 
-	bulletPool.initialize(&bullet, MAX_PROJECTILES);
+	//bulletPool.initialize(&bullet, MAX_PROJECTILES);
 	enemyPool.initialize(&enemy, 3);
+	enemy.setX(GAME_WIDTH / 2);
+	enemy.setY(GAME_HEIGHT / 2);
+	enemy.setVelo(D3DXVECTOR2(0, 0));
+	enemy.initState();
 	//enemyPool.create(D3DXVECTOR2(GAME_WIDTH / 2, GAME_HEIGHT / 2), D3DXVECTOR2(0, 0));
 
     return;
@@ -93,6 +97,7 @@ void Break::update()
 	player.update(frameTime);
 	bulletPool.update(frameTime);
 	enemyPool.update(frameTime, &player);
+	//enemy.update(frameTime, &player);
 }
 
 //=============================================================================
@@ -116,6 +121,8 @@ void Break::collisions()
 		}
 
 	}
+	if (player.collidesWith(enemy, collisionVector))
+		enemy.setVisible(false);
 
 }
 
@@ -131,6 +138,7 @@ void Break::render()
 	//enemy.draw();
 	bulletPool.draw();
 	enemyPool.draw();
+	enemy.draw();
 
     graphics->spriteEnd();                  // end drawing sprites
 }

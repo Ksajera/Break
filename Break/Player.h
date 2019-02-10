@@ -10,6 +10,13 @@
 #include "StandingState.h"
 #include "CombatState.h"
 #include "IdleState.h"
+namespace PlayerNS
+{
+	const int   WIDTH = 32;                // image width (each frame)
+	const int   HEIGHT = 64;               // image height
+	const int   X = GAME_WIDTH / 2 - WIDTH; // location on screen
+	const int   Y = GAME_HEIGHT / 2 - HEIGHT;
+}
 
 class Player : public Entity
 {

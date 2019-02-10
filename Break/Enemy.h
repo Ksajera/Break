@@ -7,7 +7,13 @@
 //	UP = 0, RIGHT = 90, 
 //	DOWN = 180, LEFT = 270
 //};
-
+namespace EnemyNS
+{
+	const int   WIDTH = 64;                // image width (each frame)
+	const int   HEIGHT = 64;               // image height
+	const int   X = GAME_WIDTH / 2 - WIDTH; // location on screen
+	const int   Y = GAME_HEIGHT / 2 - HEIGHT;
+}
 class Enemy: public Entity
 {
 private:
