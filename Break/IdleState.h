@@ -1,13 +1,10 @@
 #pragma once
 #include "ShootingState.h"
 #include "ReloadingState.h"
-#include "BackstabState.h"
 
 class IdleState :
 	public CombatState
 {
-private:
-	D3DXVECTOR2 direction;
 public:
 	IdleState();
 	~IdleState();

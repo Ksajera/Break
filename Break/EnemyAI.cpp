@@ -6,6 +6,10 @@ EnemyAI::EnemyAI()
 	//velo = D3DXVECTOR2(1, 0);
 	countUpIgnore = 0;
 	countUpAlert = 0;
+	countUpPatrol = 0;
+	countUpIdle = 0;
+	randoDir = D3DXVECTOR2(0, 0);
+
 	fovAngle = 0;
 	startFovAngle = 0;
 	endFovAngle = 0;
@@ -107,3 +111,4 @@ void EnemyAI::setVelo(Enemy* enemy, D3DXVECTOR2 vel) {
 	enemy->setVelocity(vel);
 	//velo = vel;
 }
+

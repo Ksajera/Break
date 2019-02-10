@@ -17,7 +17,7 @@ void IdleState::update(Entity * player, float frameTime)
 
 CombatState * IdleState::handleInput(Entity * entity, InputComponent * inputC, Weapon * weapon)
 {
-	if (inputC->getMouseInput(entity, &direction)) {
+	if (inputC->getMouseInput(entity, &weapon->direction)) {
 		return new ShootingState(weapon);
 	}
 

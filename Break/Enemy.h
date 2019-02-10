@@ -26,6 +26,7 @@ private:
 	EnemyAI enemyAI;
 	D3DXVECTOR2 velo;
 	int direction;
+	Weapon* weapon;
 public:
 	Enemy();
 	~Enemy();
@@ -33,6 +34,8 @@ public:
 	D3DXVECTOR2 getPosition();
 	void setPosition(D3DXVECTOR2 position);
 	void draw();
+	void equip(Weapon *w);
+	void equip(RangedModel *model);
 	bool initialize(Game *gamePtr, int width, int height, int ncols,
 		TextureManager *textureM);
 	void handleStates(float frameTime);
@@ -41,6 +44,8 @@ public:
 	void setDirection(int dir);
 	D3DXVECTOR2 getVelo();
 	void setVelo(D3DXVECTOR2 vel);
+	void backstab(Player *player);
+	EnemyAI* getAI();
 
 	void initState();
 };

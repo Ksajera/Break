@@ -21,5 +21,7 @@ public:
 
 	void PatrolState::movementUpdate(Enemy* enemy, EnemyAI* ai);
 
+
+
 };
 

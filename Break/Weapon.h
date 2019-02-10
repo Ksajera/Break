@@ -17,6 +17,7 @@ public:
 	virtual bool collide(Entity &entity, D3DXVECTOR2 &collisionVector);
 	virtual bool initialize(Graphics *g, int width, int height,
 		int ncols, TextureManager *textureM);
+	Entity *User;
 
 };
 
