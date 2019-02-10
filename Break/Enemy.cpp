@@ -36,11 +36,11 @@ Enemy::~Enemy()
 
 void Enemy::update(float frameTime, Player *player)
 {
+	enemyAI.update(this, player, frameTime);
 	handleStates(frameTime);
 	state_->update(this, player, &enemyAI,frameTime);
 	//setVelocity(velo);
 	physicsComponent.update(this, frameTime);
-	enemyAI.update(this, player, frameTime);
 	//spriteData.angle = direction * PI / 180; //convert degree(direction) to rad
 }
 

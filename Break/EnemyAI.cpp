@@ -9,7 +9,8 @@ EnemyAI::EnemyAI()
 	fovAngle = 0;
 	startFovAngle = 0;
 	endFovAngle = 0;
-	angleFaced = 0;
+	angleFaced = PI;
+	VecEnemyToPlayer = D3DXVECTOR2(0, 0);
 }
 
 
@@ -47,6 +48,7 @@ float EnemyAI::calcAngleFaced(D3DXVECTOR2 vec)
 {
 	float angle = 0;
 	angleFaced = atan2(vec.y, vec.x) + PI/2;
+	//angle = 
 	return angle;
 }
 
@@ -66,7 +68,8 @@ bool EnemyAI::isPlayerInFov()
 bool EnemyAI::playerInFov(Enemy* enemy)
 {
 	if (D3DXVec2Length(&VecEnemyToPlayer) <= TILE_SIZE * ENEMY_FOV_RANGE) { //if player is within 5 tiles infront
-		if (isPlayerInFov()) {
+		float pp = getEnemyToPlayerAngle();
+		if (getEnemyToPlayerAngle() > startFovAngle && getEnemyToPlayerAngle() < endFovAngle) {
 			return true;
 		}
 		else {
