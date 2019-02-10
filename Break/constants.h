@@ -32,8 +32,8 @@
 const char CLASS_NAME[] = "Break";
 const char GAME_TITLE[] = "Break";
 const bool FULLSCREEN = false;              // windowed or fullscreen
-const UINT GAME_WIDTH =  640;               // width of game in pixels
-const UINT GAME_HEIGHT = 480;               // height of game in pixels
+const UINT GAME_WIDTH =  1280;               // width of game in pixels
+const UINT GAME_HEIGHT = 960;               // height of game in pixels
 //const UINT GAME_WIDTH = 1920;               // width of game in pixels
 //const UINT GAME_HEIGHT = 1080;               // height of game in pixels
 //const UINT SCREEN_WIDTH = 1920;               // width of game in pixels
