@@ -38,6 +38,11 @@ float Weapon::getAttackSpeed()
 	return 0.0f;
 }
 
+int Weapon::getDamage()
+{
+	return 0;
+}
+
 bool Weapon::collide(Entity & entity, D3DXVECTOR2 & collisionVector)
 {
 	return false;

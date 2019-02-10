@@ -76,6 +76,17 @@ void Enemy::handleStates(float frameTime)
 	}
 }
 
+void Enemy::damage(int value)
+{
+	if (health > 0)
+		health -= value;
+
+	if (health <= 0) {
+		setVisible(false);
+		setActive(false);
+	}
+}
+
 int Enemy::getDirection() {
 	return direction;
 }

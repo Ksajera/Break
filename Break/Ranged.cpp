@@ -36,6 +36,7 @@ bool Ranged::initialize(Graphics *g, RangedModel &model)
 {
 	reloadDuration = model.getReloadTime();
 	fireRate = model.getFireRate();
+	damage = model.getDamage();
 	magazineSize = model.getClipSize();
 	magazine.initialize(model.getProjectile(), magazineSize + (magazineSize/reloadDuration * fireRate));
 	sc = ShootingComponent(&magazine, magazineSize);

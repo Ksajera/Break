@@ -56,7 +56,7 @@ void Break::initialize(HWND hwnd)
 	//if (!rifle.initialize(graphics, rifleNS::WIDTH, rifleNS::HEIGHT, rifleNS::TEXTURE_COLS, &rifleSprite, &bullet, rifleNS::MAGAZINE_SIZE, rifleNS::RELOAD_DURATION, rifleNS::FIRE_RATE))
 	//	throw(GameError(gameErrorNS::FATAL_ERROR, "Error initializing bullet."));
 
-	pistol = RangedModel(&bullet, &handgunSprite, 24, 2.0f, 5, 5.0f, 12, 8, 0);
+	pistol = RangedModel(&bullet, &handgunSprite, 24, 2.0f, 50, 5.0f, 12, 8, 0);
 	handgun = pistol.newRanged(graphics);
 
 	//Sprites
@@ -77,10 +77,6 @@ void Break::initialize(HWND hwnd)
 
 	//bulletPool.initialize(&bullet, MAX_PROJECTILES);
 	enemyPool.initialize(&enemy, 3);
-	enemy.setX(GAME_WIDTH / 2);
-	enemy.setY(GAME_HEIGHT / 2);
-	enemy.setVelo(D3DXVECTOR2(0, 0));
-	enemy.initState();
 	//enemyPool.create(D3DXVECTOR2(GAME_WIDTH / 2, GAME_HEIGHT / 2), D3DXVECTOR2(0, 0));
 
     return;
@@ -117,12 +113,10 @@ void Break::collisions()
 	std::vector<Enemy>* enemies = enemyPool.getEnemies();
 	for (auto it = enemies->begin(); it < enemies->end(); it++) {
 		if (player.weapon->collide(*it, collisionVector)) {
-			enemyPool.destroy(it);
+			it->damage(player.weapon->getDamage());
 		}
 
 	}
-	if (player.collidesWith(enemy, collisionVector))
-		enemy.setVisible(false);
 
 }
 
@@ -138,7 +132,7 @@ void Break::render()
 	//enemy.draw();
 	bulletPool.draw();
 	enemyPool.draw();
-	enemy.draw();
+	//enemy.draw();
 
     graphics->spriteEnd();                  // end drawing sprites
 }

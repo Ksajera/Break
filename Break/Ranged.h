@@ -15,6 +15,7 @@ public:
 	virtual void reload();
 	virtual void update(float frameTime);
 	virtual void attack(D3DXVECTOR2 position, D3DXVECTOR2 direction);
+	virtual int getDamage() { return damage; }
 	virtual bool initialize(Graphics *g, RangedModel &model );
 	virtual bool collide(Entity &entity, D3DXVECTOR2 &collisionVector);
 	float getReloadDuration() { return reloadDuration; }

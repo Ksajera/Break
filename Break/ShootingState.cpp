@@ -23,9 +23,9 @@ void ShootingState::update(Entity * entity, float frameTime)
 {
 	timeLeft -= frameTime;
 	if (timeLeft <= 0) {
-		timeLeft = 1 / weapon->getAttackSpeed();
 		D3DXVECTOR2 position = D3DXVECTOR2(entity->getCenterX(), entity->getCenterY());
 		weapon->attack(position, weapon->direction);
+		timeLeft = 1 / weapon->getAttackSpeed();
 	}
 
 }

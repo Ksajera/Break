@@ -36,7 +36,7 @@ public:
 	bool initialize(Game *gamePtr, int width, int height, int ncols,
 		TextureManager *textureM);
 	void handleStates(float frameTime);
-
+	virtual void damage(int value);
 	int getDirection();
 	void setDirection(int dir);
 	D3DXVECTOR2 getVelo();
