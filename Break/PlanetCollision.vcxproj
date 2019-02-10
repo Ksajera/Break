@@ -92,6 +92,7 @@
     <ClCompile Include="CombatState.cpp" />
     <ClCompile Include="Enemy.cpp" />
     <ClCompile Include="EnemyAI.cpp" />
+    <ClCompile Include="EnemyIdleState.cpp" />
     <ClCompile Include="EnemyPool.cpp" />
     <ClCompile Include="EnemyState.cpp" />
     <ClCompile Include="entity.cpp" />
@@ -138,6 +139,7 @@
     <ClInclude Include="constants.h" />
     <ClInclude Include="Enemy.h" />
     <ClInclude Include="EnemyAI.h" />
+    <ClInclude Include="EnemyIdleState.h" />
     <ClInclude Include="EnemyPool.h" />
     <ClInclude Include="EnemyState.h" />
     <ClInclude Include="entity.h" />

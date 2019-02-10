@@ -2,7 +2,7 @@
 #include "Enemy.h"
 #include "AlertState.h"
 #include "SuspiciousState.h"
-
+#include "EnemyIdleState.h"
 
 //default state for enemy
 
@@ -36,6 +36,9 @@ void PatrolState::update(Enemy * enemy, Player* player, EnemyAI* ai, float frame
 	//set points around the map etc.
 	movementUpdate(enemy, enemyAI);
 	enemyAI->calcAngleFaced(enemy->getVelocity()); //setting teh angle herre too lazy to change
+	if (enemyAI->countUpIdle < IDLE_DURATION){
+		enemyAI->countUpPatrol += frameTime;
+	}
 
 }
 
@@ -44,11 +47,15 @@ EnemyState * PatrolState::handleEnemy(Enemy * enemy, EnemyAI * ai, float frameTi
 	if (enemyAI->playerInFov(enemy)) {
 		return new SuspiciousState(enemyAI);
 	}
+	if (enemyAI->countUpPatrol >= PATROL_DURATION) {
+		enemyAI->countUpPatrol = 0;
+		return new EnemyIdleState(enemy, enemyAI);
+	}
 
 	return new PatrolState(enemyAI);
 }
 
-void PatrolState::movementUpdate(Enemy* enemy, EnemyAI* ai)
+void PatrolState::movementUpdate(Enemy* enemy, EnemyAI* ai) // for 3 seconds, pause for 2 seconds, get a random direction, repeat
 {
 	// collide game width/height and bounce around
 	if (enemy->getX() + enemy->getWidth() > GAME_WIDTH) { // top right
@@ -84,4 +91,3 @@ void PatrolState::movementUpdate(Enemy* enemy, EnemyAI* ai)
 	}
 
 }
-

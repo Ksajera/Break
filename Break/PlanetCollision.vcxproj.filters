@@ -44,6 +44,7 @@
     <ClCompile Include="SuspiciousState.cpp" />
     <ClCompile Include="PatrolState.cpp" />
     <ClCompile Include="RangedModel.cpp" />
+    <ClCompile Include="EnemyIdleState.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="constants.h" />
@@ -90,5 +91,6 @@
     <ClInclude Include="SuspiciousState.h" />
     <ClInclude Include="PatrolState.h" />
     <ClInclude Include="RangedModel.h" />
+    <ClInclude Include="EnemyIdleState.h" />
   </ItemGroup>
 </Project>
