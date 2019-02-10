@@ -103,11 +103,19 @@ private:
 	ProjectilePool bulletPool;
 	EnemyPool enemyPool;
 	WeaponPool weaponPool;
+<<<<<<< HEAD
 	TextureManager bgTexture, playerSprite, enemySprite, bulletSprite, enemyFovSprite, handgunSprite, rifleSprite, tileSheet;
 	Image bgImage, enemyFovImage, tileImage;
 	RangedModel pistol, rifleModel;
 	Ranged* handgun, *rifle;
 	float mapX, mapY;
+=======
+	TextureManager bgTexture, playerSprite, enemySprite, bulletSprite, enemyFovSprite, handgunSprite, rifleSprite;
+	Image bgImage, enemyFovImage;
+	RangedModel pistol;
+	Ranged* handgun;
+	Rifle rifle;
+>>>>>>> parent of 2dabac3... Merge branch 'master' of https://github.com/Ksajera/Break
 
 public:
     // Constructor
