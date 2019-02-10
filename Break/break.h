@@ -39,9 +39,8 @@ private:
 	WeaponPool weaponPool;
 	TextureManager bgTexture, playerSprite, enemySprite, bulletSprite, enemyFovSprite, handgunSprite, rifleSprite;
 	Image bgImage, enemyFovImage;
-	RangedModel pistol;
-	Ranged* handgun;
-	Rifle rifle;
+	RangedModel pistol, rifleModel;
+	Ranged* handgun, *rifle;
 
 public:
     // Constructor

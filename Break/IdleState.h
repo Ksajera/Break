@@ -6,8 +6,6 @@
 class IdleState :
 	public CombatState
 {
-private:
-	D3DXVECTOR2 direction;
 public:
 	IdleState();
 	~IdleState();
