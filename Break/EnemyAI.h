@@ -44,10 +44,7 @@ public:
 	D3DXVECTOR2 getVelo(Enemy* enemy);
 	void setVelo(Enemy* enemy, D3DXVECTOR2 vel);
 
-	//use in SuspiciousState
-	float countUpIgnore, countUpAlert,
-	//use in PatrolState
-		countUpPatrol, countUpIdle;
-	D3DXVECTOR2 randoDir; 
+	float countUpIgnore, countUpAlert;
+
 };
 

@@ -94,16 +94,9 @@ void Player::draw()
 	weapon->draw();
 }
 
-void Player::equip(Weapon *w)
+void Player::equip(Weapon *weapon)
 {
-	weapon = w;
-	weapon->User = this;
-}
-
-void Player::equip(RangedModel * model)
-{
-	weapon = model->newRanged(graphics);
-	weapon->User = this;
+	this->weapon = weapon;
 }
 
 void Player::scroll()

@@ -34,10 +34,10 @@ void Break::initialize(HWND hwnd)
 	#pragma region Initialization
 
 	//BACKGROUND
-	/*if (!bgTexture.initialize(graphics, NEBULA_IMAGE))
+	if (!bgTexture.initialize(graphics, NEBULA_IMAGE))
 		throw(GameError(gameErrorNS::FATAL_ERROR, "Error initializing background texture"));
 	if (!bgImage.initialize(graphics, 0, 0, 0, &bgTexture))
-		throw(GameError(gameErrorNS::FATAL_ERROR, "Error initializing background"));*/
+		throw(GameError(gameErrorNS::FATAL_ERROR, "Error initializing background"));
 
 	//TILEMAP 
 	//if (!tileSheet.initialize(graphics, TILE_MAP_IMAGE))				//Tile Sheet
@@ -57,17 +57,14 @@ void Break::initialize(HWND hwnd)
 	//if (!handgun.initialize(graphics, handgunNS::WIDTH, handgunNS::HEIGHT, handgunNS::TEXTURE_COLS, &handgunSprite, &bullet, handgunNS::MAGAZINE_SIZE, handgunNS::RELOAD_DURATION, handgunNS::FIRE_RATE))
 	//	throw(GameError(gameErrorNS::FATAL_ERROR, "Error initializing bullet."));
 
-	if (!rifleSprite.initialize(graphics, RIFLE_TEXTURE))
-		throw(GameError(gameErrorNS::FATAL_ERROR, "Error initializing handgun texture."));
+	//if (!rifleSprite.initialize(graphics, RIFLE_TEXTURE))
+	//	throw(GameError(gameErrorNS::FATAL_ERROR, "Error initializing handgun texture."));
 
 	//if (!rifle.initialize(graphics, rifleNS::WIDTH, rifleNS::HEIGHT, rifleNS::TEXTURE_COLS, &rifleSprite, &bullet, rifleNS::MAGAZINE_SIZE, rifleNS::RELOAD_DURATION, rifleNS::FIRE_RATE))
 	//	throw(GameError(gameErrorNS::FATAL_ERROR, "Error initializing bullet."));
 
-	pistol = RangedModel(&bullet, &handgunSprite, 24, 1.5f, 20, 2.0f, 12, 8, 0);
-	rifleModel = RangedModel(&bullet, &rifleSprite, 64, 3.0f, 10, 12.0f, 25, 9, 0);
-	
+	pistol = RangedModel(&bullet, &handgunSprite, 24, 2.0f, 50, 5.0f, 12, 8, 0);
 	handgun = pistol.newRanged(graphics);
-	rifle = rifleModel.newRanged(graphics);
 
 	//Sprites
 	if (!playerSprite.initialize(graphics, PLAYER_IMAGE))
@@ -77,8 +74,7 @@ void Break::initialize(HWND hwnd)
 	if (!player.initialize(this, PlayerNS::WIDTH, PlayerNS::HEIGHT, 0, &playerSprite))
 		throw(GameError(gameErrorNS::FATAL_ERROR, "Error initializing player."));
 
-	//player.equip(rifle);
-	player.equip(&rifleModel);
+	player.equip(handgun);
 
 	//ENEMY
 	if (!enemySprite.initialize(graphics, ENEMY_IMAGE))
@@ -87,8 +83,7 @@ void Break::initialize(HWND hwnd)
 		throw(GameError(gameErrorNS::FATAL_ERROR, "Error initializing enemy."));
 
 	//bulletPool.initialize(&bullet, MAX_PROJECTILES);
-	enemyPool.initialize(&enemy, 10);
-	enemyPool.equip(&pistol);
+	enemyPool.initialize(&enemy, 3);
 	//enemyPool.create(D3DXVECTOR2(GAME_WIDTH / 2, GAME_HEIGHT / 2), D3DXVECTOR2(0, 0));
 
     return;
