@@ -14,7 +14,5 @@ public:
 	virtual void update(Enemy* enemy, Player* player, EnemyAI* ai, float frameTime) = 0;
 	virtual EnemyState* handleEnemy(Enemy* enemy, EnemyAI* ai, float frameTime) = 0;
 
-	int MIN_MAX_RAND(int min, int max);
-
 };
 

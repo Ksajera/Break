@@ -44,8 +44,6 @@ public:
 	void setDirection(int dir);
 	D3DXVECTOR2 getVelo();
 	void setVelo(D3DXVECTOR2 vel);
-	void backstab(Player *player);
-	EnemyAI* getAI();
 
 	void initState();
 };
