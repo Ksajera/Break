@@ -39,7 +39,6 @@ public:
 	void scroll();
 	void draw();
 	void equip(Weapon *w);
-	void equip(RangedModel *model);
 	void update(float frameTime);
 	void handleInput();
 

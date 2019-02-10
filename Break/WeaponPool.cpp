@@ -32,18 +32,13 @@ void WeaponPool::destroy(std::vector<Weapon>::iterator & it)
 	it->setVisible(false);
 }
 
-void WeaponPool::initialize(Weapon *weapon[], int size)
+void WeaponPool::initialize(Weapon * weapon, int size)
 {
+	weapon->setVisible(false);
 	for (int i = 0; i < size; i++) {
-		weapon[i]->setVisible(false);
-		weapons.push_back(*weapon[i]);
+		weapons.push_back(*weapon);
 
 	}
-}
-
-void WeaponPool::add(Weapon *weapon)
-{
-	weapons.push_back(*weapon);
 }
 
 void WeaponPool::update(float frameTime)

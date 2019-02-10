@@ -41,7 +41,6 @@ void Enemy::update(float frameTime, Player *player)
 	state_->update(this, player, &enemyAI,frameTime);
 	//setVelocity(velo);
 	physicsComponent.update(this, frameTime);
-	weapon->update(frameTime);
 	//spriteData.angle = direction * PI / 180; //convert degree(direction) to rad
 }
 
@@ -59,20 +58,7 @@ D3DXVECTOR2 Enemy::getPosition()
 void Enemy::draw()
 {
 	Image::draw();
-	weapon->draw();
-}
 
-void Enemy::equip(Weapon * w)
-{
-	weapon = w;
-	weapon->User = this;
-}
-
-void Enemy::equip(RangedModel * model)
-{
-	weapon = model->newRanged(graphics);
-	weapon->User = this;
-	weapon->draw();
 }
 
 
