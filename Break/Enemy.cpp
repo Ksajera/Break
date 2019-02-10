@@ -41,7 +41,9 @@ void Enemy::update(float frameTime, Player *player)
 	state_->update(this, player, &enemyAI,frameTime);
 	//setVelocity(velo);
 	physicsComponent.update(this, frameTime);
+	weapon->update(frameTime);
 	//spriteData.angle = direction * PI / 180; //convert degree(direction) to rad
+	backstab(player);
 }
 
 void Enemy::setPosition(D3DXVECTOR2 position)
@@ -58,7 +60,20 @@ D3DXVECTOR2 Enemy::getPosition()
 void Enemy::draw()
 {
 	Image::draw();
+	weapon->draw();
+}
 
+void Enemy::equip(Weapon * w)
+{
+	weapon = w;
+	weapon->User = this;
+}
+
+void Enemy::equip(RangedModel * model)
+{
+	weapon = model->newRanged(graphics);
+	weapon->User = this;
+	weapon->draw();
 }
 
 
@@ -103,6 +118,11 @@ void Enemy::setVelo(D3DXVECTOR2 vel) {
 	velocity = vel;
 }
 
+EnemyAI* Enemy::getAI()
+{
+	return &enemyAI;
+}
+
 void Enemy::initState()
 {
 	state_ = new PatrolState(&enemyAI);
@@ -113,3 +133,27 @@ bool Enemy::initialize(Game * gamePtr, int width, int height, int ncols, Texture
 	physicsComponent = PhysicsComponent();
 	return Entity::initialize(gamePtr, width, height, ncols, textureM);
 }
+
+void Enemy::backstab(Player *player)
+{
+	if (player->inputComponent.rightMouseClick())
+	{
+		if (enemyAI.getVecEnemyToPlayer().x < 0) { //if the Vector.x between enemy and player is negative (behind) 
+			if ((D3DXVec2Dot(&player->getVelocity(), &this->getVelocity()) < -0.25) //if the vectors are opposite (within the range)
+				&& (D3DXVec2Length(&enemyAI.getVecEnemyToPlayer()) <= TILE_SIZE * BACKSTAB_RANGE)) { //and if the player is within meeleeable range
+				this->setActive(false);
+				this->setVisible(false);
+			}
+			//if(dot prod between EnemyVector and PlayerVector is < -0.5)
+				//set enemy false
+				//drop weapon
+		}
+	}
+	/*
+		if right click and dot product thing is within range
+			set enemy false
+			drop weapon
+
+	*/
+}
+
