@@ -13,6 +13,5 @@ public:
 	// Inherited via PlayerState
 	virtual void update(Player * player, float frameTime);
 	virtual PlayerState* handleInput(Player * player, InputComponent *inputC);
-
 };
 

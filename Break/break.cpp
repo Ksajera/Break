@@ -88,7 +88,7 @@ void Break::initialize(HWND hwnd)
 
 	//setframe
 	player.setCurrentFrame(DOWN_START_FRAME);
-	player.setFrames(0, 8);
+	player.setFrames(DOWN_START_FRAME, DOWN_START_FRAME);
 
 	//bulletPool.initialize(&bullet, MAX_PROJECTILES);
 	enemyPool.initialize(&enemy, 2);

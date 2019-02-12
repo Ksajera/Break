@@ -49,7 +49,7 @@ public:
 	void update(float frameTime);
 	void handleInput();
 	void setAnimFrame(int animFrame);
-	void animUpdate();
+	void setAnimFrame();
 
 	bool initialize(Game *gamePtr, int width, int height, int ncols,
 		TextureManager *textureM);

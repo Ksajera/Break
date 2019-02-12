@@ -61,9 +61,19 @@ void Player::setAnimFrame(int frame)
 	setFrames(animFrame, animFrame + cols + 1);
 }
 
-void Player::animUpdate()
+void Player::setAnimFrame()
 {
-	//setCurrentFrame(animFrame);
+	if (direction.x == 1)
+		animFrame = RIGHT_START_FRAME;
+	if (direction.x == -1)
+		animFrame = LEFT_START_FRAME;
+
+	if (direction.y == 1)
+		animFrame = DOWN_START_FRAME;
+	if (direction.y == 1)
+		animFrame = LEFT_START_FRAME;
+
+	setCurrentFrame(animFrame);
 	setFrames(animFrame, animFrame + cols + 1);
 }
 
@@ -76,7 +86,6 @@ void Player::update(float frameTime)
 	inputComponent.update(this, frameTime);
 	weapon->update(frameTime);
 	physics.update(this, &inputComponent, frameTime);
-	//animUpdate();
 }
 
 void Player::setPosition(D3DXVECTOR2 position)
