@@ -33,7 +33,7 @@ public:
 	void rotateEnemy(Enemy* enemy);
 	void moveFOV(Enemy* enemy);
 	float getEnemyToPlayerAngle();
-	float calcAngleFaced(D3DXVECTOR2 vec);
+	void calcAngleFaced(D3DXVECTOR2 vec);
 	void setAngleFaced(float angle);
 	bool isPlayerInFov();
 	bool playerInFov(Enemy* enemy);
@@ -43,6 +43,7 @@ public:
 	void setDirection(Enemy* enemy, int dir);
 	D3DXVECTOR2 getVelo(Enemy* enemy);
 	void setVelo(Enemy* enemy, D3DXVECTOR2 vel);
+	void StayInScreen(Enemy* enemy);
 
 	//use in SuspiciousState
 	float countUpIgnore, countUpAlert,

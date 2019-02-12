@@ -22,6 +22,7 @@ Player::Player() : Entity()
 	currentFrame = startFrame;
 	radius = WIDTH / 2.0;
 	collisionType = entityNS::BOX;
+	animFrame = getCurrentFrame();
 }
 
 Player::~Player()
@@ -54,21 +55,28 @@ void Player::handleInput()
 
 }
 
+void Player::setAnimFrame(int frame)
+{
+	this->animFrame = frame;
+	setFrames(animFrame, animFrame + cols + 1);
+}
+
+void Player::animUpdate()
+{
+	//setCurrentFrame(animFrame);
+	setFrames(animFrame, animFrame + cols + 1);
+}
+
 void Player::update(float frameTime)
 {
 	handleInput();
-
 	state_->update(this, frameTime);
 	combat_->update(this, frameTime);
-
 	Entity::update(frameTime);
-
 	inputComponent.update(this, frameTime);
 	weapon->update(frameTime);
-
-
 	physics.update(this, &inputComponent, frameTime);
-
+	//animUpdate();
 }
 
 void Player::setPosition(D3DXVECTOR2 position)

@@ -19,7 +19,7 @@ SuspiciousState::~SuspiciousState()
 
 void SuspiciousState::update(Enemy * enemy, Player * player, EnemyAI * ai, float frameTime)
 {
-	enemy->setVisible(false);
+	//enemy->setVisible(false);
 	//player is NOT in FOV
 	//if (!(enemyAI->playerInFov(enemy))) { 
 	//	enemyAI->countUpIgnore = 0;

@@ -78,7 +78,8 @@ const char HEART_IMAGE[] = "pictures\\heart.png";
 const char DIRT_IMAGE[] = "pictures\\dirt.jpg";
 const char GRASS_IMAGE[] = "pictures\\grass.jpg";
 const char FLOOR_IMAGE[] = "pictures\\floor1.png";
-const char PLAYER_IMAGE[] = "pictures\\player.png";
+//const char PLAYER_IMAGE[] = "pictures\\player.png";
+const char PLAYER_IMAGE[] = "pictures\\pics\\Guards\\Characters\\player.png";
 const char ENEMY_IMAGE[] = "pictures\\enemy.png";
 const char BULLET_TEXTURE[] = "pictures\\bullet.png";
 const char HANDGUN_TEXTURE[] = "pictures\\handgun.png";
@@ -86,7 +87,12 @@ const char RIFLE_TEXTURE[] = "pictures\\rifle.png";
 const char ARROW_TEXTURE[] = "pictures\\arrow.png";
 const char FOV_TEXTURE[] = "pictures\\fov.png";
 const char TILE_MAP_IMAGE[] = "pictures\\pics\\PlatformTiles.png";
-
+enum SPRITE_FRAME {
+	UP_START_FRAME = 0, UP_END_FRAME = 8,
+	LEFT_START_FRAME = 9, LEFT_END_FRAME = 17,
+	DOWN_START_FRAME = 18, DOWN_END_FRAME = 26,
+	RIGHT_START_FRAME = 27, RIGHT_END_FRAME = 35
+};
 
 // key mappings
 // In this game simple constants are used for key mappings. If variables were used

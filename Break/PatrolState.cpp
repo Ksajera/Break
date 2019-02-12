@@ -34,7 +34,7 @@ void PatrolState::update(Enemy * enemy, Player* player, EnemyAI* ai, float frame
 {
 	//the basic path finding stuff
 	//set points around the map etc.
-	movementUpdate(enemy, enemyAI);
+	//movementUpdate(enemy, enemyAI);
 	enemyAI->calcAngleFaced(enemy->getVelocity()); //setting teh angle herre too lazy to change
 	if (enemyAI->countUpIdle < IDLE_DURATION){
 		enemyAI->countUpPatrol += frameTime;
@@ -45,6 +45,7 @@ void PatrolState::update(Enemy * enemy, Player* player, EnemyAI* ai, float frame
 EnemyState * PatrolState::handleEnemy(Enemy * enemy, EnemyAI * ai, float frameTime)
 {
 	if (enemyAI->playerInFov(enemy)) {
+		//enemy->setVisible(false);
 		return new SuspiciousState(enemyAI);
 	}
 	if (enemyAI->countUpPatrol >= PATROL_DURATION) {

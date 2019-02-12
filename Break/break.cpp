@@ -74,7 +74,7 @@ void Break::initialize(HWND hwnd)
 		throw(GameError(gameErrorNS::FATAL_ERROR, "Error initializing player texture."));
 
 	//Entities
-	if (!player.initialize(this, PlayerNS::WIDTH, PlayerNS::HEIGHT, 0, &playerSprite))
+	if (!player.initialize(this, PlayerNS::WIDTH, PlayerNS::HEIGHT, 9, &playerSprite))
 		throw(GameError(gameErrorNS::FATAL_ERROR, "Error initializing player."));
 
 	//player.equip(rifle);
@@ -86,8 +86,12 @@ void Break::initialize(HWND hwnd)
 	if (!enemy.initialize(this, EnemyNS::WIDTH, EnemyNS::HEIGHT, 0, &enemySprite))
 		throw(GameError(gameErrorNS::FATAL_ERROR, "Error initializing enemy."));
 
+	//setframe
+	player.setCurrentFrame(DOWN_START_FRAME);
+	player.setFrames(0, 8);
+
 	//bulletPool.initialize(&bullet, MAX_PROJECTILES);
-	enemyPool.initialize(&enemy, 10);
+	enemyPool.initialize(&enemy, 2);
 	enemyPool.equip(&pistol);
 	//enemyPool.create(D3DXVECTOR2(GAME_WIDTH / 2, GAME_HEIGHT / 2), D3DXVECTOR2(0, 0));
 

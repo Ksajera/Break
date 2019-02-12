@@ -12,7 +12,11 @@
 #include "IdleState.h"
 namespace PlayerNS
 {
-	const int   WIDTH = 32;                // image width (each frame)
+	//const int   WIDTH = 32;                // image width (each frame)
+	//const int   HEIGHT = 64;               // image height
+	//const int   WIDTH = 32;               // image height
+	//const int   HEIGHT = 50;               // image height
+	const int   WIDTH = 64;               // image height
 	const int   HEIGHT = 64;               // image height
 	const int   X = GAME_WIDTH / 2 - WIDTH; // location on screen
 	const int   Y = GAME_HEIGHT / 2 - HEIGHT;
@@ -20,6 +24,8 @@ namespace PlayerNS
 
 class Player : public Entity
 {
+private:
+	int animFrame;
 public:
 	PlayerState * state_;
 	CombatState * combat_;
@@ -42,6 +48,8 @@ public:
 	void equip(RangedModel *model);
 	void update(float frameTime);
 	void handleInput();
+	void setAnimFrame(int animFrame);
+	void animUpdate();
 
 	bool initialize(Game *gamePtr, int width, int height, int ncols,
 		TextureManager *textureM);
