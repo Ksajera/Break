@@ -27,6 +27,7 @@ private:
 	D3DXVECTOR2 velo;
 	int direction;
 	Weapon* weapon;
+	int animFrame;
 public:
 	Enemy();
 	~Enemy();
@@ -34,8 +35,10 @@ public:
 	D3DXVECTOR2 getPosition();
 	void setPosition(D3DXVECTOR2 position);
 	void draw();
+	void setAnimFrame();
 	void equip(Weapon *w);
 	void equip(RangedModel *model);
+	void stopMoving();
 	bool initialize(Game *gamePtr, int width, int height, int ncols,
 		TextureManager *textureM);
 	void handleStates(float frameTime);

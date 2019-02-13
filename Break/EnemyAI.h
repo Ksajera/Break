@@ -35,6 +35,7 @@ public:
 	float getEnemyToPlayerAngle();
 	void calcAngleFaced(D3DXVECTOR2 vec);
 	void setAngleFaced(float angle);
+	float getAngleFaced() { return angleFaced; }
 	bool isPlayerInFov();
 	bool playerInFov(Enemy* enemy);
 	D3DXVECTOR2 getVecEnemyToPlayer();

@@ -74,6 +74,37 @@ void Enemy::equip(RangedModel * model)
 	weapon->draw();
 }
 
+void Enemy::setAnimFrame()
+{
+	//float rad = atan2(direction.y, direction.x);
+	D3DXVECTOR2 direction;
+	D3DXVec2Normalize(&direction, &velocity);
+	float rad = atan2(direction.y, direction.x);
+
+	if (rad == atan2(1.0f, 0.0f))
+		animFrame = DOWN_START_FRAME;
+
+	if (rad == atan2(-1.0f, 0.0f))
+		animFrame = UP_START_FRAME;
+
+	if (rad == atan2(0.0f, 1.0f))
+		animFrame = RIGHT_START_FRAME;
+
+	if (rad == atan2(0.0f, -1.0f))
+		animFrame = LEFT_START_FRAME;
+
+	if (animFrame != getStartFrame()) {
+		setFrames(animFrame, animFrame + cols - 1);
+		setCurrentFrame(animFrame);
+	}
+
+}
+
+void Enemy::stopMoving()
+{
+	setCurrentFrame(animFrame);
+	setFrames(animFrame, animFrame);
+}
 
 void Enemy::handleStates(float frameTime)
 {

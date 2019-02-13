@@ -11,6 +11,8 @@ public:
 	~EnemyIdleState();
 
 	// Inherited via EnemyState
+	virtual void enter(Enemy *enemy);
+	virtual void exit(Enemy *enemy);
 	virtual void update(Enemy * enemy, Player * player, EnemyAI * ai, float frameTime) override;
 	virtual EnemyState * handleEnemy(Enemy * enemy, EnemyAI * ai, float frameTime) override;
 

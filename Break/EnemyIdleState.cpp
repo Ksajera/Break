@@ -22,6 +22,15 @@ EnemyIdleState::~EnemyIdleState()
 {
 }
 
+void EnemyIdleState::enter(Enemy * enemy)
+{
+	//enemy->stopMoving();
+}
+
+void EnemyIdleState::exit(Enemy * enemy)
+{
+}
+
 void EnemyIdleState::update(Enemy * enemy, Player * player, EnemyAI * ai, float frameTime)
 {
 	//enemy->setVisible(false);

@@ -23,7 +23,7 @@ PatrolState::~PatrolState()
 
 void PatrolState::enter(Enemy * enemy)
 {
-	
+	//enemy->setAnimFrame();
 }
 
 void PatrolState::exit(Enemy * enemy)
