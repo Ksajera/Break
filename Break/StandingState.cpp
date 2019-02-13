@@ -11,6 +11,16 @@ StandingState::~StandingState()
 {
 }
 
+void StandingState::enter(Player * player)
+{
+	player->stopMoving();
+}
+
+void StandingState::exit(Player * player)
+{
+
+}
+
 void StandingState::update(Player * player, float frameTime)
 {
 	player->physics.Stop(player, frameTime);
@@ -25,7 +35,6 @@ PlayerState* StandingState::handleInput(Player * player, InputComponent *inputC)
 
 		return new MovingState();
 	}
-
 
 	return new StandingState();
 

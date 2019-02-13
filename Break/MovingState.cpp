@@ -10,6 +10,16 @@ MovingState::~MovingState()
 {
 }
 
+void MovingState::enter(Player * player)
+{
+	player->setAnimFrame();
+}
+
+void MovingState::exit(Player * player)
+{
+
+}
+
 void MovingState::update(Player * player, float frameTime)
 {
 	player->physics.Move(player, player->direction, frameTime);

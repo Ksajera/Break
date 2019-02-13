@@ -64,10 +64,8 @@ void Player::setAnimFrame(int frame)
 void Player::setAnimFrame()
 {
 	//float rad = atan2(direction.y, direction.x);
-	float rad = atan2(direction.y, direction.x) * 180 / PI; //convert to degree
-	if (input->isKeyDown(VK_SPACE)) {
-		rad = atan2(direction.y, direction.x);
-	}
+	float rad = atan2(direction.y, direction.x);
+
 	//if (rad > -(7 * PI / 4) && rad < -(PI / 4))
 	//	animFrame = UP_START_FRAME;
 
@@ -80,20 +78,23 @@ void Player::setAnimFrame()
 	//if (rad > -(5 * PI / 4) && rad < -(7 * PI / 4))
 	//	animFrame = RIGHT_START_FRAME;
 	
-	if (rad > 45 && rad <= 135)
+	if (rad == atan2(1.0f, 0.0f))
 		animFrame = DOWN_START_FRAME;
 
-	if (rad > 225 && rad <= 315)
+	if (rad == atan2(-1.0f, 0.0f))
 		animFrame = UP_START_FRAME;
 
-	if (rad > 315 && rad <= 45)
+	if (rad == atan2(0.0f, 1.0f))
 		animFrame = RIGHT_START_FRAME;
 
-	if (rad > 135 && rad <= 225)
+	if (rad == atan2(0.0f, -1.0f))
 		animFrame = LEFT_START_FRAME;
 
-	setCurrentFrame(animFrame);
-	//setFrames(animFrame, animFrame + cols - 1);
+	if (animFrame != getStartFrame()) {
+		setFrames(animFrame, animFrame + cols - 1);
+		setCurrentFrame(animFrame);
+	}
+
 }
 
 void Player::stopMoving()
