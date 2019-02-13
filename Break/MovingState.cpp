@@ -13,7 +13,6 @@ MovingState::~MovingState()
 void MovingState::update(Player * player, float frameTime)
 {
 	player->physics.Move(player, player->direction, frameTime);
-	player->setAnimFrame();
 }
 
 PlayerState* MovingState::handleInput(Player * player, InputComponent *inputC)

@@ -50,6 +50,7 @@ public:
 	void handleInput();
 	void setAnimFrame(int animFrame);
 	void setAnimFrame();
+	void stopMoving();
 
 	bool initialize(Game *gamePtr, int width, int height, int ncols,
 		TextureManager *textureM);

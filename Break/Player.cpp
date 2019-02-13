@@ -63,18 +63,43 @@ void Player::setAnimFrame(int frame)
 
 void Player::setAnimFrame()
 {
-	if (direction.x == 1)
-		animFrame = RIGHT_START_FRAME;
-	if (direction.x == -1)
-		animFrame = LEFT_START_FRAME;
+	//float rad = atan2(direction.y, direction.x);
+	float rad = atan2(direction.y, direction.x) * 180 / PI; //convert to degree
+	if (input->isKeyDown(VK_SPACE)) {
+		rad = atan2(direction.y, direction.x);
+	}
+	//if (rad > -(7 * PI / 4) && rad < -(PI / 4))
+	//	animFrame = UP_START_FRAME;
 
-	if (direction.y == 1)
+	//if (rad > (3 * PI / 4) && rad < (5 * PI / 4))
+	//	animFrame = LEFT_START_FRAME;
+
+	//if (rad > (PI / 4) && rad < (3 * PI / 4))
+	//	animFrame = DOWN_START_FRAME;
+
+	//if (rad > -(5 * PI / 4) && rad < -(7 * PI / 4))
+	//	animFrame = RIGHT_START_FRAME;
+	
+	if (rad > 45 && rad <= 135)
 		animFrame = DOWN_START_FRAME;
-	if (direction.y == 1)
+
+	if (rad > 225 && rad <= 315)
+		animFrame = UP_START_FRAME;
+
+	if (rad > 315 && rad <= 45)
+		animFrame = RIGHT_START_FRAME;
+
+	if (rad > 135 && rad <= 225)
 		animFrame = LEFT_START_FRAME;
 
 	setCurrentFrame(animFrame);
-	setFrames(animFrame, animFrame + cols + 1);
+	//setFrames(animFrame, animFrame + cols - 1);
+}
+
+void Player::stopMoving()
+{
+	setCurrentFrame(animFrame);
+	setFrames(animFrame, animFrame);
 }
 
 void Player::update(float frameTime)
@@ -86,6 +111,7 @@ void Player::update(float frameTime)
 	inputComponent.update(this, frameTime);
 	weapon->update(frameTime);
 	physics.update(this, &inputComponent, frameTime);
+	//setAnimFrame();
 }
 
 void Player::setPosition(D3DXVECTOR2 position)
