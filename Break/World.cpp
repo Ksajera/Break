@@ -29,20 +29,20 @@ World::~World()
 
 void World::draw()
 {
-	for (int x = 0; x < WORLD_WIDTH; x++) {
+	/*for (int x = 0; x < WORLD_WIDTH; x++) {
 		for (int y = 0; y < WORLD_HEIGHT; y++) {
 			tiles[x][y]->setPosition(x, y);
 			tiles[x][y]->draw();
 
 		}
-	}
+	}*/
 }
 
 void World::initialize(Graphics *g)
 {
 	dirtTile.initialize(g, DIRT_IMAGE);
 	grassTile.initialize(g, GRASS_IMAGE);
-	floorTile.initialize(g, FLOOR_IMAGE);
+	//floorTile.initialize(g, FLOOR_IMAGE);
 	generateWorld();
 
 }

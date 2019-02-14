@@ -34,11 +34,11 @@ void Break::initialize(HWND hwnd)
 	#pragma region Initialization
 
 	//BACKGROUND
-	/*if (!bgTexture.initialize(graphics, NEBULA_IMAGE))
+	if (!bgTexture.initialize(graphics, NEBULA_IMAGE))
 		throw(GameError(gameErrorNS::FATAL_ERROR, "Error initializing background texture"));
 	if (!bgImage.initialize(graphics, 0, 0, 0, &bgTexture))
-		throw(GameError(gameErrorNS::FATAL_ERROR, "Error initializing background"));*/
-
+		throw(GameError(gameErrorNS::FATAL_ERROR, "Error initializing background"));
+	bgImage.setScale(2);
 	//TILEMAP 
 	if (!tileSheet.initialize(graphics, TILE_MAP_IMAGE))				//Tile Sheet
 		throw(GameError(gameErrorNS::FATAL_ERROR, "Error loading tile sheet"));
@@ -94,6 +94,7 @@ void Break::initialize(HWND hwnd)
 	enemyPool.initialize(&enemy, 2);
 	enemyPool.equip(&pistol);
 	//enemyPool.create(D3DXVECTOR2(GAME_WIDTH / 2, GAME_HEIGHT / 2), D3DXVECTOR2(0, 0));
+	mapX = 0;
 
     return;
 
@@ -112,20 +113,23 @@ void Break::update()
 	enemyPool.update(frameTime, &player);
 	//enemy.update(frameTime, &player);
 
-	//playerX = player.getX();
-	//if (playerX < 0)                  // if butterfly off screen left
-	//{
-	//	mapX -= player.getVelocity().x * frameTime;  // scroll map right
-	//	player.setX(0);              // put butterfly at left edge
-	//}
-	//// if butterfly off screen right
-	//else if (playerX > GAME_WIDTH - player.getWidth())
-	//{
-	//	mapX -= player.getVelocity().x * frameTime;  // scroll map left
-	//	// put butterfly at right edge
-	//	player.setX((float)(GAME_WIDTH - player.getWidth()));
-	//}
+	//map doesnt render if this isnt here
+	//float p = mapX;
+	playerX = player.getX();
+	if (playerX < 0)                  // if butterfly off screen left
+	{
+		mapX -= player.getVelocity().x * frameTime;  // scroll map right
+		player.setX(0);              // put butterfly at left edge
+	}
+	// if butterfly off screen right
+	else if (playerX > GAME_WIDTH - player.getWidth())
+	{
+		mapX -= player.getVelocity().x * frameTime;  // scroll map left
+		// put butterfly at right edge
+		player.setX((float)(GAME_WIDTH - player.getWidth()));
+	}
 
+	//map doesnt scroll if present 
 	//if (mapX > 0)    // if map past left edge
 	//{
 	//	mapX = 0;   // stop at left edge of map
@@ -138,6 +142,7 @@ void Break::update()
 	//	mapX = (-MAP_WIDTH * TEXTURE_SIZE) + GAME_WIDTH;
 	//	player.setVelocity(D3DXVECTOR2(0,0));  // stop butterfly
 	//}
+
 }
 
 //=============================================================================
@@ -170,28 +175,29 @@ void Break::collisions()
 void Break::render()
 {
     graphics->spriteBegin();                // begin drawing sprites
+	bgImage.draw();
+	for (int row = 0; row < MAP_HEIGHT; row++)       // for each row of map
+	{
+		tileImage.setY((float)(row*TEXTURE_SIZE)); // set tile Y
+		for (int col = 0; col < MAP_WIDTH; col++)    // for each column of map
+		{
+			if (tileMap[row][col] >= 0)          // if tile present
+			{
+				tileImage.setCurrentFrame(tileMap[row][col]);    // set tile texture
 
-	//for (int row = 0; row < MAP_HEIGHT; row++)       // for each row of map
-	//{
-	//	tileImage.setY((float)(row*TEXTURE_SIZE)); // set tile Y
-	//	for (int col = 0; col < MAP_WIDTH; col++)    // for each column of map
-	//	{
-	//		if (tileMap[row][col] >= 0)          // if tile present
-	//		{
-	//			tileImage.setCurrentFrame(tileMap[row][col]);    // set tile texture
-	//			tileImage.setX((float)(col*TEXTURE_SIZE) + mapX);   // set tile X
-	//			//tileImage.setY((float)(col*TEXTURE_SIZE) + mapY);   // set tile Y
-	//			// if tile on screen
-	//			if (tileImage.getX() > -TEXTURE_SIZE && tileImage.getX() < GAME_WIDTH)
-	//				tileImage.draw();                // draw tile
-	//			/*if (tileImage.getY() > -TEXTURE_SIZE && tileImage.getY() < GAME_HEIGHT)
-	//				tileImage.draw();      */          // draw tile
-	//		}
-	//	}
-	//}
+				tileImage.setX((float)(col*TEXTURE_SIZE) + mapX);   // set tile X
+				//tileImage.setY((float)(col*TEXTURE_SIZE) + mapY);   // set tile Y
+				// if tile on screen
+				if (tileImage.getX() > -TEXTURE_SIZE && tileImage.getX() < GAME_WIDTH)
+					tileImage.draw();                // draw tile
+				/*if (tileImage.getY() > -TEXTURE_SIZE && tileImage.getY() < GAME_HEIGHT)
+					tileImage.draw();      */          // draw tile
+			}
+		}
+	}
 
 	world.draw();
-	bgImage.draw();
+	
 	player.draw();
 	//enemy.draw();
 	bulletPool.draw();
